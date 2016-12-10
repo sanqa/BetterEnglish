@@ -42,6 +42,8 @@
     <string name="title_activity_our_dictionary">Trainee</string>
     <string name="title_activity_about">About</string>
     <string name="title_activity_settings" />
+    <string name="mode3_head">Translate the word</string>
+    <string name="submit_button">SUBMIT</string>
 
 
 </resources>
