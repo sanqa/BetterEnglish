@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bionic.sasha.betterenglish.OurDictionaryActivity;
 import com.bionic.sasha.betterenglish.R;
@@ -28,6 +29,7 @@ public class WordTranslateActivity extends AppCompatActivity {
 
     public int allCount;
     public int currentCount = 1;
+    public String answer = "";
 
     final String SAVED_TEXT = "saved_text";
 
@@ -76,13 +78,13 @@ public class WordTranslateActivity extends AppCompatActivity {
         traineeWords.setText("" + currentCount);
         allWords.setText("" + allCount);
 
-        workingWithDB();
+        answer = workingWithDB();
     }
 
-    public void workingWithDB(){
+    public String workingWithDB(){
         Random random = new Random();
         ArrayList<String> variants = new ArrayList<>();
-        String answer;
+        String answer = "";
         String selection1 = " mode1 < 3 ";
         ArrayList<Integer> used = new ArrayList<>();
         int count = 0;
@@ -138,12 +140,23 @@ public class WordTranslateActivity extends AppCompatActivity {
             buttonFour.setText(variants.get(3));
         }
 
+        return answer;
     }
 
     public void onClick(View view) {
         Log.d("current", "current count = " + currentCount + ", all = " + allCount);
         if (currentCount < allCount){
-            workingWithDB();
+            Button b = (Button) view;
+            String correct = (String) b.getText();
+
+            if (correct.equals(answer)){
+                Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
+            }
+           answer =  workingWithDB();
+
+
             currentCount++;
             traineeWords.setText("" + currentCount);
         } else {
