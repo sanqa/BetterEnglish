@@ -63,7 +63,6 @@ public class AddNewWordActivity extends AppCompatActivity
 
     @OnClick (R.id.button_add) void newAdd(){
         ContentValues cv = new ContentValues();
-        Date date = new Date();
         String wordRu;
         String wordEn;
         if (typeSpinner.getSelectedItemPosition() == 0){

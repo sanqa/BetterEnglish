@@ -31,6 +31,9 @@ public class ProgressActivity extends AppCompatActivity
     @BindView(R.id.all_words)
     TextView allWords;
 
+    @BindView(R.id.current_all_learn)
+    TextView currentLearn;
+
     @BindView(R.id.progress_text_month)
     TextView textPerMonth;
 
@@ -64,6 +67,10 @@ public class ProgressActivity extends AppCompatActivity
         Calendar calendar = Calendar.getInstance();
         int pos = calendar.get(Calendar.MONTH);
         textPerMonth.setText(textPerMonth.getText() + " " + months[pos] + ":");
+
+
+       /* long current = DatabaseUtils.queryNumEntries(database, TranslateReaderDB.LearnedWords.TABLE_LEARNED_WORDS_NAME);
+        currentLearn.setText("" + current);*/
     }
 
     @Override

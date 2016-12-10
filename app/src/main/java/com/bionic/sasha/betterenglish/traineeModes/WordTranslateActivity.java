@@ -1,5 +1,6 @@
 package com.bionic.sasha.betterenglish.traineeModes;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -15,11 +16,13 @@ import android.widget.Toast;
 
 import com.bionic.sasha.betterenglish.OurDictionaryActivity;
 import com.bionic.sasha.betterenglish.R;
+import com.bionic.sasha.betterenglish.api.Translate;
 import com.bionic.sasha.betterenglish.db.TranslateDBHelper;
 import com.bionic.sasha.betterenglish.db.TranslateReaderDB;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Random;
 
 import butterknife.BindView;
@@ -104,7 +107,8 @@ public class WordTranslateActivity extends AppCompatActivity {
             do {
                 Log.d("my DB", "id = " + c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts._ID))
                         + " , ru = " + c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU))
-                        + " , en = " + c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN)));
+                        + " , en = " + c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN))
+                        + " , mode1 = " + c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_MODE1)));
             } while (c.moveToNext());
         }
 
@@ -139,7 +143,7 @@ public class WordTranslateActivity extends AppCompatActivity {
             buttonThree.setText(variants.get(2));
             buttonFour.setText(variants.get(3));
         }
-
+        database.close();
         return answer;
     }
 
@@ -151,6 +155,7 @@ public class WordTranslateActivity extends AppCompatActivity {
 
             if (correct.equals(answer)){
                 Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+                changeModeResult(answer);
             } else {
                 Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
             }
@@ -163,5 +168,48 @@ public class WordTranslateActivity extends AppCompatActivity {
             Intent intent = new Intent(this, OurDictionaryActivity.class);
             startActivity(intent);
         }
+    }
+
+    public void changeModeResult(String wordRu){
+        int c1 = 0;
+        int allModes = 0;
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        Cursor cursor = database.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME,
+                null,
+                TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU + " = '" + wordRu + "' ",
+                null,
+                null,
+                null,
+                null);
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()){
+                c1 = cursor.getInt(cursor.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_MODE1)) + 1;
+                allModes = c1 + cursor.getInt(cursor.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_MODE2))
+                        + cursor.getInt(cursor.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_MODE3))
+                        + cursor.getInt(cursor.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_MODE4));
+            }
+        }
+
+        ContentValues cv = new ContentValues();
+        cv.put(TranslateReaderDB.TranslateTexts.COLUMN_MODE1, c1);
+
+        database.update(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME,
+               cv, TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU + " = '" + wordRu + "' ", null);
+
+        if (allModes >= 11) {
+            ContentValues contentValues = new ContentValues();
+            String str;
+            contentValues.put(TranslateReaderDB.LearnedWords.COLUMN_WORD_RU, wordRu);
+            str = cursor.getString(cursor.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN));
+            contentValues.put(TranslateReaderDB.LearnedWords.COLUMN_WORD_EN, str);
+            contentValues.put(TranslateReaderDB.LearnedWords.COLUMN_DATE, System.currentTimeMillis());
+
+            database.insert(TranslateReaderDB.LearnedWords.TABLE_LEARNED_WORDS_NAME, null , contentValues);
+        }
+
+
+        database.close();
+
     }
 }
