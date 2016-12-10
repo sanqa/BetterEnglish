@@ -42,7 +42,9 @@
             android:label="@string/title_activity_write_author"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".traineeModes.TranslateWordActivity" />
-        <activity android:name=".traineeModes.WordTranslateActivity"></activity>
+        <activity android:name=".traineeModes.WordTranslateActivity" />
+        <activity android:name=".traineeModes.DirectlyModeActivity" />
+        <activity android:name=".traineeModes.LettersModeActivity"></activity>
     </application>
 
 </manifest>
