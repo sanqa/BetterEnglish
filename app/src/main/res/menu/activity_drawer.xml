@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_add_words"
+            android:icon="@android:drawable/ic_input_add"
+            android:title="@string/add_new_word" />
+
+        <item
+            android:id="@+id/nav_trainee"
+            android:icon="@android:drawable/ic_menu_set_as"
+            android:title="@string/trainee" />
+
+        <item
+            android:id="@+id/nav_progress"
+            android:title="@string/progress_label"
+            android:icon="@android:drawable/arrow_up_float" />
+
+    </group>
+
+    <item android:title="@string/other">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="@string/settings" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@android:drawable/ic_dialog_info"
+                android:title="@string/about" />
+            <item
+                android:id="@+id/nav_ask_author"
+                android:title="Write to author"
+                android:icon="@android:drawable/ic_menu_help"/>
+
+        </menu>
+    </item>
+
+</menu>

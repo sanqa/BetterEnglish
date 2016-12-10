@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Easy English</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="easy_english">Easy English</string>
+    <string name="bionic_university_project">Bionic University Project</string>
+
+    <string name="trainee">Trainee</string>
+    <string name="study_new_words">Study New Words</string>
+    <string name="add_new_word">Add New Word</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="other">Other</string>
+    <string name="about_project">This application can help you study new English words and became you more clever. Application made by 2 men: sanqa and alex.
+    \n\nTranslation is made by Yandex Translate.</string>
+    <string name="our_dictionary">Our Dictionary</string>
+    <string name="about_project_label">About project</string>
+    <string name="settings_count_words">Count words to learn:</string>
+    <string name="your_db">Your DB:</string>
+    <string name="dots">...</string>
+    <string name="progress_label">Progress</string>
+    <string name="title_activity_write_author">WriteAuthorActivity</string>
+    <string name="ask_your_problem">Ask your problem at author directly.</string>
+    <string name="describe_your_problem">Describe your problem</string>
+    <string name="send">Send</string>
+    <string name="title_activity_progress">ProgressActivity</string>
+    <string name="title_activity_add_new_word">AddNewWord</string>
+    <string name="input_new_word">Input new word...</string>
+    <string name="translate">Translate</string>
+    <string name="add">Add</string>
+    <string name="progress_learned_label">Learned : </string>
+    <string name="your_level">Your level:</string>
+    <string name="learned_per_month">Learned at </string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="mode1">Translate\n   RU</string>
+    <string name="mode2">Translate\n   EN</string>
+    <string name="mode3">Directly</string>
+    <string name="mode4">Letters</string>
+    <string name="title_activity_our_dictionary">Trainee</string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_settings" />
+
+
+</resources>
+
