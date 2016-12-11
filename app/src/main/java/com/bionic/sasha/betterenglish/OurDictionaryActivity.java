@@ -1,6 +1,7 @@
 package com.bionic.sasha.betterenglish;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -18,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.bionic.sasha.betterenglish.db.TranslateDBHelper;
+import com.bionic.sasha.betterenglish.db.TranslateReaderDB;
 import com.bionic.sasha.betterenglish.ui.MyAdapter;
 
 import java.util.ArrayList;
@@ -106,25 +108,60 @@ public class OurDictionaryActivity extends AppCompatActivity
 
     private ArrayList<String> getDataSet() {
         ArrayList<String> mDataSet = new ArrayList();
+        int c1 = 0, c2 = 0, c3 = 0, c4 = 0;
+        String selection1 = " mode1 < 3 ";
+        String selection2 = " mode2 < 3 ";
+        String selection3 = " mode3 < 3 ";
+        String selection4 = " mode4 < 3 ";
 
-        SQLiteDatabase database = dbHelper.getReadableDatabase();
-        //Cursor cursor = database.query();
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        Cursor cursor = database.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME,null, selection1, null, null, null, null);
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    c1++;
+                } while (cursor.moveToNext());
+            }
+        }
+        mDataSet.add(String.valueOf(c1));
 
-        mDataSet.add("123");
-        mDataSet.add("216");
-        mDataSet.add("77");
-        mDataSet.add("134");
+        Cursor cursor2 = database.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME,null, selection2, null, null, null, null);
+        if (cursor2 != null) {
+            if (cursor2.moveToFirst()) {
+                do {
+                    c2++;
+                } while (cursor2.moveToNext());
+            }
+        }
+        mDataSet.add(String.valueOf(c2));
+
+
+        Cursor cursor3 = database.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME,null, selection3, null, null, null, null);
+        if (cursor3 != null) {
+            if (cursor3.moveToFirst()) {
+                do {
+                    c3++;
+                } while (cursor3.moveToNext());
+            }
+        }
+        mDataSet.add(String.valueOf(c3));
+
+
+        Cursor cursor4 = database.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME,null, selection4, null, null, null, null);
+        if (cursor4 != null) {
+            if (cursor4.moveToFirst()) {
+                do {
+                    c4++;
+                } while (cursor4.moveToNext());
+            }
+        }
+        mDataSet.add(String.valueOf(c4));
         return mDataSet;
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+
     }
 
 

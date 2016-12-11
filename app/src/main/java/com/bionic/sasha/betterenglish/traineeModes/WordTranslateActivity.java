@@ -1,10 +1,12 @@
 package com.bionic.sasha.betterenglish.traineeModes;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bionic.sasha.betterenglish.AddNewWordActivity;
 import com.bionic.sasha.betterenglish.OurDictionaryActivity;
 import com.bionic.sasha.betterenglish.R;
 import com.bionic.sasha.betterenglish.api.Translate;
@@ -31,6 +34,7 @@ import butterknife.ButterKnife;
 public class WordTranslateActivity extends AppCompatActivity {
 
     public int allCount;
+    private int correctAnswers = 0;
     public int currentCount = 1;
     public String answer = "";
 
@@ -155,9 +159,11 @@ public class WordTranslateActivity extends AppCompatActivity {
 
             if (correct.equals(answer)){
                 Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
-                changeModeResult(answer);
+                correctAnswers++;
+                changeModeCorrectResult(answer);
             } else {
                 Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
+                changeModeWrongResult(answer);
             }
            answer =  workingWithDB();
 
@@ -165,12 +171,35 @@ public class WordTranslateActivity extends AppCompatActivity {
             currentCount++;
             traineeWords.setText("" + currentCount);
         } else {
-            Intent intent = new Intent(this, OurDictionaryActivity.class);
-            startActivity(intent);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Result!")
+                    .setCancelable(false)
+                    .setMessage("You have " + correctAnswers + " correct answers.")
+                    .setNegativeButton("Change Mode",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+
+                                    Intent intent = new Intent(WordTranslateActivity.this, OurDictionaryActivity.class);
+                                    startActivity(intent);
+                                }
+                            })
+                    .setPositiveButton("This Mode", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+
+                            Intent intent = new Intent(WordTranslateActivity.this, WordTranslateActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
+
         }
     }
 
-    public void changeModeResult(String wordRu){
+    public void changeModeCorrectResult(String wordRu){
         int c1 = 0;
         int allModes = 0;
         SQLiteDatabase database = dbHelper.getWritableDatabase();
@@ -207,6 +236,23 @@ public class WordTranslateActivity extends AppCompatActivity {
 
             database.insert(TranslateReaderDB.LearnedWords.TABLE_LEARNED_WORDS_NAME, null , contentValues);
         }
+
+
+        database.close();
+
+    }
+
+    public void changeModeWrongResult(String wordRu){
+        int c1 = 0;
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+
+
+        ContentValues cv = new ContentValues();
+        cv.put(TranslateReaderDB.TranslateTexts.COLUMN_MODE1, c1);
+
+        database.update(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME,
+                cv, TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU + " = '" + wordRu + "' ", null);
+
 
 
         database.close();

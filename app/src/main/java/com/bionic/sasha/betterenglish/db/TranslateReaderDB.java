@@ -33,13 +33,13 @@ public class TranslateReaderDB {
             + TranslateTexts.TABLE_NEW_WORD_NAME + " (" + TranslateTexts._ID + " INTEGER PRIMARY KEY, "
             + TranslateTexts.COLUMN_WORD_RU + " TEXT, " + TranslateTexts.COLUMN_WORD_EN + " TEXT, "
             + TranslateTexts.COLUMN_MODE1 + " INTEGER, " + TranslateTexts.COLUMN_MODE2  + " INTEGER, "
-            + TranslateTexts.COLUMN_MODE3 + " INTEGER, " + TranslateTexts.COLUMN_MODE4 + " INTEGER " + "); \n"
+            + TranslateTexts.COLUMN_MODE3 + " INTEGER, " + TranslateTexts.COLUMN_MODE4 + " INTEGER " + ")";
 
-            + " CREATE TABLE " + LearnedWords.TABLE_LEARNED_WORDS_NAME + " ("
+    public static String CT2 = "CREATE TABLE " + LearnedWords.TABLE_LEARNED_WORDS_NAME + " ("
             + LearnedWords._ID + " INTEGER PRIMARY KEY, " + LearnedWords.COLUMN_WORD_RU + " TEXT, "
             + LearnedWords.COLUMN_WORD_EN + " TEXT, " + LearnedWords.COLUMN_DATE + " DATE " + " )";
 
-    public static String DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TranslateTexts.TABLE_NEW_WORD_NAME
-            + ", " + LearnedWords.COLUMN_DATE;
+    public static String DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TranslateTexts.TABLE_NEW_WORD_NAME;
+    public static String DE2 = "DROP TABLE IF EXIST " + LearnedWords.TABLE_LEARNED_WORDS_NAME;
 
 }

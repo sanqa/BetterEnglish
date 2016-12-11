@@ -84,6 +84,9 @@ public class AddNewWordActivity extends AppCompatActivity
 
         long rowID = db.insert(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME, null, cv);
         Toast.makeText(this, "Add to learn as #" + rowID,Toast.LENGTH_SHORT).show();
+
+        newWord.setText("");
+        translateWord.setText("");
     }
 
     @OnClick(R.id.button_get_translate) void getTranslate() {
@@ -152,12 +155,7 @@ public class AddNewWordActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+
     }
 
 

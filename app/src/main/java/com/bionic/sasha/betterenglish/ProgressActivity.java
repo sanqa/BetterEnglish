@@ -69,18 +69,13 @@ public class ProgressActivity extends AppCompatActivity
         textPerMonth.setText(textPerMonth.getText() + " " + months[pos] + ":");
 
 
-       /* long current = DatabaseUtils.queryNumEntries(database, TranslateReaderDB.LearnedWords.TABLE_LEARNED_WORDS_NAME);
-        currentLearn.setText("" + current);*/
+        long current = DatabaseUtils.queryNumEntries(database, TranslateReaderDB.LearnedWords.TABLE_LEARNED_WORDS_NAME);
+        currentLearn.setText("" + current);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+
     }
 
 

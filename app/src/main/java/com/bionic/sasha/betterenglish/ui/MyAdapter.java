@@ -1,6 +1,8 @@
 package com.bionic.sasha.betterenglish.ui;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bionic.sasha.betterenglish.AddNewWordActivity;
 import com.bionic.sasha.betterenglish.R;
 import com.bionic.sasha.betterenglish.traineeModes.TranslateWordActivity;
 import com.bionic.sasha.betterenglish.traineeModes.WordTranslateActivity;
@@ -77,11 +80,27 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         holder.ib.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 switch (position){
                     case 0:
-                        Intent intent = new Intent(view.getContext(), WordTranslateActivity.class);
-                        view.getContext().startActivity(intent);
+                        if (Integer.parseInt(mDataset.get(0)) < 10) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                            builder.setTitle("Warning! You should have at least 10 words to study.")
+                                    .setCancelable(false)
+                                    .setNegativeButton("ADD",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int id) {
+                                                    dialog.cancel();
+                                                    Intent intentl = new Intent(view.getContext(), AddNewWordActivity.class);
+                                                    view.getContext().startActivity(intentl);
+                                                }
+                                            });
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                        } else {
+                            Intent intent = new Intent(view.getContext(), WordTranslateActivity.class);
+                            view.getContext().startActivity(intent);
+                        }
                         break;
                     case 1:
                         Intent intent1 = new Intent(view.getContext(), TranslateWordActivity.class);
