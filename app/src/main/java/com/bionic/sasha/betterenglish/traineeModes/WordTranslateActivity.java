@@ -77,9 +77,6 @@ public class WordTranslateActivity extends AppCompatActivity {
 
         dbHelper = new TranslateDBHelper(this);
 
-        sp = getPreferences(MODE_PRIVATE);
-        String savedText = sp.getString(SAVED_TEXT, "");
-
         allCount = 10;
 
         traineeWords.setText("" + currentCount);
