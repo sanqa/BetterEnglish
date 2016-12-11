@@ -175,8 +175,7 @@ public class WordTranslateActivity extends AppCompatActivity {
             builder.setTitle("Result!")
                     .setCancelable(false)
                     .setMessage("You have " + correctAnswers + " correct answers.")
-                    .setNegativeButton("Change Mode",
-                            new DialogInterface.OnClickListener() {
+                    .setNegativeButton("Change Mode", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     dialog.cancel();
 
