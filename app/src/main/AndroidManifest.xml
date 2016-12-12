@@ -13,14 +13,16 @@
         <activity
             android:name=".AboutActivity"
             android:label="@string/title_activity_about"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AddNewWordActivity"
             android:label="@string/title_activity_add_new_word"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".OurDictionaryActivity"
-            android:label="@string/our_dictionary"
+            android:label="Trainee Modes"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -32,19 +34,26 @@
         <activity
             android:name=".ProgressActivity"
             android:label="@string/title_activity_progress"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".WriteAuthorActivity"
             android:label="@string/title_activity_write_author"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".traineeModes.TranslateWordActivity" />
-        <activity android:name=".traineeModes.WordTranslateActivity" />
-        <activity android:name=".traineeModes.DirectlyModeActivity" />
-        <activity android:name=".traineeModes.LettersModeActivity"></activity>
+        <activity android:name=".traineeModes.TranslateWordActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".traineeModes.WordTranslateActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".traineeModes.DirectlyModeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".traineeModes.LettersModeActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

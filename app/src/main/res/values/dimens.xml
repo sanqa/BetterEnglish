@@ -36,6 +36,8 @@
     <!-- Trainee Mode -->
     <dimen name="trainee_mode_margin">10dp</dimen>
     <dimen name="trainee_card_margin">50dp</dimen>
+    <dimen name="trainee_mode_text_size">15sp</dimen>
+    <dimen name="trainee_bid_text_size">30sp</dimen>
 
 </resources>
 
