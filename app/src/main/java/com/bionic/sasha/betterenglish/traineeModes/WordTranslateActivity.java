@@ -6,11 +6,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,6 +24,8 @@ import com.bionic.sasha.betterenglish.AddNewWordActivity;
 import com.bionic.sasha.betterenglish.OurDictionaryActivity;
 import com.bionic.sasha.betterenglish.R;
 import com.bionic.sasha.betterenglish.api.Translate;
+import com.bionic.sasha.betterenglish.customViews.RightNotification;
+import com.bionic.sasha.betterenglish.customViews.WrongNotif;
 import com.bionic.sasha.betterenglish.db.TranslateDBHelper;
 import com.bionic.sasha.betterenglish.db.TranslateReaderDB;
 
@@ -37,6 +43,8 @@ public class WordTranslateActivity extends AppCompatActivity {
     private int correctAnswers = 0;
     public int currentCount = 1;
     public String answer = "";
+    Toast toast;
+    Toast toast2;
 
 
     @BindView(R.id.trainee_card_layout)
@@ -44,6 +52,12 @@ public class WordTranslateActivity extends AppCompatActivity {
 
     @BindView(R.id.traine_mode_word)
     TextView wordTrainee;
+
+    @BindView(R.id.wrong_view)
+    WrongNotif wrong;
+
+    @BindView(R.id.right_view)
+    RightNotification right;
 
     @BindView(R.id.button_one)
     Button buttonOne;
@@ -78,6 +92,29 @@ public class WordTranslateActivity extends AppCompatActivity {
 
         traineeWords.setText("" + currentCount); // заполняю №текущего слова и предыдущий параметр
         allWords.setText("" + allCount);
+
+
+        toast = Toast.makeText(this, "Correct", Toast.LENGTH_SHORT);
+        View toastView = toast.getView(); //This'll return the default View of the Toast.
+
+        /* And now you can get the TextView of the default View of the Toast. */
+        TextView toastMessage = (TextView) toastView.findViewById(android.R.id.message);
+        toastMessage.setTextSize(25);
+        toastMessage.setTextColor(Color.WHITE);
+        toastMessage.setGravity(Gravity.CENTER);
+        toastMessage.setCompoundDrawablePadding(16);
+        toastView.setBackgroundColor(Color.GREEN);
+
+        toast2 = Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT);
+        View toastView2 = toast2.getView(); //This'll return the default View of the Toast.
+
+        /* And now you can get the TextView of the default View of the Toast. */
+        TextView toastMessage2 = (TextView) toastView2.findViewById(android.R.id.message);
+        toastMessage2.setTextSize(25);
+        toastMessage2.setTextColor(Color.WHITE);
+        toastMessage2.setGravity(Gravity.CENTER);
+        toastMessage2.setCompoundDrawablePadding(16);
+        toastView2.setBackgroundColor(Color.RED);
 
         answer = workingWithDB();
     }
@@ -165,12 +202,22 @@ public class WordTranslateActivity extends AppCompatActivity {
         if (currentCount < allCount){ //если текущее значение меньше общего проверяю
 
             if (correct.equals(answer)){ //если пользователь нажал правильно
-                Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+
+
+                toast.show();
+
                 correctAnswers++;
                 changeModeCorrectResult(answer); //запускаю метод работы с БД для правильного ответа
+                right.setVisibility(View.VISIBLE);
+                wrong.setVisibility(View.INVISIBLE);
             } else {
-                Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
+                toast2.show();
+
                 changeModeWrongResult(answer); // для неправильнного ответа
+
+                wrong.setVisibility(View.VISIBLE);
+                right.setVisibility(View.INVISIBLE);
             }
            answer =  workingWithDB(); //после произведения изменений в БД обновляю текущее слово и ответ
 

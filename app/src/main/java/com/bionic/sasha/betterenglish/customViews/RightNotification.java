@@ -1,54 +1,42 @@
 package com.bionic.sasha.betterenglish.customViews;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Path.Direction;
-import android.graphics.drawable.Drawable;
-import android.os.Handler;
-import android.os.Message;
-import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.bionic.sasha.betterenglish.R;
-
-import retrofit2.http.Path;
-
 /**
- * TODO: document your custom view class.
+ * Created by SASHA on 12.12.2016.
  */
-public class WrongNotif extends View {
 
-
+public class RightNotification extends View {
     private Paint p;
     private Paint p2;
     private android.graphics.Path path;
 
 
 
-    public WrongNotif(Context context) {
+    public RightNotification(Context context) {
         super(context);
 
         init();
     }
 
-    public WrongNotif(Context context, AttributeSet attrs) {
+    public RightNotification(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public WrongNotif(Context context, AttributeSet attrs, int defStyle) {
+    public RightNotification(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }
 
     private void init() {
         p = new Paint();
-        p.setColor(Color.RED);
+        p.setColor(Color.GREEN);
         p.setStrokeWidth(14);
         p.setStyle(Paint.Style.FILL_AND_STROKE);
         p.setAntiAlias(true);
@@ -75,12 +63,10 @@ public class WrongNotif extends View {
 
 
         canvas.drawCircle(getWidth()/2, getHeight()/2, 100, p);
-        canvas.drawLine(getWidth()/3, getHeight()/3, 2*getWidth()/3, 2*getWidth()/3, p2);
-        canvas.drawLine(getWidth()/3, 2*getWidth()/3, 2*getWidth()/3, getWidth()/3, p2);
-
+        canvas.drawLine(5*getWidth()/16-5,getHeight()/2, getWidth()/2-5, 3*getHeight()/4, p2);
+        canvas.drawLine(getWidth()/2-8, 3*getHeight()/4, 3*getWidth()/4-5, getHeight()/3, p2);
 
 
     }
-
 
 }

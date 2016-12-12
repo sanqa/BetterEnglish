@@ -67,7 +67,7 @@ public class DirectlyModeActivity extends AppCompatActivity {
         Random random = new Random();
         String answerM3 = "";
 
-        String selection3 = "mode3 < 4";
+        String selection3 = "mode3 < 3";
         int count = 0;
         int position;
 
@@ -83,7 +83,8 @@ public class DirectlyModeActivity extends AppCompatActivity {
                 }
                  c.moveToFirst();
                 }
-                if (c != null);{
+                if (c != null){
+                    c.moveToFirst();
             position = random.nextInt(count);
             Log.d("pos",String.valueOf(position));
             c.moveToPosition(position);
