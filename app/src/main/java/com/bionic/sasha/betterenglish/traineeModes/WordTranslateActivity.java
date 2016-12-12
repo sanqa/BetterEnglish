@@ -76,7 +76,7 @@ public class WordTranslateActivity extends AppCompatActivity {
 
         allCount = 10; //количество изучений за один проход тренировки
 
-        traineeWords.setText("" + currentCount); // заполняю №текущего слова и предідущий параметр
+        traineeWords.setText("" + currentCount); // заполняю №текущего слова и предыдущий параметр
         allWords.setText("" + allCount);
 
         answer = workingWithDB();
