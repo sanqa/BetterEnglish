@@ -56,7 +56,7 @@
             android:textColor="@color/our_background1"
             android:textSize="30dp"/>
     </LinearLayout>
-    <EditText
+    <TextView
         android:id="@+id/seeWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

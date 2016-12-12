@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.bionic.sasha.betterenglish.R;
 import com.bionic.sasha.betterenglish.db.TranslateDBHelper;
@@ -33,16 +34,16 @@ public class DirectlyModeActivity extends AppCompatActivity {
     Button btnSubmit;
 
     @BindView(R.id.seeWord)
-    EditText seeWord;
+    TextView seeWord;
 
     @BindView(R.id.giveTheAnswer)
     EditText giveTheAnswer;
 
     @BindView(R.id.current_mode_3)
-    EditText traineeWords3;
+    TextView traineeWords3;
 
     @BindView(R.id.all_mode_3)
-    EditText allWords3;
+    TextView allWords3;
 
 
     @Override
@@ -95,7 +96,11 @@ public class DirectlyModeActivity extends AppCompatActivity {
         return answerM3;
 
     }
+        public void Onclick(View view){
+            Button b  = (Button) view;
 
+
+        }
 
 }
 
