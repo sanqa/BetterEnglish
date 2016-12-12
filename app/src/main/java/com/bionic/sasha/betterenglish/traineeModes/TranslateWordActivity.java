@@ -152,9 +152,12 @@ public class TranslateWordActivity extends AppCompatActivity {
 
     public void onClick(View view) {
         Log.d("current", "current count = " + currentCount + ", all = " + allCount);
+
+        Button b = (Button) view;
+        String correct = (String) b.getText();
+
         if (currentCount < allCount){
-            Button b = (Button) view;
-            String correct = (String) b.getText();
+
 
             if (correct.equals(answer)){
                 Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
@@ -170,6 +173,10 @@ public class TranslateWordActivity extends AppCompatActivity {
             currentCount++;
             traineeWords.setText("" + currentCount);
         } else {
+            if (correct.equals(answer)){
+                correctAnswers++;
+            }
+
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Result!")
                     .setCancelable(false)

@@ -5,8 +5,8 @@
     android:id="@+id/content_add_new_word"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/our_background1"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.bionic.sasha.betterenglish.AddNewWordActivity"
     tools:showIn="@layout/app_bar_add_new_word">
@@ -14,23 +14,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="end">
+        android:gravity="end"
+        android:orientation="horizontal">
 
         <Spinner
             android:id="@+id/spinner_type"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/add_new_word_margin"
-            android:layout_marginTop="@dimen/spinner_margin_new_word"/>
+            android:layout_marginTop="@dimen/spinner_margin_new_word" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal">
 
 
         <EditText
@@ -44,9 +44,9 @@
 
         <Button
             android:id="@+id/button_get_translate"
-            android:layout_margin="@dimen/add_new_word_margin"
             android:layout_width="@dimen/add_new_word_button_size"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/add_new_word_margin"
             android:text="@string/translate" />
 
 
@@ -62,17 +62,31 @@
         <EditText
             android:id="@+id/add_text_translate"
             android:layout_width="@dimen/new_word_text_width"
-            android:layout_margin="@dimen/add_new_word_margin"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_height="wrap_content" />
+            android:layout_margin="@dimen/add_new_word_margin" />
 
         <Button
             android:id="@+id/button_add"
             android:layout_width="@dimen/add_new_word_button_size"
-            android:layout_margin="@dimen/add_new_word_margin"
             android:layout_height="wrap_content"
-            android:text="@string/add"
-            android:enabled="false" />
+            android:layout_margin="@dimen/add_new_word_margin"
+            android:enabled="false"
+            android:text="@string/add" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ProgressBar
+            android:id="@+id/new_word_progress"
+            style="?android:attr/progressBarStyleLargeInverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible" />
+
     </LinearLayout>
 
 

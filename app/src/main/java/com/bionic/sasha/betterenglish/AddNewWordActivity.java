@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -61,6 +62,9 @@ public class AddNewWordActivity extends AppCompatActivity
     @BindView (R.id.spinner_type)
     Spinner typeSpinner;
 
+    @BindView (R.id.new_word_progress)
+    ProgressBar progress;
+
     @OnClick (R.id.button_add) void newAdd(){
         ContentValues cv = new ContentValues();
         String wordRu;
@@ -93,6 +97,8 @@ public class AddNewWordActivity extends AppCompatActivity
         String BASE_URL = "https://translate.yandex.net" ;
 
         String ourWord = newWord.getText().toString();
+
+        progress.setVisibility(View.VISIBLE);
 
         //Retrofit2 logging - 3 lines.
 
@@ -197,6 +203,7 @@ public class AddNewWordActivity extends AppCompatActivity
             String[] array = response.body().getTranslate();
 
             translateWord.setText(array[0]);
+            progress.setVisibility(View.INVISIBLE);
 
             addButton.setEnabled(true);
         } else {
