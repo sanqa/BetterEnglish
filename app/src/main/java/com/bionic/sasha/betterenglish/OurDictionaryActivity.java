@@ -81,7 +81,6 @@ public class OurDictionaryActivity extends AppCompatActivity
         icons.add(R.mipmap.ic_mode1);
         icons.add(R.mipmap.icon_mode2);
         icons.add(R.mipmap.icon_mode3);
-        icons.add(R.mipmap.icon_mode4);
 
         return icons;
     }
@@ -91,7 +90,6 @@ public class OurDictionaryActivity extends AppCompatActivity
         modes.add(R.string.mode1);
         modes.add(R.string.mode2);
         modes.add(R.string.mode3);
-        modes.add(R.string.mode4);
 
         return modes;
     }
@@ -101,18 +99,16 @@ public class OurDictionaryActivity extends AppCompatActivity
         myImageSet.add(R.color.mode1);
         myImageSet.add(R.color.mode2);
         myImageSet.add(R.color.mode3);
-        myImageSet.add(R.color.mode4);
 
         return myImageSet;
     }
 
     private ArrayList<String> getDataSet() {
         ArrayList<String> mDataSet = new ArrayList();
-        int c1 = 0, c2 = 0, c3 = 0, c4 = 0;
+        int c1 = 0, c2 = 0, c3 = 0;
         String selection1 = " mode1 < 3 ";
         String selection2 = " mode2 < 3 ";
         String selection3 = " mode3 < 3 ";
-        String selection4 = " mode4 < 3 ";
 
         SQLiteDatabase database = dbHelper.getWritableDatabase();
         Cursor cursor = database.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME,null, selection1, null, null, null, null);
@@ -147,15 +143,6 @@ public class OurDictionaryActivity extends AppCompatActivity
         mDataSet.add(String.valueOf(c3));
 
 
-        Cursor cursor4 = database.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME,null, selection4, null, null, null, null);
-        if (cursor4 != null) {
-            if (cursor4.moveToFirst()) {
-                do {
-                    c4++;
-                } while (cursor4.moveToNext());
-            }
-        }
-        mDataSet.add(String.valueOf(c4));
         return mDataSet;
     }
 

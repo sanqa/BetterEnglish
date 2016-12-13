@@ -37,6 +37,9 @@ public class ProgressActivity extends AppCompatActivity
     @BindView(R.id.progress_text_month)
     TextView textPerMonth;
 
+    @BindView(R.id.month_learned)
+            TextView monthLearned;
+
     TranslateDBHelper dbHelper;
     String[] months = {"January", "February", "March", "April", "May", "June", "July",
             "August", "September", "October", "November", "December"};
@@ -69,8 +72,12 @@ public class ProgressActivity extends AppCompatActivity
         textPerMonth.setText(textPerMonth.getText() + " " + months[pos] + ":");
 
 
+
+
         long current = DatabaseUtils.queryNumEntries(database, TranslateReaderDB.LearnedWords.TABLE_LEARNED_WORDS_NAME);
         currentLearn.setText("" + current);
+
+        monthLearned.setText("" + current);
     }
 
     @Override

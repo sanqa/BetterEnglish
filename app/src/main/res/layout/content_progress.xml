@@ -98,6 +98,7 @@
             android:layout_margin="@dimen/progress_margin_visual" />
 
         <TextView
+            android:id="@+id/month_learned"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
@@ -105,10 +106,11 @@
             android:textSize="@dimen/progress_activity_text_size" />
 
         <TextView
+            android:id="@+id/day_learned"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/progress_margin_visual"
-            android:text="0"
+            android:text="1"
             android:textSize="@dimen/progress_activity_text_size" />
 
 

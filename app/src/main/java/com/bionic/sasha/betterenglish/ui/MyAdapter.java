@@ -125,12 +125,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                         }
                         break;
                     case 2:
-                        Intent intent2 = new Intent(view.getContext(), DirectlyModeActivity.class);
-                        view.getContext().startActivity(intent2);
-                        break;
-                    case 3:
-                        Intent intent3 = new Intent(view.getContext(), LettersModeActivity.class);
-                        view.getContext().startActivity(intent3);
+                        if (Integer.parseInt(mDataset.get(2)) < 10) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                            builder.setTitle("Warning! You should have at least 10 words to study.")
+                                    .setCancelable(false)
+                                    .setNegativeButton("ADD",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int id) {
+                                                    dialog.cancel();
+                                                    Intent intentl = new Intent(view.getContext(), AddNewWordActivity.class);
+                                                    view.getContext().startActivity(intentl);
+                                                }
+                                            });
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                        } else {
+                            Intent intent2 = new Intent(view.getContext(), DirectlyModeActivity.class);
+                            view.getContext().startActivity(intent2);
+                        }
+
                         break;
                 }
             }

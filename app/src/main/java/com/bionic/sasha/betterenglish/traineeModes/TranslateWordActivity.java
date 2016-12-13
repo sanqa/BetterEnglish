@@ -38,8 +38,6 @@ public class TranslateWordActivity extends AppCompatActivity {
     private int correctAnswers = 0;
     public int currentCount = 1;
     public String answer = "";
-    Toast toast;
-    Toast toast2;
 
 
     @BindView(R.id.trainee_card_layout)
@@ -93,28 +91,6 @@ public class TranslateWordActivity extends AppCompatActivity {
 
         traineeWords.setText("" + currentCount);
         allWords.setText("" + allCount);
-
-        toast = Toast.makeText(this, "Correct", Toast.LENGTH_SHORT);
-        View toastView = toast.getView(); //This'll return the default View of the Toast.
-
-        /* And now you can get the TextView of the default View of the Toast. */
-        TextView toastMessage = (TextView) toastView.findViewById(android.R.id.message);
-        toastMessage.setTextSize(25);
-        toastMessage.setTextColor(Color.WHITE);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setCompoundDrawablePadding(16);
-        toastView.setBackgroundColor(Color.GREEN);
-
-        toast2 = Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT);
-        View toastView2 = toast2.getView(); //This'll return the default View of the Toast.
-
-        /* And now you can get the TextView of the default View of the Toast. */
-        TextView toastMessage2 = (TextView) toastView2.findViewById(android.R.id.message);
-        toastMessage2.setTextSize(25);
-        toastMessage2.setTextColor(Color.WHITE);
-        toastMessage2.setGravity(Gravity.CENTER);
-        toastMessage2.setCompoundDrawablePadding(16);
-        toastView2.setBackgroundColor(Color.RED);
 
         answer = workingWithDB();
     }
@@ -199,13 +175,11 @@ public class TranslateWordActivity extends AppCompatActivity {
 
                 right.setVisibility(View.VISIBLE);
                 wrong.setVisibility(View.INVISIBLE);
-                toast.show();
             } else {
                 changeModeWrongResult(answer);
 
                 wrong.setVisibility(View.VISIBLE);
                 right.setVisibility(View.INVISIBLE);
-                toast2.show();
             }
             answer =  workingWithDB();
 
@@ -271,7 +245,7 @@ public class TranslateWordActivity extends AppCompatActivity {
         database.update(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME,
                 cv, TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN + " = '" + wordEn + "' ", null);
 
-        if (allModes >= 11) {
+        if (allModes >= 9) {
             ContentValues contentValues = new ContentValues();
             String str;
             contentValues.put(TranslateReaderDB.LearnedWords.COLUMN_WORD_EN, wordEn);

@@ -43,8 +43,6 @@ public class WordTranslateActivity extends AppCompatActivity {
     private int correctAnswers = 0;
     public int currentCount = 1;
     public String answer = "";
-    Toast toast;
-    Toast toast2;
 
 
     @BindView(R.id.trainee_card_layout)
@@ -94,27 +92,7 @@ public class WordTranslateActivity extends AppCompatActivity {
         allWords.setText("" + allCount);
 
 
-        toast = Toast.makeText(this, "Correct", Toast.LENGTH_SHORT);
-        View toastView = toast.getView(); //This'll return the default View of the Toast.
 
-        /* And now you can get the TextView of the default View of the Toast. */
-        TextView toastMessage = (TextView) toastView.findViewById(android.R.id.message);
-        toastMessage.setTextSize(25);
-        toastMessage.setTextColor(Color.WHITE);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setCompoundDrawablePadding(16);
-        toastView.setBackgroundColor(Color.GREEN);
-
-        toast2 = Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT);
-        View toastView2 = toast2.getView(); //This'll return the default View of the Toast.
-
-        /* And now you can get the TextView of the default View of the Toast. */
-        TextView toastMessage2 = (TextView) toastView2.findViewById(android.R.id.message);
-        toastMessage2.setTextSize(25);
-        toastMessage2.setTextColor(Color.WHITE);
-        toastMessage2.setGravity(Gravity.CENTER);
-        toastMessage2.setCompoundDrawablePadding(16);
-        toastView2.setBackgroundColor(Color.RED);
 
         answer = workingWithDB();
     }
@@ -204,16 +182,11 @@ public class WordTranslateActivity extends AppCompatActivity {
             if (correct.equals(answer)){ //если пользователь нажал правильно
               //  Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
 
-
-                toast.show();
-
                 correctAnswers++;
                 changeModeCorrectResult(answer); //запускаю метод работы с БД для правильного ответа
                 right.setVisibility(View.VISIBLE);
                 wrong.setVisibility(View.INVISIBLE);
             } else {
-                toast2.show();
-
                 changeModeWrongResult(answer); // для неправильнного ответа
 
                 wrong.setVisibility(View.VISIBLE);
@@ -286,7 +259,7 @@ public class WordTranslateActivity extends AppCompatActivity {
         database.update(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME, //запрос на изменение определенной строки
                cv, TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU + " = '" + wordRu + "' ", null);
 
-        if (allModes >= 12) { //если 12, значит слово изучено
+        if (allModes >= 9) { //если 12, значит слово изучено
             ContentValues contentValues = new ContentValues(); //создаю строку с этим словом в новой таблице для изученных слов
             String str;
             contentValues.put(TranslateReaderDB.LearnedWords.COLUMN_WORD_RU, wordRu); //записал русское слово
