@@ -124,4 +124,9 @@ public class SettingsActivity extends AppCompatActivity
         }
         return position;
     }
+
+    public void showLearned(View view) {
+        Intent intent = new Intent(this, ShowLearnedWordsActivity.class);
+        startActivity(intent);
+    }
 }

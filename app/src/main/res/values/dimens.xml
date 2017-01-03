@@ -38,6 +38,7 @@
     <dimen name="trainee_card_margin">40dp</dimen>
     <dimen name="trainee_mode_text_size">15sp</dimen>
     <dimen name="trainee_bid_text_size">30sp</dimen>
+    <dimen name="learned_card_text_size">20dp</dimen>
 
 </resources>
 

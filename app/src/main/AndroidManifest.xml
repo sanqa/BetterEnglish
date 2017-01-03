@@ -46,14 +46,19 @@
             android:label="@string/title_activity_write_author"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".traineeModes.TranslateWordActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".traineeModes.WordTranslateActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".traineeModes.DirectlyModeActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".traineeModes.LettersModeActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".traineeModes.TranslateWordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".traineeModes.WordTranslateActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".traineeModes.DirectlyModeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".traineeModes.LettersModeActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ShowLearnedWordsActivity"></activity>
     </application>
 
 </manifest>
