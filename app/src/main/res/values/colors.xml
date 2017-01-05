@@ -7,7 +7,11 @@
     <color name="our_background1">#eceff1</color>
 
     <color name="mode1">#0288d1</color>
+
     <color name="mode2">#00c853</color>
+    <color name="mode2Dark">#69F0AE</color>
+
+
     <color name="mode3">#6200ea</color>
     <color name="mode4">#ef6c00</color>
 </resources>
