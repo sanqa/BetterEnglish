@@ -37,6 +37,7 @@ public class TranslateWordActivity extends AppCompatActivity {
     public int allCount;
     private int correctAnswers = 0;
     public int currentCount = 1;
+    private String word = "";
     public String answer = "";
 
 
@@ -134,6 +135,7 @@ public class TranslateWordActivity extends AppCompatActivity {
             used.add(position);
             Log.d("used", String.valueOf(position));
             wordTrainee.setText(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU)));
+            word = c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU));
             answer = c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN));
 
             variants.add(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN)));
@@ -175,45 +177,112 @@ public class TranslateWordActivity extends AppCompatActivity {
 
                 right.setVisibility(View.VISIBLE);
                 wrong.setVisibility(View.INVISIBLE);
+
+                answer =  workingWithDB();
+                currentCount++;
+                traineeWords.setText("" + currentCount);
             } else {
-                changeModeWrongResult(answer);
 
                 wrong.setVisibility(View.VISIBLE);
                 right.setVisibility(View.INVISIBLE);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+                builder.setTitle("Wrong").setMessage(word + "  -  " + answer).setCancelable(false)
+                        .setIcon(R.drawable.wrong).setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                        changeModeWrongResult(answer); // для неправильнного ответа
+
+
+                        answer = workingWithDB(); //после произведения изменений в БД обновляю текущее слово и ответ
+                        currentCount++; //изменяю счетчик текущего слова
+                        traineeWords.setText("" + currentCount); //записываю слово в карточку для пользователя
+
+                    }
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
             }
-            answer =  workingWithDB();
 
-
-            currentCount++;
-            traineeWords.setText("" + currentCount);
         } else {
-            if (correct.equals(answer)){
+            if (correct.equals(answer)) { //если пользователь нажал правильно
+
                 correctAnswers++;
+                changeModeCorrectResult(answer); //запускаю метод работы с БД для правильного ответа
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                //запускааю окно с разными параметрами и правильным кол-вом ответов
+                builder.setTitle("Result!")
+                        .setCancelable(false)
+                        .setMessage("You have " + correctAnswers + " correct answers.")
+                        .setNegativeButton("Change Mode", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+
+                                Intent intent = new Intent(TranslateWordActivity.this, OurDictionaryActivity.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .setPositiveButton("This Mode", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+
+                                Intent intent = new Intent(TranslateWordActivity.this, TranslateWordActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+
+
+            } else {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+                builder.setTitle("Wrong").setMessage(word + "  -  " + answer).setCancelable(false)
+                        .setIcon(R.drawable.wrong).setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                        changeModeWrongResult(answer); // для неправильнного ответа
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(TranslateWordActivity.this);
+                        //запускааю окно с разными параметрами и правильным кол-вом ответов
+                        builder.setTitle("Result!")
+                                .setCancelable(false)
+                                .setMessage("You have " + correctAnswers + " correct answers.")
+                                .setNegativeButton("Change Mode", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+
+                                        Intent intent = new Intent(TranslateWordActivity.this, OurDictionaryActivity.class);
+                                        startActivity(intent);
+                                    }
+                                })
+                                .setPositiveButton("This Mode", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+
+                                        Intent intent = new Intent(TranslateWordActivity.this, TranslateWordActivity.class);
+                                        startActivity(intent);
+                                    }
+                                });
+                        AlertDialog alert = builder.create();
+                        alert.show();
+
+                    }
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
             }
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Result!")
-                    .setCancelable(false)
-                    .setMessage("You have " + correctAnswers + " correct answers.")
-                    .setNegativeButton("Change Mode", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
 
-                            Intent intent = new Intent(TranslateWordActivity.this, OurDictionaryActivity.class);
-                            startActivity(intent);
-                        }
-                    })
-                    .setPositiveButton("This Mode", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-
-                            Intent intent = new Intent(TranslateWordActivity.this, TranslateWordActivity.class);
-                            startActivity(intent);
-                        }
-                    });
-            AlertDialog alert = builder.create();
-            alert.show();
 
         }
     }

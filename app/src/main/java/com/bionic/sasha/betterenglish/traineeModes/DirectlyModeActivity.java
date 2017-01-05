@@ -37,7 +37,8 @@ public class DirectlyModeActivity extends AppCompatActivity {
     public int allCount;
     private int correctAnswers = 0;
     public int currentCount = 1;
-    public String answerM3 = "";
+    private String word = "";
+    public String answer = "";
 
     @BindView(R.id.btnSubmit)
     Button btnSubmit;
@@ -75,7 +76,7 @@ public class DirectlyModeActivity extends AppCompatActivity {
         traineeWords3.setText(" " + currentCount);
         allWords3.setText(" " + allCount);
 
-        answerM3 = workingWithDB();
+        answer = workingWithDB();
     }
 
     public String workingWithDB() {
@@ -108,6 +109,7 @@ public class DirectlyModeActivity extends AppCompatActivity {
             c.moveToPosition(position);
             Log.d("used", String.valueOf(position));
             seeWord.setText(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU)));
+            word = c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU));
             answer = c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN));
 
         }
@@ -122,51 +124,120 @@ public class DirectlyModeActivity extends AppCompatActivity {
         if (currentCount < allCount){
 
 
-            if (correct.equals(answerM3)){
+            if (correct.equals(answer)){
                 correctAnswers++;
-                changeModeCorrectResult(answerM3);
+                changeModeCorrectResult(answer);
                 rightView.setVisibility(View.VISIBLE);
                 wrongView.setVisibility(View.INVISIBLE);
 
+
+                answer =  workingWithDB();
+                currentCount++;
+                traineeWords3.setText("" + currentCount);
+                giveTheAnswer.setText("");
             } else {
-                changeModeWrongResult(answerM3);
                 rightView.setVisibility(View.INVISIBLE);
                 wrongView.setVisibility(View.VISIBLE);
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+                builder.setTitle("Wrong").setMessage(word + "  -  " + answer).setCancelable(false)
+                        .setIcon(R.drawable.wrong).setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                        changeModeWrongResult(answer); // для неправильнного ответа
+
+
+                        answer =  workingWithDB();
+                        currentCount++;
+                        traineeWords3.setText("" + currentCount);
+                        giveTheAnswer.setText("");
+
+                    }
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
             }
-            answerM3 =  workingWithDB();
 
-
-            currentCount++;
-            traineeWords3.setText("" + currentCount);
-            giveTheAnswer.setText("");
         } else {
-            if (correct.equals(answerM3)){
+
+
+            if (correct.equals(answer)) { //если пользователь нажал правильно
+
                 correctAnswers++;
+                changeModeCorrectResult(answer); //запускаю метод работы с БД для правильного ответа
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                //запускааю окно с разными параметрами и правильным кол-вом ответов
+                builder.setTitle("Result!")
+                        .setCancelable(false)
+                        .setMessage("You have " + correctAnswers + " correct answers.")
+                        .setNegativeButton("Change Mode", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+
+                                Intent intent = new Intent(DirectlyModeActivity.this, OurDictionaryActivity.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .setPositiveButton("This Mode", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+
+                                Intent intent = new Intent(DirectlyModeActivity.this, DirectlyModeActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+
+
+            } else {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+                builder.setTitle("Wrong").setMessage(word + "  -  " + answer).setCancelable(false)
+                        .setIcon(R.drawable.wrong).setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                        changeModeWrongResult(answer); // для неправильнного ответа
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(DirectlyModeActivity.this);
+                        //запускааю окно с разными параметрами и правильным кол-вом ответов
+                        builder.setTitle("Result!")
+                                .setCancelable(false)
+                                .setMessage("You have " + correctAnswers + " correct answers.")
+                                .setNegativeButton("Change Mode", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+
+                                        Intent intent = new Intent(DirectlyModeActivity.this, OurDictionaryActivity.class);
+                                        startActivity(intent);
+                                    }
+                                })
+                                .setPositiveButton("This Mode", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+
+                                        Intent intent = new Intent(DirectlyModeActivity.this, DirectlyModeActivity.class);
+                                        startActivity(intent);
+                                    }
+                                });
+                        AlertDialog alert = builder.create();
+                        alert.show();
+
+                    }
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
             }
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Result!")
-                    .setCancelable(false)
-                    .setMessage("You have " + correctAnswers + " correct answers.")
-                    .setNegativeButton("Change Mode", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-
-                            Intent intent = new Intent(DirectlyModeActivity.this, OurDictionaryActivity.class);
-                            startActivity(intent);
-                        }
-                    })
-                    .setPositiveButton("This Mode", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-
-                            Intent intent = new Intent(DirectlyModeActivity.this, DirectlyModeActivity.class);
-                            startActivity(intent);
-                        }
-                    });
-            AlertDialog alert = builder.create();
-            alert.show();
 
         }
     }
