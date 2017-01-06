@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ import com.bionic.sasha.betterenglish.db.TranslateReaderDB;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.Random;
 
 import butterknife.BindView;
@@ -47,12 +49,6 @@ public class TranslateWordActivity extends AppCompatActivity {
     @BindView(R.id.traine_mode_word)
     TextView wordTrainee;
 
-    @BindView(R.id.wrong_view)
-    WrongNotif wrong;
-
-    @BindView(R.id.right_view)
-    RightNotification right;
-
     @BindView(R.id.button_one)
     Button buttonOne;
 
@@ -70,6 +66,9 @@ public class TranslateWordActivity extends AppCompatActivity {
 
     @BindView(R.id.all_trainee)
     TextView allWords;
+
+    @BindView(R.id.btnSpeech)
+    Button btnSpeech;
 
     private TranslateDBHelper dbHelper;
 
@@ -92,8 +91,12 @@ public class TranslateWordActivity extends AppCompatActivity {
 
         traineeWords.setText("" + currentCount);
         allWords.setText("" + allCount);
+        wordTrainee.setTextSize(30);
+
 
         answer = workingWithDB();
+
+        btnSpeech.setVisibility(View.GONE);
     }
 
 
@@ -175,16 +178,10 @@ public class TranslateWordActivity extends AppCompatActivity {
                 correctAnswers++;
                 changeModeCorrectResult(answer);
 
-                right.setVisibility(View.VISIBLE);
-                wrong.setVisibility(View.INVISIBLE);
-
                 answer =  workingWithDB();
                 currentCount++;
                 traineeWords.setText("" + currentCount);
             } else {
-
-                wrong.setVisibility(View.VISIBLE);
-                right.setVisibility(View.INVISIBLE);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -217,6 +214,7 @@ public class TranslateWordActivity extends AppCompatActivity {
                 //запускааю окно с разными параметрами и правильным кол-вом ответов
                 builder.setTitle("Result!")
                         .setCancelable(false)
+                        .setIcon(R.drawable.correct)
                         .setMessage("You have " + correctAnswers + " correct answers.")
                         .setNegativeButton("Change Mode", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -253,6 +251,7 @@ public class TranslateWordActivity extends AppCompatActivity {
                         AlertDialog.Builder builder = new AlertDialog.Builder(TranslateWordActivity.this);
                         //запускааю окно с разными параметрами и правильным кол-вом ответов
                         builder.setTitle("Result!")
+                                .setIcon(R.drawable.correct)
                                 .setCancelable(false)
                                 .setMessage("You have " + correctAnswers + " correct answers.")
                                 .setNegativeButton("Change Mode", new DialogInterface.OnClickListener() {

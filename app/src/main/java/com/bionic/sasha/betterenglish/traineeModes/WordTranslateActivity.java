@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,7 +33,9 @@ import com.bionic.sasha.betterenglish.db.TranslateReaderDB;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
+import java.util.StringTokenizer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,12 +55,6 @@ public class WordTranslateActivity extends AppCompatActivity {
     @BindView(R.id.traine_mode_word)
     TextView wordTrainee;
 
-    @BindView(R.id.wrong_view)
-    WrongNotif wrong;
-
-    @BindView(R.id.right_view)
-    RightNotification right;
-
     @BindView(R.id.button_one)
     Button buttonOne;
 
@@ -76,7 +73,12 @@ public class WordTranslateActivity extends AppCompatActivity {
     @BindView(R.id.all_trainee)
     TextView allWords;
 
+    @BindView(R.id.btnSpeech)
+    Button btnSpeech;
+
     private TranslateDBHelper dbHelper;
+
+    private TextToSpeech textToSpeech;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +94,26 @@ public class WordTranslateActivity extends AppCompatActivity {
         traineeWords.setText("" + currentCount); // заполняю №текущего слова и предыдущий параметр
         allWords.setText("" + allCount);
 
+        textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    textToSpeech.setLanguage(Locale.UK);
+                }
+            }
+        });
+
 
         answer = workingWithDB();
+
+        btnSpeech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               String str = wordTrainee.getText().toString();
+                textToSpeech.speak(str, TextToSpeech.QUEUE_FLUSH, null);
+
+            }
+        });
     }
 
     /**
@@ -185,8 +205,6 @@ public class WordTranslateActivity extends AppCompatActivity {
                 //  Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
 
                 correctAnswers++;
-                right.setVisibility(View.VISIBLE);
-                wrong.setVisibility(View.INVISIBLE);
 
 
                 changeModeCorrectResult(answer); //запускаю метод работы с БД для правильного ответа
@@ -197,9 +215,6 @@ public class WordTranslateActivity extends AppCompatActivity {
                 traineeWords.setText("" + currentCount); //записываю слово в карточку для пользователя
 
             } else {
-
-                wrong.setVisibility(View.VISIBLE);
-                right.setVisibility(View.INVISIBLE);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -233,6 +248,7 @@ public class WordTranslateActivity extends AppCompatActivity {
                 //запускааю окно с разными параметрами и правильным кол-вом ответов
                 builder.setTitle("Result!")
                         .setCancelable(false)
+                        .setIcon(R.drawable.correct)
                         .setMessage("You have " + correctAnswers + " correct answers.")
                         .setNegativeButton("Change Mode", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -270,6 +286,7 @@ public class WordTranslateActivity extends AppCompatActivity {
                         //запускааю окно с разными параметрами и правильным кол-вом ответов
                         builder.setTitle("Result!")
                                 .setCancelable(false)
+                                .setIcon(R.drawable.correct)
                                 .setMessage("You have " + correctAnswers + " correct answers.")
                                 .setNegativeButton("Change Mode", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {

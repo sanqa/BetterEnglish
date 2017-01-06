@@ -55,11 +55,7 @@ public class DirectlyModeActivity extends AppCompatActivity {
     @BindView(R.id.all_mode_3)
     TextView allWords3;
 
-    @BindView(R.id.mode3_right)
-    RightNotification rightView;
 
-    @BindView(R.id.mode3_wrong)
-    WrongNotif wrongView;
 
 
     @Override
@@ -127,17 +123,13 @@ public class DirectlyModeActivity extends AppCompatActivity {
             if (correct.equals(answer)){
                 correctAnswers++;
                 changeModeCorrectResult(answer);
-                rightView.setVisibility(View.VISIBLE);
-                wrongView.setVisibility(View.INVISIBLE);
-
 
                 answer =  workingWithDB();
                 currentCount++;
                 traineeWords3.setText("" + currentCount);
                 giveTheAnswer.setText("");
             } else {
-                rightView.setVisibility(View.INVISIBLE);
-                wrongView.setVisibility(View.VISIBLE);
+
 
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -174,6 +166,7 @@ public class DirectlyModeActivity extends AppCompatActivity {
                 //запускааю окно с разными параметрами и правильным кол-вом ответов
                 builder.setTitle("Result!")
                         .setCancelable(false)
+                        .setIcon(R.drawable.correct)
                         .setMessage("You have " + correctAnswers + " correct answers.")
                         .setNegativeButton("Change Mode", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -211,6 +204,7 @@ public class DirectlyModeActivity extends AppCompatActivity {
                         //запускааю окно с разными параметрами и правильным кол-вом ответов
                         builder.setTitle("Result!")
                                 .setCancelable(false)
+                                .setIcon(R.drawable.correct)
                                 .setMessage("You have " + correctAnswers + " correct answers.")
                                 .setNegativeButton("Change Mode", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
