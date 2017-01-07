@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="trainee">Тренировать</string>
+    <string name="add_new_word">Добавить слово</string>
+    <string name="settings">Настройки</string>
+    <string name="about">О приложении</string>
+    <string name="action_settings">Настройки</string>
+
+    <string name="about_project">Это приложение поможет вам изучать новые слова английского языка. Приложение сделано благодаря двум разработчикам: sanqa и alex.
+    \n\nПеревод осуществляется с помощью Яндекс Переводчик</string>
+    <string name="settings_count_words">Количество слов для изучения:</string>
+    <string name="dots">...</string>
+    <string name="progress_label">Прогресс</string>
+    <string name="title_activity_write_author">Письмо разработчику</string>
+    <string name="ask_your_problem">Задайте вопрос разработчику напрямую.</string>
+    <string name="describe_your_problem">Опишите свою проблему</string>
+    <string name="send">Отправить</string>
+    <string name="title_activity_progress">Прогресс</string>
+    <string name="title_activity_add_new_word">Новое слово</string>
+    <string name="input_new_word">Введите слово...</string>
+    <string name="translate">Перевести</string>
+    <string name="add">Добавить</string>
+    <string name="progress_learned_label">Изучено : </string>
+    <string name="your_level">Ваш уровень:</string>
+    <string name="learned_per_month">Learned at </string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="mode1">Слово - \nПеревод</string>
+    <string name="mode2">Перевод -\n  Слово</string>
+    <string name="mode3"> Точный \nПеревод</string>
+    <string name="mode4">По буквам</string>
+    <string name="title_activity_our_dictionary">Тренировка</string>
+    <string name="title_activity_about">О приложении</string>
+    <string name="title_activity_settings">Настройки</string>>
+    <string name="mode3_head">Точный перевод</string>
+    <string name="submit_button">Подтвердить</string>
+    <string name="learned_words">Изученные слова</string>
+    <string name="show">Показать</string>
+    <string name="other">Дополнительно</string>
+    <string name="write_to_author">Помощь разработчика</string>
+    <string name="trainee_modes">Тренировка</string>
+    <string name="result">Результат!</string>
+    <string name="you_have">"Вы набрали "</string>
+    <string name="correct_answers">" правильных ответов."</string>
+    <string name="change_mode">Другой режим</string>
+    <string name="this_mode">Этот режим</string>
+    <string name="wrong">Ошибка!</string>
+    <string name="next">Далее</string>
+</resources>

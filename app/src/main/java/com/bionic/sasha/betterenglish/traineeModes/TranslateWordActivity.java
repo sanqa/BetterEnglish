@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -185,8 +186,8 @@ public class TranslateWordActivity extends AppCompatActivity {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-                builder.setTitle("Wrong").setMessage(word + "  -  " + answer).setCancelable(false)
-                        .setIcon(R.drawable.wrong).setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                builder.setTitle(R.string.wrong).setMessage(word + "  -  " + answer).setCancelable(false)
+                        .setIcon(R.drawable.wrong).setPositiveButton(R.string.next, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();
@@ -211,12 +212,14 @@ public class TranslateWordActivity extends AppCompatActivity {
                 changeModeCorrectResult(answer); //запускаю метод работы с БД для правильного ответа
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+                String str =  getString(R.string.you_have) + correctAnswers + getString(R.string.correct_answers);
                 //запускааю окно с разными параметрами и правильным кол-вом ответов
-                builder.setTitle("Result!")
+                builder.setTitle(R.string.result)
                         .setCancelable(false)
                         .setIcon(R.drawable.correct)
-                        .setMessage("You have " + correctAnswers + " correct answers.")
-                        .setNegativeButton("Change Mode", new DialogInterface.OnClickListener() {
+                        .setMessage(str)
+                        .setNegativeButton(R.string.change_mode, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
 
@@ -224,7 +227,7 @@ public class TranslateWordActivity extends AppCompatActivity {
                                 startActivity(intent);
                             }
                         })
-                        .setPositiveButton("This Mode", new DialogInterface.OnClickListener() {
+                        .setPositiveButton(R.string.this_mode, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
@@ -241,20 +244,22 @@ public class TranslateWordActivity extends AppCompatActivity {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-                builder.setTitle("Wrong").setMessage(word + "  -  " + answer).setCancelable(false)
-                        .setIcon(R.drawable.wrong).setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                builder.setTitle(R.string.result).setMessage(word + "  -  " + answer).setCancelable(false)
+                        .setIcon(R.drawable.wrong).setPositiveButton(R.string.next, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();
                         changeModeWrongResult(answer); // для неправильнного ответа
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(TranslateWordActivity.this);
+                        String str =  getString(R.string.you_have) + correctAnswers + getString(R.string.correct_answers);
+
                         //запускааю окно с разными параметрами и правильным кол-вом ответов
-                        builder.setTitle("Result!")
+                        builder.setTitle(R.string.result)
                                 .setIcon(R.drawable.correct)
                                 .setCancelable(false)
-                                .setMessage("You have " + correctAnswers + " correct answers.")
-                                .setNegativeButton("Change Mode", new DialogInterface.OnClickListener() {
+                                .setMessage(str)
+                                .setNegativeButton(R.string.change_mode, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
                                         dialog.cancel();
 
@@ -262,7 +267,7 @@ public class TranslateWordActivity extends AppCompatActivity {
                                         startActivity(intent);
                                     }
                                 })
-                                .setPositiveButton("This Mode", new DialogInterface.OnClickListener() {
+                                .setPositiveButton(R.string.this_mode, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int id) {
                                         dialog.cancel();

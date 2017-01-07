@@ -22,7 +22,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".OurDictionaryActivity"
-            android:label="Trainee Modes"
+            android:label="@string/trainee_modes"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -55,11 +55,13 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".traineeModes.DirectlyModeActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppPurpleTheme"/>
         <activity
             android:name=".traineeModes.LettersModeActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ShowLearnedWordsActivity"></activity>
+        <activity android:name=".ShowLearnedWordsActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

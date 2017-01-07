@@ -13,6 +13,9 @@
     <color name="mode2Accent">#6200EA</color>
 
 
-    <color name="mode3">#6200ea</color>
+    <color name="mode3">#8E24AA</color>
+    <color name="mode3Dark">#6A1B9A</color>
+    <color name="mode3Accent">#E91E63</color>
+
     <color name="mode4">#ef6c00</color>
 </resources>

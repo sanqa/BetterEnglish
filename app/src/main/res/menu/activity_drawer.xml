@@ -31,7 +31,7 @@
                 android:title="@string/about" />
             <item
                 android:id="@+id/nav_ask_author"
-                android:title="Write to author"
+                android:title="@string/write_to_author"
                 android:icon="@android:drawable/ic_menu_help"/>
 
         </menu>
