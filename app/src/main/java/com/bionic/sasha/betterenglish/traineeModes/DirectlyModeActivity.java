@@ -163,11 +163,12 @@ public class DirectlyModeActivity extends AppCompatActivity {
                 changeModeCorrectResult(answer); //запускаю метод работы с БД для правильного ответа
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                String str =  getString(R.string.you_have) + correctAnswers + getString(R.string.correct_answers);
                 //запускааю окно с разными параметрами и правильным кол-вом ответов
                 builder.setTitle(R.string.result)
                         .setCancelable(false)
                         .setIcon(R.drawable.correct)
-                        .setMessage(R.string.you_have + correctAnswers + R.string.correct_answers)
+                        .setMessage(str)
                         .setNegativeButton(R.string.change_mode, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
@@ -201,11 +202,12 @@ public class DirectlyModeActivity extends AppCompatActivity {
                         changeModeWrongResult(answer); // для неправильнного ответа
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(DirectlyModeActivity.this);
+                        String str =  getString(R.string.you_have) + correctAnswers + getString(R.string.correct_answers);
                         //запускааю окно с разными параметрами и правильным кол-вом ответов
                         builder.setTitle(R.string.result)
                                 .setCancelable(false)
                                 .setIcon(R.drawable.correct)
-                                .setMessage(R.string.you_have + correctAnswers + R.string.correct_answers)
+                                .setMessage(str)
                                 .setNegativeButton(R.string.change_mode, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
                                         dialog.cancel();
