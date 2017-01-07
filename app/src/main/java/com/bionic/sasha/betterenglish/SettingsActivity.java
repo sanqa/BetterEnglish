@@ -23,7 +23,7 @@ public class SettingsActivity extends AppCompatActivity
 
     final String SAVED_TEXT = "saved_text";
 
-    String words_count[] = {"15", "20", "25", "30", "35", "40"};
+    String words_count[] = {"10", "15", "20", "25"};
 
     Spinner spinner;
 
@@ -125,8 +125,5 @@ public class SettingsActivity extends AppCompatActivity
         return position;
     }
 
-    public void showLearned(View view) {
-        Intent intent = new Intent(this, ShowLearnedWordsActivity.class);
-        startActivity(intent);
-    }
+
 }

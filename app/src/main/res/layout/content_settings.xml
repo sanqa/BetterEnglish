@@ -42,34 +42,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/settings_margin"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:text="@string/learned_words" />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-
-        <Button
-            android:layout_width="0dp"
-            android:onClick="showLearned"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/settings_margin"
-            android:layout_weight="1"
-            android:text="@string/show" />
-
-    </LinearLayout>
 
 </LinearLayout>
 

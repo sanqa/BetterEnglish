@@ -34,15 +34,8 @@ public class ProgressActivity extends AppCompatActivity
     @BindView(R.id.current_all_learn)
     TextView currentLearn;
 
-    @BindView(R.id.progress_text_month)
-    TextView textPerMonth;
-
-    @BindView(R.id.month_learned)
-            TextView monthLearned;
 
     TranslateDBHelper dbHelper;
-    String[] months = {"January", "February", "March", "April", "May", "June", "July",
-            "August", "September", "October", "November", "December"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,15 +62,12 @@ public class ProgressActivity extends AppCompatActivity
 
         Calendar calendar = Calendar.getInstance();
         int pos = calendar.get(Calendar.MONTH);
-        textPerMonth.setText(textPerMonth.getText() + " " + months[pos] + ":");
 
 
 
 
         long current = DatabaseUtils.queryNumEntries(database, TranslateReaderDB.LearnedWords.TABLE_LEARNED_WORDS_NAME);
         currentLearn.setText("" + current);
-
-        monthLearned.setText("" + current);
     }
 
     @Override
@@ -116,5 +106,10 @@ public class ProgressActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void showLearned(View view) {
+        Intent intent = new Intent(this, ShowLearnedWordsActivity.class);
+        startActivity(intent);
     }
 }

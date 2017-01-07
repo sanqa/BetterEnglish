@@ -91,6 +91,7 @@ public class AddNewWordActivity extends AppCompatActivity
 
         newWord.setText("");
         translateWord.setText("");
+        addButton.setEnabled(false);
     }
 
     @OnClick(R.id.button_get_translate) void getTranslate() {
