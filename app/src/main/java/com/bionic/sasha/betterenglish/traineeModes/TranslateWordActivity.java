@@ -345,4 +345,10 @@ public class TranslateWordActivity extends AppCompatActivity {
         database.close();
 
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, OurDictionaryActivity.class);
+        startActivity(intent);
+    }
 }
