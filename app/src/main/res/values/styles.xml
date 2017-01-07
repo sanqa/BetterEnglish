@@ -11,6 +11,7 @@
     <style name="AppGreenTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/mode2</item>
         <item name="colorPrimaryDark">@color/mode2Dark</item>
+        <item name="colorAccent">@color/mode2Accent</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
