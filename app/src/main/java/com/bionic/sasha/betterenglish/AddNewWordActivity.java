@@ -1,11 +1,14 @@
 package com.bionic.sasha.betterenglish;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -30,6 +33,7 @@ import com.bionic.sasha.betterenglish.db.TranslateReaderDB;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -79,19 +83,55 @@ public class AddNewWordActivity extends AppCompatActivity
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        cv.put(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU, wordRu);
-        cv.put(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN, wordEn);
-        cv.put(TranslateReaderDB.TranslateTexts.COLUMN_MODE1, 0);
-        cv.put(TranslateReaderDB.TranslateTexts.COLUMN_MODE2, 0);
-        cv.put(TranslateReaderDB.TranslateTexts.COLUMN_MODE3, 0);
-        cv.put(TranslateReaderDB.TranslateTexts.COLUMN_MODE4, 0);
+        int counter = 0;
 
-        long rowID = db.insert(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME, null, cv);
-        Toast.makeText(this, "Add to learn as #" + rowID,Toast.LENGTH_SHORT).show();
+        Cursor cursor = db.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME,null, null, null, null, null, null);
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    String str1 = cursor.getString(cursor.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU));
+                    String str2 = cursor.getString(cursor.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN));
+                    if (wordEn.equals(str2) || wordRu.equals(str1))
+                        counter++;
+                } while (cursor.moveToNext());
+            }
+        }
 
-        newWord.setText("");
-        translateWord.setText("");
-        addButton.setEnabled(false);
+        if (counter == 0) {
+
+            cv.put(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU, wordRu);
+            cv.put(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN, wordEn);
+            cv.put(TranslateReaderDB.TranslateTexts.COLUMN_MODE1, 0);
+            cv.put(TranslateReaderDB.TranslateTexts.COLUMN_MODE2, 0);
+            cv.put(TranslateReaderDB.TranslateTexts.COLUMN_MODE3, 0);
+            cv.put(TranslateReaderDB.TranslateTexts.COLUMN_MODE4, 0);
+
+            long rowID = db.insert(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME, null, cv);
+            Toast.makeText(this, "Add to learn as #" + rowID, Toast.LENGTH_SHORT).show();
+
+            newWord.setText("");
+            translateWord.setText("");
+            addButton.setEnabled(false);
+        } else {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle(R.string.wrong).setMessage("You already had this word.").setCancelable(false)
+                    .setIcon(R.drawable.wrong).setPositiveButton(R.string.next, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.cancel();
+                    newWord.setText("");
+                    translateWord.setText("");
+                    addButton.setEnabled(false);
+
+                }
+            });
+
+            AlertDialog alert = builder.create();
+            alert.show();
+
+        }
     }
 
     @OnClick(R.id.button_get_translate) void getTranslate() {
