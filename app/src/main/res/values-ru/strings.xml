@@ -28,7 +28,6 @@
     <string name="mode2">Перевод -\n  Слово</string>
     <string name="mode3"> Точный \nПеревод</string>
     <string name="mode4">По буквам</string>
-    <string name="title_activity_our_dictionary">Тренировка</string>
     <string name="title_activity_about">О приложении</string>
     <string name="title_activity_settings">Настройки</string>>
     <string name="mode3_head">Точный перевод</string>
@@ -37,7 +36,7 @@
     <string name="show">Показать</string>
     <string name="other">Дополнительно</string>
     <string name="write_to_author">Помощь разработчика</string>
-    <string name="trainee_modes">Тренировка</string>
+    <string name="trainee_modes">Easy English</string>
     <string name="result">Результат!</string>
     <string name="you_have">"Вы набрали "</string>
     <string name="correct_answers">" правильных ответов."</string>
@@ -45,4 +44,5 @@
     <string name="this_mode">Этот режим</string>
     <string name="wrong">Ошибка!</string>
     <string name="next">Далее</string>
+    <string name="go">GO</string>
 </resources>
