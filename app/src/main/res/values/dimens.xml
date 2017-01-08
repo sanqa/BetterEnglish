@@ -42,6 +42,11 @@
     <dimen name="directly_text_size">20dp</dimen>
     <dimen name="directly_word_size">30dp</dimen>
     <dimen name="directly_margin_button">15dp</dimen>
+    <dimen name="progress_button_marginTop">15dp</dimen>
+    <dimen name="progress_margin_side">40dp</dimen>
+    <dimen name="progress_button_textSize">15sp</dimen>
+    <dimen name="learned_card_height">80dp</dimen>
+    <dimen name="learned_card_margin_side">40dp</dimen>
 
 </resources>
 

@@ -34,13 +34,12 @@ public class ShowLearnedWordsActivity extends AppCompatActivity {
 
         ArrayList<String> myWords = getWords();
         ArrayList<String> myTranslates = getTranslates();
-        ArrayList<String> myDates = getDates();
 
 
         layoutManager = new LinearLayoutManager(this); //осуществляем подключение менеджера к нашему списку
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new StudyWordsAdapter(myWords, myTranslates, myDates); //то же самое делаем с адаптером
+        adapter = new StudyWordsAdapter(myWords, myTranslates); //то же самое делаем с адаптером
         recyclerView.setAdapter(adapter);
     }
 
@@ -77,23 +76,5 @@ public class ShowLearnedWordsActivity extends AppCompatActivity {
 
         return mTrans;
     }
-
-    private ArrayList<String> getDates() {
-        ArrayList<String> mDates = new ArrayList<>();
-
-        SQLiteDatabase database = dbHelper.getWritableDatabase();
-        Cursor cursor = database.query(TranslateReaderDB.LearnedWords.TABLE_LEARNED_WORDS_NAME,null, null, null, null, null, null);
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                do {
-                    mDates.add(cursor.getString(cursor.getColumnIndex(TranslateReaderDB.LearnedWords.COLUMN_DATE)));
-                } while (cursor.moveToNext());
-            }
-        }
-
-
-        return mDates;
-    }
-
 
 }

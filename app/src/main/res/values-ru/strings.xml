@@ -33,7 +33,7 @@
     <string name="mode3_head">Точный перевод</string>
     <string name="submit_button">Подтвердить</string>
     <string name="learned_words">Изученные слова</string>
-    <string name="show">Показать</string>
+    <string name="show">Показать изученные слова</string>
     <string name="other">Дополнительно</string>
     <string name="write_to_author">Помощь разработчика</string>
     <string name="trainee_modes">Easy English</string>

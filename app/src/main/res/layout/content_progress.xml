@@ -14,11 +14,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="140dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:gravity="center"
@@ -26,9 +27,9 @@
             android:textSize="@dimen/progress_activity_text_size" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/progress_margin_visual"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -61,11 +62,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="140dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/progress_margin_visual"
             android:gravity="center"
@@ -76,9 +78,10 @@
         <ProgressBar
             android:id="@+id/progress_progress_bar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="@dimen/progress_bar_width"
-            android:layout_height="@dimen/progress_bar_height"
-            android:layout_margin="@dimen/progress_margin_visual" />
+            android:layout_width="0dp"
+            android:layout_marginRight="@dimen/progress_margin_visual"
+            android:layout_weight="1"
+            android:layout_height="@dimen/progress_bar_height" />
 
 
     </LinearLayout>
@@ -86,22 +89,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:layout_marginTop="@dimen/progress_button_marginTop">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/settings_margin"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:text="@string/learned_words" />
+
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/settings_margin"
+            android:background="@color/mode1"
+            android:textColor="@color/our_background1"
+            android:textSize="@dimen/progress_button_textSize"
             android:layout_weight="1"
             android:onClick="showLearned"
+            android:layout_marginLeft="@dimen/progress_margin_side"
+            android:layout_marginRight="@dimen/progress_margin_side"
             android:text="@string/show" />
 
     </LinearLayout>

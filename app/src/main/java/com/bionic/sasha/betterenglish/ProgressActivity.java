@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bionic.sasha.betterenglish.db.TranslateDBHelper;
@@ -34,6 +35,8 @@ public class ProgressActivity extends AppCompatActivity
     @BindView(R.id.current_all_learn)
     TextView currentLearn;
 
+    @BindView(R.id.progress_progress_bar)
+    ProgressBar progress;
 
     TranslateDBHelper dbHelper;
 
@@ -60,14 +63,11 @@ public class ProgressActivity extends AppCompatActivity
         long cnt  = DatabaseUtils.queryNumEntries(database, TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME);
         allWords.setText("" + cnt);
 
-        Calendar calendar = Calendar.getInstance();
-        int pos = calendar.get(Calendar.MONTH);
-
-
-
-
         long current = DatabaseUtils.queryNumEntries(database, TranslateReaderDB.LearnedWords.TABLE_LEARNED_WORDS_NAME);
         currentLearn.setText("" + current);
+
+        progress.setMax((int) cnt);
+        progress.setProgress((int) current);
     }
 
     @Override

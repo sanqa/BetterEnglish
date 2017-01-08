@@ -45,7 +45,7 @@
     <string name="mode3_head">Translate the word</string>
     <string name="submit_button">SUBMIT</string>
     <string name="learned_words">Learned words</string>
-    <string name="show">Show</string>
+    <string name="show">Show learned words</string>
     <string name="write_to_author">Write to author</string>
     <string name="trainee_modes">Trainee Modes</string>
     <string name="result">Result!</string>
