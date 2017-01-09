@@ -49,19 +49,21 @@
         <activity
             android:name=".traineeModes.TranslateWordActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppGreenTheme"/>
+            android:theme="@style/AppGreenTheme" />
         <activity
             android:name=".traineeModes.WordTranslateActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".traineeModes.DirectlyModeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppPurpleTheme"/>
+            android:theme="@style/AppPurpleTheme" />
         <activity
             android:name=".traineeModes.LettersModeActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ShowLearnedWordsActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ShowLearnedWordsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ArrayWordsActivity"></activity>
     </application>
 
 </manifest>

@@ -56,6 +56,8 @@
     <string name="wrong">Wrong</string>
     <string name="next">Next</string>
     <string name="go">GO</string>
+    <string name="add_words_from_list">Add words from list</string>
+    <string name="get_translation_here">Get translation here...</string>
 
 
 </resources>

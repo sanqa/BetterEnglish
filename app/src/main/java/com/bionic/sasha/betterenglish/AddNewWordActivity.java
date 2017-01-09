@@ -91,7 +91,7 @@ public class AddNewWordActivity extends AppCompatActivity
                 do {
                     String str1 = cursor.getString(cursor.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU));
                     String str2 = cursor.getString(cursor.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN));
-                    if (wordEn.equals(str2) || wordRu.equals(str1))
+                    if (wordEn.equals(str2) || wordRu.equals(str1) || str1.length() < 2 || str2.length() < 2)
                         counter++;
                 } while (cursor.moveToNext());
             }
@@ -255,5 +255,10 @@ public class AddNewWordActivity extends AppCompatActivity
     @Override
     public void onFailure(Call<Translate> call, Throwable t) {
         Log.e("Some mistake", t.toString());
+    }
+
+    public void openArrayWords(View view) {
+        Intent intent = new Intent(this, ArrayWordsActivity.class);
+        startActivity(intent);
     }
 }

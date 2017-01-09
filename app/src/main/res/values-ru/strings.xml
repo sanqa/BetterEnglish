@@ -45,4 +45,6 @@
     <string name="wrong">Ошибка!</string>
     <string name="next">Далее</string>
     <string name="go">GO</string>
+    <string name="add_words_from_list">Добавить слова из списка</string>
+    <string name="get_translation_here">Получите перевод...</string>
 </resources>

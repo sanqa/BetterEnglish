@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.bionic.sasha.betterenglish.ShowLearnedWordsActivity">
+    tools:context="com.bionic.sasha.betterenglish.ArrayWordsActivity">
 
 
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/learned_recycler_view"
+        android:id="@+id/array_recycler_view"
         />
 
 
