@@ -51,70 +51,70 @@ public class TranslateReaderDB {
             + ArrayWords.COLUMN_WORD_EN + " TEXT " + " )";
 
     public static String[] arr = {
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (1, 'accuse', 'обвинять');",//accuse — обвинять
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (2, 'admire', 'восхищаться');",//admire — восхищаться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (3, 'adore', 'обожать');",//adore — обожать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (4, 'agitate', 'волновать');",//agitate — волновать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (5, 'be angry', 'быть сердитым');",//be angry — быть сердитым
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (6, 'be impudent', 'быть нахальным');",//be impudent — быть нахальным
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (7, 'be insolent', 'быть наглым');",//be insolent — быть наглым
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (8, 'be lazy', 'лениться');",//be lazy — лениться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (9, 'be modest', 'скромничать');",//be modest — скромничать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (10, 'be proud', 'гордиться');",//be proud — гордиться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (11, 'be shy', 'робеть');",//be shy — робеть
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (12, 'be sure', 'быть уверенным');",//be sure — быть уверенным
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (13, 'be tired', 'уставать');",//be tired — уставать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (14, 'bear', 'вынести');",//bear — вынести
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (15, 'believe', 'верить');",//believe — верить
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (16, 'boast', 'хвастаться');",//boast — хвастаться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (17, 'calm down', 'успокоиться');",//calm down — успокоиться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (18, 'care', 'заботиться');",//care — заботиться//
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (19, 'comfort', 'утешать');",//comfort — утешать//
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (20, 'complain', 'жаловаться');",//complain — жаловаться//
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (21, 'cry', 'плакать');",//cry — плакать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (22, 'dislike', 'не нравиться');",//dislike — не нравиться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (23, 'disregard', 'не обращать внимания');",//disregard — не обращать внимания
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (24, 'doubt', 'сомневаться');",//doubt — сомневаться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (25, 'endure', 'терпеть');",//endure — терпеть
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (26, 'enjoy', 'наслаждаться');",//enjoy — наслаждаться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (27, 'envy', 'завидовать');",//envy — завидовать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (28, 'esteem', 'ценить');",//esteem — ценить
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (29, 'excite', 'возбуждать');",//excite — возбуждать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (30, 'fall in love', 'влюбиться');",//fall in love — влюбиться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (31, 'fear', 'бояться');",//fear — бояться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (32, 'feel', 'чувствовать');",//feel — чувствовать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (33, 'frighten', 'пугать');",//frighten — пугать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (34, 'get tired', 'уставать');",//get tired — уставать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (35, 'give up', 'сдаваться');",//give up — сдаваться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (36, 'hate', 'ненавидеть');",//hate — ненавидеть
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (37, 'hesitate', 'колебаться');",//hesitate — колебаться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (38, 'hope', 'надеяться');",//hope — надеяться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (39, 'hurt', 'обижать');",//hurt — обижать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (40, 'laugh', 'смеяться');",//laugh — смеяться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (41, 'like', 'нравиться');",//like — нравиться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (42, 'love', 'любить');",//love — любить
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (43, 'move', 'глубоко тронуть');",//move — глубоко тронуть
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (44, 'neglect', 'не заботиться');",//neglect — не заботиться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (45, 'offend', 'оскорблять');",//offend — оскорблять
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (46, 'praise', 'хвалить');",//praise — хвалить
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (47, 'prefer', 'предпочитать');",//prefer — предпочитать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (48, 'put on airs', 'зазнаваться');",//put on airs — зазнаваться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (49, 'quarrel', 'ссориться');",//quarrel — ссориться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (50, 'rejoice', 'радоваться');",//rejoice — радоваться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (51, 'rely', 'полагаться');",//rely — полагаться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (52, 'reproach', 'упрекать');",//reproach — упрекать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (53, 'respect', 'уважать');",//respect — уважать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (54, 'scold', 'бранить');",//scold — бранить
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (55, 'shirk', 'увиливать');",//shirk — увиливать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (56, 'smile', 'улыбаться');",//smile — улыбаться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (57, 'stand', 'выстоять');",//stand — выстоять
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (58, 'suffer', 'страдать');",//suffer — страдать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (59, 'surprise', 'удивлять');",//surprise — удивлять
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (60, 'surrender', 'капитулировать');",//surrender — капитулировать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (61, 'suspect', 'подозревать');",//suspect — подозревать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (62, 'weep', 'рыдать');",//weep — рыдать
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (63, 'worry', 'беспокоиться');",//worry — беспокоиться
-            "INSERT INTO " + ArrayWords.TABLE_ARRAY_WORDS + " VALUES (64, 'wound', 'ранить');"//wound — ранить
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (1, 'accuse', 'обвинять', 0, 0, 0, 0);",//accuse — обвинять
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (2, 'admire', 'восхищаться', 0, 0, 0, 0);",//admire — восхищаться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (3, 'adore', 'обожать', 0, 0, 0, 0);",//adore — обожать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (4, 'agitate', 'волновать', 0, 0, 0, 0);",//agitate — волновать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (5, 'be angry', 'быть сердитым', 0, 0, 0, 0);",//be angry — быть сердитым
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (6, 'be impudent', 'быть нахальным', 0, 0, 0, 0);",//be impudent — быть нахальным
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (7, 'be insolent', 'быть наглым', 0, 0, 0, 0);",//be insolent — быть наглым
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (8, 'be lazy', 'лениться', 0, 0, 0, 0);",//be lazy — лениться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (9, 'be modest', 'скромничать', 0, 0, 0, 0);",//be modest — скромничать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (10, 'be proud', 'гордиться', 0, 0, 0, 0);",//be proud — гордиться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (11, 'be shy', 'робеть', 0, 0, 0, 0);",//be shy — робеть
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (12, 'be sure', 'быть уверенным', 0, 0, 0, 0);",//be sure — быть уверенным
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (13, 'be tired', 'уставать', 0, 0, 0, 0);",//be tired — уставать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (14, 'bear', 'вынести', 0, 0, 0, 0);",//bear — вынести
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (15, 'believe', 'верить', 0, 0, 0, 0);",//believe — верить
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (16, 'boast', 'хвастаться', 0, 0, 0, 0);",//boast — хвастаться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (17, 'calm down', 'успокоиться', 0, 0, 0, 0);",//calm down — успокоиться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (18, 'care', 'заботиться', 0, 0, 0, 0);",//care — заботиться//
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (19, 'comfort', 'утешать', 0, 0, 0, 0);",//comfort — утешать//
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (20, 'complain', 'жаловаться', 0, 0, 0, 0);",//complain — жаловаться//
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (21, 'cry', 'плакать', 0, 0, 0, 0);",//cry — плакать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (22, 'dislike', 'не нравиться', 0, 0, 0, 0);",//dislike — не нравиться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (23, 'disregard', 'не обращать внимания', 0, 0, 0, 0);",//disregard — не обращать внимания
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (24, 'doubt', 'сомневаться', 0, 0, 0, 0);",//doubt — сомневаться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (25, 'endure', 'терпеть', 0, 0, 0, 0);",//endure — терпеть
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (26, 'enjoy', 'наслаждаться', 0, 0, 0, 0);",//enjoy — наслаждаться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (27, 'envy', 'завидовать', 0, 0, 0, 0);",//envy — завидовать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (28, 'esteem', 'ценить', 0, 0, 0, 0);",//esteem — ценить
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (29, 'excite', 'возбуждать', 0, 0, 0, 0);",//excite — возбуждать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (30, 'fall in love', 'влюбиться', 0, 0, 0, 0);",//fall in love — влюбиться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (31, 'fear', 'бояться', 0, 0, 0, 0);",//fear — бояться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (32, 'feel', 'чувствовать', 0, 0, 0, 0);",//feel — чувствовать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (33, 'frighten', 'пугать', 0, 0, 0, 0);",//frighten — пугать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (34, 'get tired', 'уставать', 0, 0, 0, 0);",//get tired — уставать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (35, 'give up', 'сдаваться', 0, 0, 0, 0);",//give up — сдаваться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (36, 'hate', 'ненавидеть', 0, 0, 0, 0);",//hate — ненавидеть
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (37, 'hesitate', 'колебаться', 0, 0, 0, 0);",//hesitate — колебаться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (38, 'hope', 'надеяться', 0, 0, 0, 0);",//hope — надеяться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (39, 'hurt', 'обижать', 0, 0, 0, 0);",//hurt — обижать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (40, 'laugh', 'смеяться', 0, 0, 0, 0);",//laugh — смеяться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (41, 'like', 'нравиться', 0, 0, 0, 0);",//like — нравиться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (42, 'love', 'любить', 0, 0, 0, 0);",//love — любить
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (43, 'move', 'глубоко тронуть', 0, 0, 0, 0);",//move — глубоко тронуть
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (44, 'neglect', 'не заботиться', 0, 0, 0, 0);",//neglect — не заботиться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (45, 'offend', 'оскорблять', 0, 0, 0, 0);",//offend — оскорблять
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (46, 'praise', 'хвалить', 0, 0, 0, 0);",//praise — хвалить
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (47, 'prefer', 'предпочитать', 0, 0, 0, 0);",//prefer — предпочитать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (48, 'put on airs', 'зазнаваться', 0, 0, 0, 0);",//put on airs — зазнаваться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (49, 'quarrel', 'ссориться', 0, 0, 0, 0);",//quarrel — ссориться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (50, 'rejoice', 'радоваться', 0, 0, 0, 0);",//rejoice — радоваться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (51, 'rely', 'полагаться', 0, 0, 0, 0);",//rely — полагаться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (52, 'reproach', 'упрекать', 0, 0, 0, 0);",//reproach — упрекать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (53, 'respect', 'уважать', 0, 0, 0, 0);",//respect — уважать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (54, 'scold', 'бранить', 0, 0, 0, 0);",//scold — бранить
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (55, 'shirk', 'увиливать', 0, 0, 0, 0);",//shirk — увиливать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (56, 'smile', 'улыбаться', 0, 0, 0, 0);",//smile — улыбаться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (57, 'stand', 'выстоять', 0, 0, 0, 0);",//stand — выстоять
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (58, 'suffer', 'страдать', 0, 0, 0, 0);",//suffer — страдать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (59, 'surprise', 'удивлять', 0, 0, 0, 0);",//surprise — удивлять
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (60, 'surrender', 'капитулировать', 0, 0, 0, 0);",//surrender — капитулировать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (61, 'suspect', 'подозревать', 0, 0, 0, 0);",//suspect — подозревать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (62, 'weep', 'рыдать', 0, 0, 0, 0);",//weep — рыдать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (63, 'worry', 'беспокоиться', 0, 0, 0, 0);",//worry — беспокоиться
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (64, 'wound', 'ранить', 0, 0, 0, 0);"//wound — ранить
 
     };
 
