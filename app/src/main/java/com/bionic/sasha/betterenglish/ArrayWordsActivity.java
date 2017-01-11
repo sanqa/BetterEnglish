@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.bionic.sasha.betterenglish.db.TranslateDBHelper;
 import com.bionic.sasha.betterenglish.db.TranslateReaderDB;
@@ -33,13 +34,12 @@ public class ArrayWordsActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.array_recycler_view);
 
         ArrayList<String> myWords = getWords();
-        ArrayList<String> myTranslates = getTranslates();
 
 
         layoutManager = new LinearLayoutManager(this); //осуществляем подключение менеджера к нашему списку
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new ArrayWordsAdapter(myWords, myTranslates); //то же самое делаем с адаптером
+        adapter = new ArrayWordsAdapter(myWords); //то же самое делаем с адаптером
         recyclerView.setAdapter(adapter);
     }
 
@@ -47,11 +47,11 @@ public class ArrayWordsActivity extends AppCompatActivity {
         ArrayList<String> mWords = new ArrayList<>();
 
         SQLiteDatabase database = dbHelper.getWritableDatabase();
-        Cursor cursor = database.query(TranslateReaderDB.ArrayWords.TABLE_ARRAY_WORDS,null, null, null, null, null, null);
+        Cursor cursor = database.query(TranslateReaderDB.FlagTable.TABLE_FLAG,null, " flag = 1", null, null, null, null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    mWords.add(cursor.getString(cursor.getColumnIndex(TranslateReaderDB.ArrayWords.COLUMN_WORD_RU)));
+                    mWords.add(cursor.getString(cursor.getColumnIndex(TranslateReaderDB.FlagTable.COLUMN_NAME)));
                 } while (cursor.moveToNext());
             }
         }
@@ -60,20 +60,9 @@ public class ArrayWordsActivity extends AppCompatActivity {
         return mWords;
     }
 
-    private ArrayList<String> getTranslates() {
-        ArrayList<String> mWords = new ArrayList<>();
-
-        SQLiteDatabase database = dbHelper.getWritableDatabase();
-        Cursor cursor = database.query(TranslateReaderDB.ArrayWords.TABLE_ARRAY_WORDS,null, null, null, null, null, null);
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                do {
-                    mWords.add(cursor.getString(cursor.getColumnIndex(TranslateReaderDB.ArrayWords.COLUMN_WORD_EN)));
-                } while (cursor.moveToNext());
-            }
-        }
 
 
-        return mWords;
+    public void showWords(View view) {
+
     }
 }

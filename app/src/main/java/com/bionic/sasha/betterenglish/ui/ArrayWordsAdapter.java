@@ -23,19 +23,16 @@ public class ArrayWordsAdapter extends RecyclerView.Adapter<ArrayWordsAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView wordRu;
-        TextView wordEn;
 
         public ViewHolder(View v) {
             super(v);
             wordRu = (TextView) v.findViewById(R.id.array_word);
-            wordEn = (TextView) v.findViewById(R.id.array_translate);
 
         }
     }
 
-    public ArrayWordsAdapter(ArrayList<String> words, ArrayList<String> translates) {
+    public ArrayWordsAdapter(ArrayList<String> words) {
         this.words = words;
-        this.translates = translates;
     }
 
     @Override
@@ -51,7 +48,6 @@ public class ArrayWordsAdapter extends RecyclerView.Adapter<ArrayWordsAdapter.Vi
     @Override
     public void onBindViewHolder(ArrayWordsAdapter.ViewHolder holder, int position) {
         holder.wordRu.setText(words.get(position));
-        holder.wordEn.setText(translates.get(position));
     }
 
     @Override

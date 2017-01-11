@@ -32,28 +32,28 @@
                 android:layout_weight="1"
                 android:buttonTint="@color/mode1" />
 
+
+            <TextView
+                android:id="@+id/array_word"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:text="word"
+                android:textColor="@color/mode1"
+                android:textSize="@dimen/array_word_card_text_size" />
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="6"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_weight="2">
 
-                <TextView
-                    android:id="@+id/array_word"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="word"
-                    android:textColor="@color/mode1"
-                    android:textSize="@dimen/array_word_card_text_size" />
-
-                <TextView
-                    android:id="@+id/array_translate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/translate"
-                    android:textColor="@color/mode1"
-                    android:textSize="@dimen/array_word_card_text_size" />
+                <ImageButton
+                    android:layout_width="@dimen/array_image_size"
+                    android:layout_height="@dimen/array_image_size"
+                    android:src="@mipmap/icon_show"
+                    android:background="@mipmap/icon_show"
+                    android:onClick="showWords"/>
 
             </LinearLayout>
 

@@ -49,6 +49,7 @@
     <dimen name="learned_card_margin_side">40dp</dimen>
     <dimen name="array_word_card_text_size">25sp</dimen>
     <dimen name="add_new_word_button_margin">15dp</dimen>
+    <dimen name="array_image_size">48dp</dimen>
 
 </resources>
 

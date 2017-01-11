@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class TranslateDBHelper extends SQLiteOpenHelper {
 
-    public static final int DB_VERSION = 6;
+    public static final int DB_VERSION = 8;
     public static final String DB_NAME = "EasyEnglish.db";
 
 
@@ -23,9 +23,38 @@ public class TranslateDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(TranslateReaderDB.CREATE_ENTRIES);
         sqLiteDatabase.execSQL(TranslateReaderDB.CT2);
-        sqLiteDatabase.execSQL(TranslateReaderDB.ce3);
 
         for (String i : TranslateReaderDB.arr){
+            sqLiteDatabase.execSQL(i);
+        }
+
+        sqLiteDatabase.execSQL(TranslateReaderDB.ce3);
+        for (String i : TranslateReaderDB.arr3){
+            sqLiteDatabase.execSQL(i);
+        }
+
+        sqLiteDatabase.execSQL(TranslateReaderDB.ce4);
+        for (String i : TranslateReaderDB.arr4){
+            sqLiteDatabase.execSQL(i);
+        }
+
+        sqLiteDatabase.execSQL(TranslateReaderDB.ce5);
+        for (String i : TranslateReaderDB.arr5){
+            sqLiteDatabase.execSQL(i);
+        }
+
+        sqLiteDatabase.execSQL(TranslateReaderDB.ce6);
+        for (String i : TranslateReaderDB.arr6){
+            sqLiteDatabase.execSQL(i);
+        }
+
+        sqLiteDatabase.execSQL(TranslateReaderDB.ce7);
+        for (String i : TranslateReaderDB.arr7){
+            sqLiteDatabase.execSQL(i);
+        }
+
+        sqLiteDatabase.execSQL(TranslateReaderDB.ce8);
+        for (String i : TranslateReaderDB.arr8){
             sqLiteDatabase.execSQL(i);
         }
     }
@@ -35,6 +64,11 @@ public class TranslateDBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(TranslateReaderDB.DELETE_ENTRIES);
         sqLiteDatabase.execSQL(TranslateReaderDB.DE2);
         sqLiteDatabase.execSQL(TranslateReaderDB.DE3);
+        sqLiteDatabase.execSQL(TranslateReaderDB.DE4);
+        sqLiteDatabase.execSQL(TranslateReaderDB.DE5);
+        sqLiteDatabase.execSQL(TranslateReaderDB.DE6);
+        sqLiteDatabase.execSQL(TranslateReaderDB.DE7);
+        sqLiteDatabase.execSQL(TranslateReaderDB.DE8);
         onCreate(sqLiteDatabase);
     }
 
