@@ -71,6 +71,9 @@ public class TranslateWordActivity extends AppCompatActivity {
     @BindView(R.id.btnSpeech)
     Button btnSpeech;
 
+    @BindView(R.id.symb)
+    TextView symb;
+
     private TranslateDBHelper dbHelper;
 
     @Override
@@ -85,6 +88,9 @@ public class TranslateWordActivity extends AppCompatActivity {
         buttonTwo.setBackgroundResource(R.color.mode2);
         buttonThree.setBackgroundResource(R.color.mode2);
         buttonFour.setBackgroundResource(R.color.mode2);
+        traineeWords.setTextColor(getResources().getColor(R.color.mode2));
+        allWords.setTextColor(getResources().getColor(R.color.mode2));
+        symb.setTextColor(getResources().getColor(R.color.mode2));
 
         dbHelper = new TranslateDBHelper(this);
 
