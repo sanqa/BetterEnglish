@@ -88,9 +88,9 @@ public class TranslateWordActivity extends AppCompatActivity {
         buttonTwo.setBackgroundResource(R.color.mode2);
         buttonThree.setBackgroundResource(R.color.mode2);
         buttonFour.setBackgroundResource(R.color.mode2);
-        traineeWords.setTextColor(getResources().getColor(R.color.mode2));
-        allWords.setTextColor(getResources().getColor(R.color.mode2));
-        symb.setTextColor(getResources().getColor(R.color.mode2));
+        traineeWords.setTextColor(getResources().getColor(R.color.mode2Dark));
+        allWords.setTextColor(getResources().getColor(R.color.mode2Dark));
+        symb.setTextColor(getResources().getColor(R.color.mode2Dark));
 
         dbHelper = new TranslateDBHelper(this);
 
