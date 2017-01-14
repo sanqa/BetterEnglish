@@ -28,15 +28,15 @@ public class TranslateReaderDB {
         public static final String COLUMN_DATE = "date";
     }
 
-    public class DeseaseWords implements BaseColumns {
-        public static final String TABLE_DESEASE_WORDS = "Болезни";
+    public class DiseaseWords implements BaseColumns {
+        public static final String TABLE_DESEASE_WORDS = "Diseases";
         public static final String _ID = "awordsid";
         public static final String COLUMN_WORD_RU = "wordru";
         public static final String COLUMN_WORD_EN = "worden";
     }
 
     public class EmotionsWords implements BaseColumns {
-        public static final String TABLE_EMOTIONS_WORDS = "Эмоции";
+        public static final String TABLE_EMOTIONS_WORDS = "Emotions";
         public static final String _ID = "awordsid";
         public static final String COLUMN_WORD_RU = "wordru";
         public static final String COLUMN_WORD_EN = "worden";
@@ -44,21 +44,21 @@ public class TranslateReaderDB {
     }
 
     public class WearsWords implements BaseColumns {
-        public static final String TABLE_WEARS_WORDS = "Одежда";
+        public static final String TABLE_WEARS_WORDS = "Wears";
         public static final String _ID = "awordsid";
         public static final String COLUMN_WORD_RU = "wordru";
         public static final String COLUMN_WORD_EN = "worden";
     }
 
     public class FoodWords implements BaseColumns {
-        public static final String TABLE_FOOD_WORDS = "Еда";
+        public static final String TABLE_FOOD_WORDS = "Food";
         public static final String _ID = "awordsid";
         public static final String COLUMN_WORD_RU = "wordru";
         public static final String COLUMN_WORD_EN = "worden";
     }
 
     public class FurnitureWords implements BaseColumns {
-        public static final String TABLE_FURNITURE_WORDS = "Мебель";
+        public static final String TABLE_FURNITURE_WORDS = "Furniture";
         public static final String _ID = "awordsid";
         public static final String COLUMN_WORD_RU = "wordru";
         public static final String COLUMN_WORD_EN = "worden";
@@ -118,7 +118,7 @@ public class TranslateReaderDB {
             "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (31, 'fear', 'бояться', 0, 0, 0, 0);",//fear — бояться
             "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (32, 'feel', 'чувствовать', 0, 0, 0, 0);",//feel — чувствовать
             "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (33, 'frighten', 'пугать', 0, 0, 0, 0);",//frighten — пугать
-            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (34, 'get tired', 'уставать', 0, 0, 0, 0);",//get tired — уставать
+            "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (34, 'solaсe', 'успокаивать', 0, 0, 0, 0);",//solaсe — успокаивать
             "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (35, 'give up', 'сдаваться', 0, 0, 0, 0);",//give up — сдаваться
             "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (36, 'hate', 'ненавидеть', 0, 0, 0, 0);",//hate — ненавидеть
             "INSERT INTO " + TranslateTexts.TABLE_NEW_WORD_NAME + " VALUES (37, 'hesitate', 'колебаться', 0, 0, 0, 0);",//hesitate — колебаться
@@ -152,79 +152,79 @@ public class TranslateReaderDB {
 
     };
 
-    public static String ce3 = "CREATE TABLE " + DeseaseWords.TABLE_DESEASE_WORDS + " ("
-            + DeseaseWords._ID + " INTEGER PRIMARY KEY, " + DeseaseWords.COLUMN_WORD_EN + " TEXT, "
-            + DeseaseWords.COLUMN_WORD_RU + " TEXT " + " )";
+    public static String ce3 = "CREATE TABLE " + DiseaseWords.TABLE_DESEASE_WORDS + " ("
+            + DiseaseWords._ID + " INTEGER PRIMARY KEY, " + DiseaseWords.COLUMN_WORD_EN + " TEXT, "
+            + DiseaseWords.COLUMN_WORD_RU + " TEXT " + " )";
 
     public static String[] arr3 = {
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (1, 'ache', 'боль');",    // ache  —  боль
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (2, 'allergy', 'аллергия');",    // allergy  —  аллергия
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (3, 'asthma', 'астма');",    // asthma  —  астма
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (4, 'bandage', 'бинт');",    // bandage  —  бинт
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (5, 'blood pressure', 'артериальное давление');",    // blood pressure  —  артериальное давление
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (6, 'boil', 'нарыв');",    // boil  —  нарыв
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (7, 'bronchitis', 'бронхит');",    // bronchitis  —  бронхит
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (8, 'bruise', 'синяк');",    // bruise  —  синяк
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (9, 'burn', 'ожог');",    // burn  —  ожог
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (10, 'cancer', 'рак');",    // cancer  —  рак
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (11, 'catch a cold', 'простужаться');",    // catch a cold  —  простужаться
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (12, 'cold', 'простуда');",    // cold  —  простуда
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (13, 'contagious', 'заразный');",    // contagious  —  заразный
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (14, 'cough', 'кашель');",    // cough  —  кашель
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (15, 'crutch', 'костыль');",    // crutch  —  костыль
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (16, 'cure', 'лечение');",    // cure  —  лечение
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (17, 'cut', 'порез');",    // cut  —  порез
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (18, 'diagnosis', 'диагноз');",    // diagnosis  —  диагноз
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (19, 'diarrhea', 'диарея');",    // diarrhea  —  диарея
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (20, 'disease', 'болезнь');",    // disease  —  болезнь
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (21, 'dose', 'доза');",    // dose  —  доза
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (22, 'drug', 'лекарственное средство');",    // drug  —  лекарственное средство
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (23, 'faint', 'падать в обморок');",    // faint  —  падать в обморок
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (24, 'fever', 'повышенная температура');",    // fever  —  повышенная температура
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (25, 'flu', 'грипп');",    // flu  —  грипп
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (26, 'fracture', 'перелом');",    // fracture  —  перелом
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (27, 'giddiness', 'головокружение');",    // giddiness  —  головокружение
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (28, 'headache', 'головная боль');",    // headache  —  головная боль
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (29, 'heart attack', 'сердечный приступ');",    // heart attack  —  сердечный приступ
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (30, 'illness', 'болезнь');",    // illness  —  болезнь
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (31, 'immunity', 'иммунитет');",    // immunity  —  иммунитет
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (32, 'incurable disease', 'неизлечимая болезнь');",    // incurable disease  —  неизлечимая болезнь
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (33, 'injection', 'укол');",    // injection  —  укол
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (34, 'injury', 'повреждение');",    // injury  —  повреждение
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (35, 'medicine', 'лекарство');",    // medicine  —  лекарство
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (36, 'nearsightedness', 'близорукость');",    // nearsightedness  —  близорукость
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (37, 'nervous breakdown', 'нервное расстройство');",    // nervous breakdown  —  нервное расстройство
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (38, 'ointment', 'мазь');",    // ointment  —  мазь
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (39, 'operation', 'операция');",    // operation  —  операция
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (40, 'pain', 'боль');",    // pain  —  боль
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (41, 'painkiller', 'болеутоляющее средство');",    // painkiller  —  болеутоляющее средство
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (42, 'perspiration', 'потливость');",    // perspiration  —  потливость
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (43, 'pharmacy', 'аптека');",    // pharmacy  —  аптека
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (44, 'pill', 'таблетка');",    // pill  —  таблетка
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (45, 'pimple', 'прыщ');",    // pimple  —  прыщ
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (46, 'plaster', 'пластырь');",    // plaster  —  пластырь
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (47, 'pulse', 'пульс');",    // pulse  —  пульс
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (48, 'pus', 'гной');",    // pus  —  гной
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (49, 'rash', 'сыпь');",    // rash  —  сыпь
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (50, 'recovery', 'выздоровление');",    // recovery  —  выздоровление
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (51, 'remedy', 'средство');",    // remedy  —  средство
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (52, 'sickness', 'тошнота');",    // sickness  —  тошнота
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (53, 'side-effect ', 'побочное действие');",    // side-effect  —  побочное действие
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (54, 'sore throat', 'больное горло');",    // sore throat  —  больное горло
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (55, 'stroke', 'инсульт');",    // stroke  —  инсульт
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (56, 'sunstroke', 'солнечный удар');",    // sunstroke  —  солнечный удар
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (57, 'surgery', 'хирургия');",    // surgery  —  хирургия
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (58, 'sweat', 'пот');",    // sweat  —  пот
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (59, 'symptom', 'симптом');",    // symptom  —  симптом
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (60, 'syringe', 'шприц');",    // syringe  —  шприц
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (61, 'therapy', 'терапия');",    // therapy  —  терапия
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (62, 'thermometer', 'термометр');",    // thermometer  —  термометр
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (63, 'toothache', 'зубная боль');",    // toothache  —  зубная боль
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (64, 'treatment', 'лечение');",    // treatment  —  лечение
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (65, 'ulcer', 'язва');",    // ulcer  —  язва
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (66, 'urine test', 'анализ мочи');",    // urine test  —  анализ мочи
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (67, 'wound', 'рана');",    // wound  —  рана
-        "INSERT INTO " + DeseaseWords.TABLE_DESEASE_WORDS + " VALUES (68, 'x-ray', 'рентген');"   // x-ray  —  рентген
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (1, 'ache', 'боль');",    // ache  —  боль
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (2, 'allergy', 'аллергия');",    // allergy  —  аллергия
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (3, 'asthma', 'астма');",    // asthma  —  астма
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (4, 'bandage', 'бинт');",    // bandage  —  бинт
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (5, 'blood pressure', 'артериальное давление');",    // blood pressure  —  артериальное давление
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (6, 'boil', 'нарыв');",    // boil  —  нарыв
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (7, 'bronchitis', 'бронхит');",    // bronchitis  —  бронхит
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (8, 'bruise', 'синяк');",    // bruise  —  синяк
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (9, 'burn', 'ожог');",    // burn  —  ожог
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (10, 'cancer', 'рак');",    // cancer  —  рак
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (11, 'catch a cold', 'простужаться');",    // catch a cold  —  простужаться
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (12, 'cold', 'простуда');",    // cold  —  простуда
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (13, 'contagious', 'заразный');",    // contagious  —  заразный
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (14, 'cough', 'кашель');",    // cough  —  кашель
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (15, 'crutch', 'костыль');",    // crutch  —  костыль
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (16, 'cure', 'лечение');",    // cure  —  лечение
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (17, 'cut', 'порез');",    // cut  —  порез
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (18, 'diagnosis', 'диагноз');",    // diagnosis  —  диагноз
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (19, 'diarrhea', 'диарея');",    // diarrhea  —  диарея
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (20, 'disease', 'болезнь');",    // disease  —  болезнь
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (21, 'dose', 'доза');",    // dose  —  доза
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (22, 'drug', 'лекарственное средство');",    // drug  —  лекарственное средство
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (23, 'faint', 'падать в обморок');",    // faint  —  падать в обморок
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (24, 'fever', 'повышенная температура');",    // fever  —  повышенная температура
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (25, 'flu', 'грипп');",    // flu  —  грипп
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (26, 'fracture', 'перелом');",    // fracture  —  перелом
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (27, 'giddiness', 'головокружение');",    // giddiness  —  головокружение
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (28, 'headache', 'головная боль');",    // headache  —  головная боль
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (29, 'heart attack', 'сердечный приступ');",    // heart attack  —  сердечный приступ
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (30, 'illness', 'болезнь');",    // illness  —  болезнь
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (31, 'immunity', 'иммунитет');",    // immunity  —  иммунитет
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (32, 'incurable disease', 'неизлечимая болезнь');",    // incurable disease  —  неизлечимая болезнь
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (33, 'injection', 'укол');",    // injection  —  укол
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (34, 'injury', 'повреждение');",    // injury  —  повреждение
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (35, 'medicine', 'лекарство');",    // medicine  —  лекарство
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (36, 'nearsightedness', 'близорукость');",    // nearsightedness  —  близорукость
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (37, 'nervous breakdown', 'нервное расстройство');",    // nervous breakdown  —  нервное расстройство
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (38, 'ointment', 'мазь');",    // ointment  —  мазь
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (39, 'operation', 'операция');",    // operation  —  операция
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (40, 'pain', 'боль');",    // pain  —  боль
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (41, 'painkiller', 'болеутоляющее средство');",    // painkiller  —  болеутоляющее средство
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (42, 'perspiration', 'потливость');",    // perspiration  —  потливость
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (43, 'pharmacy', 'аптека');",    // pharmacy  —  аптека
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (44, 'pill', 'таблетка');",    // pill  —  таблетка
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (45, 'pimple', 'прыщ');",    // pimple  —  прыщ
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (46, 'plaster', 'пластырь');",    // plaster  —  пластырь
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (47, 'pulse', 'пульс');",    // pulse  —  пульс
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (48, 'pus', 'гной');",    // pus  —  гной
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (49, 'rash', 'сыпь');",    // rash  —  сыпь
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (50, 'recovery', 'выздоровление');",    // recovery  —  выздоровление
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (51, 'remedy', 'средство');",    // remedy  —  средство
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (52, 'sickness', 'тошнота');",    // sickness  —  тошнота
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (53, 'side-effect ', 'побочное действие');",    // side-effect  —  побочное действие
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (54, 'sore throat', 'больное горло');",    // sore throat  —  больное горло
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (55, 'stroke', 'инсульт');",    // stroke  —  инсульт
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (56, 'sunstroke', 'солнечный удар');",    // sunstroke  —  солнечный удар
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (57, 'surgery', 'хирургия');",    // surgery  —  хирургия
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (58, 'sweat', 'пот');",    // sweat  —  пот
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (59, 'symptom', 'симптом');",    // symptom  —  симптом
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (60, 'syringe', 'шприц');",    // syringe  —  шприц
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (61, 'therapy', 'терапия');",    // therapy  —  терапия
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (62, 'thermometer', 'термометр');",    // thermometer  —  термометр
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (63, 'toothache', 'зубная боль');",    // toothache  —  зубная боль
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (64, 'treatment', 'лечение');",    // treatment  —  лечение
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (65, 'ulcer', 'язва');",    // ulcer  —  язва
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (66, 'urine test', 'анализ мочи');",    // urine test  —  анализ мочи
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (67, 'wound', 'рана');",    // wound  —  рана
+        "INSERT INTO " + DiseaseWords.TABLE_DESEASE_WORDS + " VALUES (68, 'x-ray', 'рентген');"   // x-ray  —  рентген
     };
 
 
@@ -666,14 +666,14 @@ public class TranslateReaderDB {
             "INSERT INTO " + FlagTable.TABLE_FLAG + " VALUES (1, '" + EmotionsWords.TABLE_EMOTIONS_WORDS + "', '1');",
             "INSERT INTO " + FlagTable.TABLE_FLAG + " VALUES (2, '" + FoodWords.TABLE_FOOD_WORDS + "', '1');",
             "INSERT INTO " + FlagTable.TABLE_FLAG + " VALUES (3, '" + FurnitureWords.TABLE_FURNITURE_WORDS + "', '1');",
-            "INSERT INTO " + FlagTable.TABLE_FLAG + " VALUES (4, '" + DeseaseWords.TABLE_DESEASE_WORDS + "', '1');",
+            "INSERT INTO " + FlagTable.TABLE_FLAG + " VALUES (4, '" + DiseaseWords.TABLE_DESEASE_WORDS + "', '1');",
             "INSERT INTO " + FlagTable.TABLE_FLAG + " VALUES (5, '" + WearsWords.TABLE_WEARS_WORDS + "', '1');",
     };
 
 
     public static String DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TranslateTexts.TABLE_NEW_WORD_NAME;
     public static String DE2 = "DROP TABLE IF EXISTS " + LearnedWords.TABLE_LEARNED_WORDS_NAME;
-    public static String DE3 = "DROP TABLE IF EXISTS " + DeseaseWords.TABLE_DESEASE_WORDS;
+    public static String DE3 = "DROP TABLE IF EXISTS " + DiseaseWords.TABLE_DESEASE_WORDS;
     public static String DE4 = "DROP TABLE IF EXISTS " + FoodWords.TABLE_FOOD_WORDS;
     public static String DE5 = "DROP TABLE IF EXISTS " + FurnitureWords.TABLE_FURNITURE_WORDS;
     public static String DE6 = "DROP TABLE IF EXISTS " + EmotionsWords.TABLE_EMOTIONS_WORDS;

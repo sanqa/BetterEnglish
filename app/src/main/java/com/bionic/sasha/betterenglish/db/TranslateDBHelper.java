@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class TranslateDBHelper extends SQLiteOpenHelper {
 
-    public static final int DB_VERSION = 9;
+    public static final int DB_VERSION = 10;
     public static final String DB_NAME = "EasyEnglish.db";
 
 
