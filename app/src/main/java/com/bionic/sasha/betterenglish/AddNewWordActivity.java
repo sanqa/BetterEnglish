@@ -74,11 +74,11 @@ public class AddNewWordActivity extends AppCompatActivity
         String wordRu;
         String wordEn;
         if (typeSpinner.getSelectedItemPosition() == 0){
-            wordRu = translateWord.getText().toString();
-            wordEn = newWord.getText().toString();
+            wordRu = translateWord.getText().toString().toLowerCase();
+            wordEn = newWord.getText().toString().toLowerCase();
         } else {
-            wordEn = translateWord.getText().toString();
-            wordRu = newWord.getText().toString();
+            wordEn = translateWord.getText().toString().toLowerCase();
+            wordRu = newWord.getText().toString().toLowerCase();
         }
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
