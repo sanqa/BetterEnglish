@@ -41,6 +41,9 @@ public class ShowLearnedWordsActivity extends AppCompatActivity {
 
         adapter = new StudyWordsAdapter(myWords, myTranslates); //то же самое делаем с адаптером
         recyclerView.setAdapter(adapter);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private ArrayList<String> getWords() {

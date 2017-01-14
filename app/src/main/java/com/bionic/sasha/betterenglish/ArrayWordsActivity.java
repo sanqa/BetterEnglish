@@ -2,6 +2,7 @@ package com.bionic.sasha.betterenglish;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -44,9 +45,21 @@ public class ArrayWordsActivity extends AppCompatActivity {
 
         adapter = new ArrayWordsAdapter(myWords, myNumbers); //то же самое делаем с адаптером
         recyclerView.setAdapter(adapter);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
 
+        if (id == android.R.id.home) {
+            NavUtils.navigateUpFromSameTask(this);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     private ArrayList<String> getCount() {
         ArrayList<String> mCount = new ArrayList<>();

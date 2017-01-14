@@ -71,7 +71,7 @@ public class ArrayWordsAdapter extends RecyclerView.Adapter<ArrayWordsAdapter.Vi
             @Override
             public void onClick(View view) {
                 switch (position){
-                    case 0:
+                    default:
                         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
 
                         builder.setTitle("Add").setMessage("Do you really want to study these words?").setCancelable(false)
@@ -90,8 +90,7 @@ public class ArrayWordsAdapter extends RecyclerView.Adapter<ArrayWordsAdapter.Vi
                         AlertDialog alert = builder.create();
                         alert.show();
                         break;
-                    default:
-                        break;
+
                 }
             }
         });
