@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.bionic.sasha.betterenglish.db.TranslateDBHelper;
@@ -43,6 +45,8 @@ public class ArrayWordsActivity extends AppCompatActivity {
         adapter = new ArrayWordsAdapter(myWords, myNumbers); //то же самое делаем с адаптером
         recyclerView.setAdapter(adapter);
     }
+
+
 
     private ArrayList<String> getCount() {
         ArrayList<String> mCount = new ArrayList<>();
@@ -84,11 +88,5 @@ public class ArrayWordsActivity extends AppCompatActivity {
 
 
         return mWords;
-    }
-
-
-
-    public void showWords(View view) {
-
     }
 }
