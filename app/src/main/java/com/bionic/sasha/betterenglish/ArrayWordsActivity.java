@@ -34,13 +34,39 @@ public class ArrayWordsActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.array_recycler_view);
 
         ArrayList<String> myWords = getWords();
+        ArrayList<String> myNumbers = getCount();
 
 
         layoutManager = new LinearLayoutManager(this); //осуществляем подключение менеджера к нашему списку
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new ArrayWordsAdapter(myWords); //то же самое делаем с адаптером
+        adapter = new ArrayWordsAdapter(myWords, myNumbers); //то же самое делаем с адаптером
         recyclerView.setAdapter(adapter);
+    }
+
+    private ArrayList<String> getCount() {
+        ArrayList<String> mCount = new ArrayList<>();
+
+        SQLiteDatabase database = dbHelper.getReadableDatabase();
+
+        ArrayList<String> myWords = getWords();
+        int size = myWords.size();
+
+
+        for (int i = 0; i < size; i++) {
+            int counter = 0;
+            Cursor cursor = database.query(myWords.get(i), null, null, null, null, null, null);
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    do {
+                        counter++;
+                    } while (cursor.moveToNext());
+                }
+            }
+            mCount.add(String.valueOf(counter));
+        }
+
+        return mCount;
     }
 
     private ArrayList<String> getWords() {

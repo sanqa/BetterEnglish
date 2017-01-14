@@ -47,4 +47,5 @@
     <string name="go">GO</string>
     <string name="add_words_from_list">Добавить слова из списка</string>
     <string name="get_translation_here">Получите перевод...</string>
+    <string name="words">Words</string>
 </resources>
