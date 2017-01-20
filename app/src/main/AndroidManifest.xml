@@ -62,13 +62,22 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ShowLearnedWordsActivity"
-            android:screenOrientation="portrait" >
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ProgressActivity"/>
-            </activity>
-        <activity android:name=".ArrayWordsActivity"
             android:screenOrientation="portrait">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".AddNewWordActivity"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ProgressActivity" />
         </activity>
+        <activity
+            android:name=".ArrayWordsActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AddNewWordActivity" />
+        </activity>
+        <activity
+            android:name=".InformationActivity"
+            android:label="@string/title_activity_information"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
