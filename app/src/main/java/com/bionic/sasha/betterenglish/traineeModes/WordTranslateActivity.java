@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.preference.PreferenceManager;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -42,11 +43,14 @@ import butterknife.ButterKnife;
 
 public class WordTranslateActivity extends AppCompatActivity {
 
+    private static final String SAVED_TEXT = "saved_count_settings";
     public int allCount;
     private int correctAnswers = 0;
     public int currentCount = 1;
+    SharedPreferences sp;
     public String answer = "";
     public String word = "";
+    public String[] settingsCount = {"10", "15", "20"};
 
 
     @BindView(R.id.trainee_card_layout)
@@ -89,7 +93,7 @@ public class WordTranslateActivity extends AppCompatActivity {
 
         dbHelper = new TranslateDBHelper(this);
 
-        allCount = 10; //количество изучений за один проход тренировки
+        allCount = Integer.parseInt(settingsCount[loadCount()]); //количество изучений за один проход тренировки
 
         traineeWords.setText("" + currentCount); // заполняю №текущего слова и предыдущий параметр
         allWords.setText("" + allCount);
@@ -114,6 +118,16 @@ public class WordTranslateActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private int loadCount(){
+        int position = 0;
+        sp = PreferenceManager.getDefaultSharedPreferences(this);
+        String savedText = sp.getString(SAVED_TEXT, "");
+        for (int i = 0; i < settingsCount.length; i++){
+            if (savedText.equals(settingsCount[i])) position = i;
+        }
+        return position;
     }
 
     /**

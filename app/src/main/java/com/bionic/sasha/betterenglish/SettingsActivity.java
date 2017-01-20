@@ -3,6 +3,7 @@ package com.bionic.sasha.betterenglish;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -21,9 +22,9 @@ import android.widget.Spinner;
 public class SettingsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    final String SAVED_TEXT = "saved_text";
+    private static final String SAVED_TEXT = "saved_count_settings";
 
-    String words_count[] = {"10", "15", "20", "25"};
+    String words_count[] = {"10", "15", "20"};
 
     Spinner spinner;
 
@@ -71,6 +72,23 @@ public class SettingsActivity extends AppCompatActivity
 
     }
 
+    private void saveText(String str){
+        sp = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor ed = sp.edit();
+        ed.putString(SAVED_TEXT, str);
+        ed.commit();
+    }
+
+    private int loadText(){
+        int position = 0;
+        sp = getPreferences(MODE_PRIVATE);
+        String savedText = sp.getString(SAVED_TEXT, "");
+        for (int i = 0; i < words_count.length; i++){
+            if (savedText.equals(words_count[i])) position = i;
+        }
+        return position;
+    }
+
     @Override
     public void onBackPressed() {
 
@@ -108,22 +126,7 @@ public class SettingsActivity extends AppCompatActivity
         return true;
     }
 
-    private void saveText(String str){
-        sp = getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor ed = sp.edit();
-        ed.putString(SAVED_TEXT, str);
-        ed.commit();
-    }
 
-    private int loadText(){
-        int position = 2;
-        sp = getPreferences(MODE_PRIVATE);
-        String savedText = sp.getString(SAVED_TEXT, "");
-        for (int i = 0; i < words_count.length; i++){
-            if (savedText.equals(words_count[i])) position = i;
-        }
-        return position;
-    }
 
 
 }
