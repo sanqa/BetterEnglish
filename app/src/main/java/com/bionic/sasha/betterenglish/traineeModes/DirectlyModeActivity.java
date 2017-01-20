@@ -3,8 +3,10 @@ package com.bionic.sasha.betterenglish.traineeModes;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,7 +34,9 @@ import static com.bionic.sasha.betterenglish.R.id.btnSubmit;
 
 public class DirectlyModeActivity extends AppCompatActivity {
 
+    private static final String SAVED_TEXT = "saved_count_settings";
     TranslateDBHelper dbHelper;
+
 
     public int allCount;
     private int correctAnswers = 0;
@@ -55,7 +59,9 @@ public class DirectlyModeActivity extends AppCompatActivity {
     @BindView(R.id.all_mode_3)
     TextView allWords3;
 
+    SharedPreferences sp;
 
+    String[] settingsCount = {"10", "15", "20"};
 
 
     @Override
@@ -67,12 +73,22 @@ public class DirectlyModeActivity extends AppCompatActivity {
 
         dbHelper = new TranslateDBHelper(this);
 
-        allCount = 10;
+        allCount = Integer.parseInt(settingsCount[loadCount()]);
 
         traineeWords3.setText(" " + currentCount);
         allWords3.setText(" " + allCount);
 
         answer = workingWithDB();
+    }
+
+    private int loadCount(){
+        int position = 0;
+        sp = PreferenceManager.getDefaultSharedPreferences(this);
+        String savedText = sp.getString(SAVED_TEXT, "");
+        for (int i = 0; i < settingsCount.length; i++){
+            if (savedText.equals(settingsCount[i])) position = i;
+        }
+        return position;
     }
 
     public String workingWithDB() {
