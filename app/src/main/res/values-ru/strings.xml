@@ -48,4 +48,16 @@
     <string name="add_words_from_list">Добавить слова из списка</string>
     <string name="get_translation_here">Получите перевод...</string>
     <string name="words">Words</string>
+    <string name="information_first_label">1. How to add new words?</string>
+    <string name="information_second_label">2. How to study words?</string>
+    <string name="info_third_label">3. Settings.</string>
+    <string name="info_context1">You have 2 different opportunities to add new words in your application. First of all you can choose mode (en-ru or ru_en) and type word. After you click button \'Translate\' you will get a translation of this word.</string>
+    <string name="info_context2">Also you can change the variant of translation. You should click on your translated word and change it as you want to study.</string>
+    <string name="info_context3">When you click button \'Add\' you append your word in application. But if you have already had this word, we don\'t let you add it one more time.</string>
+    <string name="info_context4">Second opportunity to add new words - it\'s use some sets of words which used in some specific themes. To do this you should click button which looks like in screen below.</string>
+    <string name="info_context5">When you press in this button, you can see and choose every set which you want. Press on the \'check mark\' and all of these word will be append.</string>
+    <string name="info_context6">To study your words you can choose one from your trainee words. At that time when you use this application you can use 3 modes. \'Word - Translate\', \'Translate - Word\', \'Input the word directly\'.</string>
+    <string name="info_context7">In different modes you have different rules how to study your words. You should click right variant of translation or type all word definitely right. But if you make a wrong answer, app shows you which was the correct answer.</string>
+    <string name="info_context8">In this screen you can change count of words which you want to study. Click on spinner and choose it.</string>
+    <string name="info_context9">If you have a question or you want to change in this application, you can write an email to developer. To do this, please click on button below.</string>
 </resources>

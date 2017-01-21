@@ -14,8 +14,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class InformationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    @OnClick (R.id.info_button) void send(){
+        Intent intent = new Intent(this, WriteAuthorActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +31,8 @@ public class InformationActivity extends AppCompatActivity
         setContentView(R.layout.activity_information);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ButterKnife.bind(this);
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -37,12 +47,7 @@ public class InformationActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+
     }
 
 
