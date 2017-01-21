@@ -44,7 +44,7 @@ public class TranslateReaderDB {
     }
 
     public class WearsWords implements BaseColumns {
-        public static final String TABLE_WEARS_WORDS = "Wears";
+        public static final String TABLE_WEARS_WORDS = "Clothes";
         public static final String _ID = "awordsid";
         public static final String COLUMN_WORD_RU = "wordru";
         public static final String COLUMN_WORD_EN = "worden";
