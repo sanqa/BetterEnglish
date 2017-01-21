@@ -31,12 +31,8 @@
                 android:title="@string/settings" />
             <item
                 android:id="@+id/nav_about"
-                android:icon="@android:drawable/ic_dialog_info"
+                android:icon="@android:drawable/ic_menu_help"
                 android:title="@string/about" />
-            <item
-                android:id="@+id/nav_ask_author"
-                android:title="@string/write_to_author"
-                android:icon="@android:drawable/ic_menu_help"/>
 
         </menu>
     </item>

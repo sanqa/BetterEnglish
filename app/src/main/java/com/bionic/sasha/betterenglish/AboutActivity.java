@@ -65,9 +65,6 @@ public class AboutActivity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_about) {
             //do nothing
-        } else if (id == R.id.nav_ask_author){
-            Intent intent = new Intent(this, WriteAuthorActivity.class);
-            startActivity(intent);
         }
 
 

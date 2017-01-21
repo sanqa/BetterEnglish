@@ -224,9 +224,6 @@ public class AddNewWordActivity extends AppCompatActivity
         } else if (id == R.id.nav_about) {
             Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_ask_author){
-            Intent intent = new Intent(this, WriteAuthorActivity.class);
-            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

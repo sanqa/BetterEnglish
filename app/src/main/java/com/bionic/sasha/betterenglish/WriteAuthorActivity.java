@@ -71,8 +71,6 @@ public class WriteAuthorActivity extends AppCompatActivity
         } else if (id == R.id.nav_about) {
             Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_ask_author){
-            //do nothing
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
