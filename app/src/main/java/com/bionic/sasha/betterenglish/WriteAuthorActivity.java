@@ -80,7 +80,7 @@ public class WriteAuthorActivity extends AppCompatActivity
 
     public void onSendMessage(View view) {
         String uriText =
-                "mailto:balyas.java@gmail.com" +
+                "mailto:sup.easy.eng95@gmail.com" +
                         "?subject=" + Uri.encode("Easy Enlish question") +
                         "&body=" + Uri.encode(String.valueOf(editsend.getText()));
 
@@ -89,5 +89,6 @@ public class WriteAuthorActivity extends AppCompatActivity
         Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
         sendIntent.setData(uri);
         startActivity(Intent.createChooser(sendIntent, "Send email"));
+        editsend.setText("");
     }
 }
