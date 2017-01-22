@@ -150,7 +150,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="title_activity_information">InformationActivity</string>
-    <string name="information">Information</string>
+    <string name="information">How to use</string>
     <string name="information_first_label">1. How to add new words?</string>
     <string name="information_second_label">2. How to study words?</string>
     <string name="info_third_label">3. Settings.</string>

@@ -22,11 +22,11 @@
     <string name="add">Добавить</string>
     <string name="progress_learned_label">Изучено : </string>
     <string name="your_level">Ваш уровень:</string>
-    <string name="learned_per_month">Learned at </string>
+    <string name="learned_per_month">Изучено в</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="mode1">Слово - \nПеревод</string>
-    <string name="mode2">Перевод -\n  Слово</string>
-    <string name="mode3"> Точный \nПеревод</string>
+    <string name="mode2">Перевод\n- Слово</string>
+    <string name="mode3">" Точный \n    Ввод"</string>
     <string name="mode4">По буквам</string>
     <string name="title_activity_about">О приложении</string>
     <string name="title_activity_settings">Настройки</string>>
@@ -47,7 +47,7 @@
     <string name="go">GO</string>
     <string name="add_words_from_list">Добавить слова из списка</string>
     <string name="get_translation_here">Получите перевод...</string>
-    <string name="words">Words</string>
+    <string name="words">Слов</string>
     <string name="information_first_label">1. Как добавить новое слово в приложение?</string>
     <string name="information_second_label">\"2. Как изучать слова?\"</string>
     <string name="info_third_label">3. Настройки.</string>
@@ -60,4 +60,6 @@
     <string name="info_context7">В разных режимах изучение слов происходит по разному. Вам вскгда нужно выбрать правильный вариант или абсолютно точно ввести слово. Но если вы вдруг ошиблись, то приложение подскажет вам правильный вариант.</string>
     <string name="info_context8">В меню настроек вы можете изменить количство слов для изучения за одну тренировку. Нажмите на выпадающий список и выберите наилучший вариант для вас.</string>
     <string name="info_context9">Если у вас остались вопросы или вы хотите предложить варианты улучшения приложения, то вы можете написать автору. Для этого нажмите кнопку ниже.</string>
+    <string name="title_activity_information">Инструнции</string>
+    <string name="information">Инструкции</string>
 </resources>
