@@ -62,4 +62,7 @@
     <string name="info_context9">Если у вас остались вопросы или вы хотите предложить варианты улучшения приложения, то вы можете написать автору. Для этого нажмите кнопку ниже.</string>
     <string name="title_activity_information">Инструнции</string>
     <string name="information">Инструкции</string>
+    <string name="toast_add_word_number">Добавлено слово №</string>
+    <string name="toast_same_word">У вас уже есть это слово.</string>
+    <string name="about_project_label">О приложении</string>
 </resources>

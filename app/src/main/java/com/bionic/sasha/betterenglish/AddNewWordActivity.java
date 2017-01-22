@@ -101,7 +101,7 @@ public class AddNewWordActivity extends AppCompatActivity
             cv.put(TranslateReaderDB.TranslateTexts.COLUMN_MODE4, 0);
 
             long rowID = db.insert(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME, null, cv);
-            Toast.makeText(this, "Add to learn as #" + rowID, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_add_word_number) + rowID, Toast.LENGTH_SHORT).show();
 
             newWord.setText("");
             translateWord.setText("");
@@ -110,7 +110,7 @@ public class AddNewWordActivity extends AppCompatActivity
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-            builder.setTitle(R.string.wrong).setMessage("You already had this word.").setCancelable(false)
+            builder.setTitle(R.string.wrong).setMessage(R.string.toast_same_word).setCancelable(false)
                     .setIcon(R.drawable.wrong).setPositiveButton(R.string.next, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {

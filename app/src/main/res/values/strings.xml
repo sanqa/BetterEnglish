@@ -163,6 +163,8 @@
     <string name="info_context7">In different modes you have different rules how to study your words. You should click right variant of translation or type all word definitely right. But if you make a wrong answer, app shows you which was the correct answer.</string>
     <string name="info_context8">In this screen you can change count of words which you want to study. Click on spinner and choose it.</string>
     <string name="info_context9">If you have a question or you want to change in this application, you can write an email to developer. To do this, please click on button below.</string>
+    <string name="toast_same_word">You already had this word.</string>
+    <string name="toast_add_word_number">Add to learn as #</string>
 
 
 </resources>
