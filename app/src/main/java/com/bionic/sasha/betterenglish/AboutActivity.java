@@ -60,6 +60,7 @@ public class AboutActivity extends AppCompatActivity
         else if (id == R.id.nav_info) {
             Intent intent = new Intent(this, InformationActivity.class);
             startActivity(intent);
+            //some comment
         } else if (id == R.id.nav_settings) {
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
