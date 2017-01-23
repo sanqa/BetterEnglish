@@ -20,6 +20,8 @@ import android.widget.TextView;
 
 import com.bionic.sasha.betterenglish.db.TranslateDBHelper;
 import com.bionic.sasha.betterenglish.db.TranslateReaderDB;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.Calendar;
 
@@ -37,6 +39,9 @@ public class ProgressActivity extends AppCompatActivity
 
     @BindView(R.id.progress_progress_bar)
     ProgressBar progress;
+
+    @BindView(R.id.banner_progress)
+    AdView banner;
 
     TranslateDBHelper dbHelper;
 
@@ -68,6 +73,9 @@ public class ProgressActivity extends AppCompatActivity
 
         progress.setMax((int) cnt);
         progress.setProgress((int) current);
+
+        AdRequest request = new AdRequest.Builder().build();
+        banner.loadAd(request);
     }
 
     @Override

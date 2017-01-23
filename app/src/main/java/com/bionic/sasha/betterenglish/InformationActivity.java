@@ -14,11 +14,27 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class InformationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    @BindView(R.id.bannerInfo1)
+    AdView banner1;
+
+    @BindView(R.id.bannerInfo2)
+    AdView banner2;
+
+    @BindView(R.id.bannerInfo3)
+    AdView banner3;
+
+    @BindView(R.id.bannerInfo4)
+    AdView banner4;
 
     @OnClick (R.id.info_button) void send(){
         Intent intent = new Intent(this, WriteAuthorActivity.class);
@@ -43,6 +59,12 @@ public class InformationActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        banner1.loadAd(adRequest);
+        banner2.loadAd(adRequest);
+        banner3.loadAd(adRequest);
+        banner4.loadAd(adRequest);
     }
 
     @Override

@@ -20,6 +20,8 @@ public class Ads {
 
     }
 
+
+
     public static void setupContentViewPadding(Activity activity, int padding) {
        // View view = activity.findViewById()
     }

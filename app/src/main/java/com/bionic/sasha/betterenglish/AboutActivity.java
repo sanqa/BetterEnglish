@@ -14,8 +14,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class AboutActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    AdView banner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +32,9 @@ public class AboutActivity extends AppCompatActivity
         setContentView(R.layout.activity_about);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+       // ButterKnife.bind(this);
+        banner = (AdView) findViewById(R.id.banner_about);
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -33,6 +45,9 @@ public class AboutActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        AdRequest request = new AdRequest.Builder().build();
+        banner.loadAd(request);
     }
 
     @Override

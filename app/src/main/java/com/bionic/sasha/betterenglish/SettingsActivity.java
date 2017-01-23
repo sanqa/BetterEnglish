@@ -19,6 +19,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class SettingsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -30,12 +36,17 @@ public class SettingsActivity extends AppCompatActivity
 
     SharedPreferences sp;
 
+    @BindView(R.id.banner_settings)
+    AdView banner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ButterKnife.bind(this);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -56,6 +67,9 @@ public class SettingsActivity extends AppCompatActivity
 
         spinner.setSelection(loadText());
 
+        AdRequest request = new AdRequest.Builder().build();
+        banner.loadAd(request);
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -69,6 +83,8 @@ public class SettingsActivity extends AppCompatActivity
                 //do nothing
             }
         });
+
+
 
     }
 
