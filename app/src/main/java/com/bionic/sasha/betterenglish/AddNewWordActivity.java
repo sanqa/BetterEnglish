@@ -1,6 +1,7 @@
 package com.bionic.sasha.betterenglish;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,9 +17,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -27,6 +30,9 @@ import com.bionic.sasha.betterenglish.api.Translate;
 import com.bionic.sasha.betterenglish.api.TranslateAPI;
 import com.bionic.sasha.betterenglish.db.TranslateDBHelper;
 import com.bionic.sasha.betterenglish.db.TranslateReaderDB;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -62,6 +68,9 @@ public class AddNewWordActivity extends AppCompatActivity
 
     @BindView (R.id.new_word_progress)
     ProgressBar progress;
+
+    @BindView(R.id.linearAddNew)
+    LinearLayout linear;
 
     @OnClick (R.id.button_add) void newAdd(){
         ContentValues cv = new ContentValues();
@@ -187,6 +196,9 @@ public class AddNewWordActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
+        Ads.showBannerAddNew(this);
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);

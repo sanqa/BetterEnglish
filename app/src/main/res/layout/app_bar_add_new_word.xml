@@ -23,4 +23,5 @@
 
     <include layout="@layout/content_add_new_word" />
 
+
 </android.support.design.widget.CoordinatorLayout>
