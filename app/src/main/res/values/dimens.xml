@@ -59,6 +59,8 @@
     <dimen name="information_label_textSize">20sp</dimen>
     <dimen name="information_context_textSize">15sp</dimen>
     <dimen name="information_margin_top">20dp</dimen>
+    <dimen name="array_image_size_a">48dp</dimen>
+    <dimen name="add_new_word_text_size">15sp</dimen>
 
 </resources>
 

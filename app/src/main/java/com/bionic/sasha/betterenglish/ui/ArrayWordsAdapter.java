@@ -79,17 +79,17 @@ public class ArrayWordsAdapter extends RecyclerView.Adapter<ArrayWordsAdapter.Vi
                     default:
                         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
 
-                        builder.setTitle("Add").setMessage("Do you really want to study these words?").setCancelable(false)
-                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        builder.setTitle(R.string.add_array).setMessage(R.string.array_question).setCancelable(false)
+                                .setPositiveButton(R.string.array_answer_yes, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         String name = words.get(position);
                                         writeWords(name);
                                         Intent intent = new Intent(view.getContext(), ArrayWordsActivity.class);
                                         view.getContext().startActivity(intent);
-                                        Toast.makeText(view.getContext(), "Add these words to learn", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(view.getContext(), R.string.array_add, Toast.LENGTH_LONG).show();
                                     }
-                                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                }).setNegativeButton(R.string.array_answer_no, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.cancel();

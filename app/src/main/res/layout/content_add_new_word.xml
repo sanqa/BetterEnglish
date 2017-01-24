@@ -63,6 +63,7 @@
                     android:layout_width="@dimen/new_word_text_width"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/add_new_word_margin"
+                    android:textSize="@dimen/add_new_word_text_size"
                     android:ems="10"
                     android:hint="@string/input_new_word"
                     android:inputType="textPersonName" />
@@ -71,6 +72,7 @@
                     android:id="@+id/button_get_translate"
                     android:layout_width="@dimen/add_new_word_button_size"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/add_new_word_text_size"
                     android:layout_margin="@dimen/add_new_word_margin"
                     android:text="@string/translate" />
 
@@ -88,6 +90,7 @@
                     android:id="@+id/add_text_translate"
                     android:layout_width="@dimen/new_word_text_width"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/add_new_word_text_size"
                     android:layout_gravity="center"
                     android:layout_margin="@dimen/add_new_word_margin"
                     android:hint="@string/get_translation_here" />
@@ -96,6 +99,7 @@
                     android:id="@+id/button_add"
                     android:layout_width="@dimen/add_new_word_button_size"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/add_new_word_text_size"
                     android:layout_margin="@dimen/add_new_word_margin"
                     android:enabled="false"
                     android:text="@string/add" />

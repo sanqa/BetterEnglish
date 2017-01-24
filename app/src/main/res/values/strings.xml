@@ -168,6 +168,11 @@
 
     <string name="bottom_banner">ca-app-pub-1436068137931163/5714806136</string>
     <string name="bottom_banner_short">ca-app-pub-1436068137931163/6838285734</string>
+    <string name="add_array">Add</string>
+    <string name="array_question">Do you really want to study these words?</string>
+    <string name="array_answer_yes">Yes</string>
+    <string name="array_answer_no">No</string>
+    <string name="array_add">You have added these words.</string>
 
 
 </resources>

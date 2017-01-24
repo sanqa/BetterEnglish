@@ -32,8 +32,8 @@
                 android:layout_weight="2">
 
                 <ImageButton
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="@dimen/array_image_size_a"
+                    android:layout_height="@dimen/array_image_size_a"
                     android:id="@+id/array_button_add"
                     android:background="@mipmap/icon_add"/>
 
