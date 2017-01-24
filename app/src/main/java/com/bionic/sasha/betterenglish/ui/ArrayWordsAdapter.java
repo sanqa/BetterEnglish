@@ -83,6 +83,7 @@ public class ArrayWordsAdapter extends RecyclerView.Adapter<ArrayWordsAdapter.Vi
                                 .setPositiveButton(R.string.array_answer_yes, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
+
                                         String name = words.get(position);
                                         writeWords(name);
                                         Intent intent = new Intent(view.getContext(), ArrayWordsActivity.class);

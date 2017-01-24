@@ -85,11 +85,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             public void onClick(final View view) {
                 switch (position){
                     case 0:
-                        if (Integer.parseInt(mDataset.get(0)) < 10) {
+                        if (Integer.parseInt(mDataset.get(0)) < 20) {
                             AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                            builder.setTitle("Warning! You should have at least 10 words to study.")
+                            builder.setTitle(R.string.trainee_warning_text)
                                     .setCancelable(false)
-                                    .setNegativeButton("ADD",
+                                    .setNegativeButton(R.string.add_array,
                                             new DialogInterface.OnClickListener() {
                                                 public void onClick(DialogInterface dialog, int id) {
                                                     dialog.cancel();
@@ -105,11 +105,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                         }
                         break;
                     case 1:
-                        if (Integer.parseInt(mDataset.get(1)) < 10) {
+                        if (Integer.parseInt(mDataset.get(1)) < 20) {
                             AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                            builder.setTitle("Warning! You should have at least 10 words to study.")
+                            builder.setTitle(R.string.trainee_warning_text)
                                     .setCancelable(false)
-                                    .setNegativeButton("ADD",
+                                    .setNegativeButton(R.string.add_array,
                                             new DialogInterface.OnClickListener() {
                                                 public void onClick(DialogInterface dialog, int id) {
                                                     dialog.cancel();
@@ -125,11 +125,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                         }
                         break;
                     case 2:
-                        if (Integer.parseInt(mDataset.get(2)) < 10) {
+                        if (Integer.parseInt(mDataset.get(2)) < 20) {
                             AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                            builder.setTitle("Warning! You should have at least 10 words to study.")
+                            builder.setTitle(R.string.trainee_warning_text)
                                     .setCancelable(false)
-                                    .setNegativeButton("ADD",
+                                    .setNegativeButton(R.string.add_array,
                                             new DialogInterface.OnClickListener() {
                                                 public void onClick(DialogInterface dialog, int id) {
                                                     dialog.cancel();

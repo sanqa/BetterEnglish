@@ -173,6 +173,7 @@
     <string name="array_answer_yes">Yes</string>
     <string name="array_answer_no">No</string>
     <string name="array_add">You have added these words.</string>
+    <string name="trainee_warning_text">Warning! You should have at least 20 words to study.</string>
 
 
 </resources>

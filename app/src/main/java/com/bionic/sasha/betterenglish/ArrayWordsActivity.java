@@ -1,5 +1,6 @@
 package com.bionic.sasha.betterenglish;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.NavUtils;
@@ -101,5 +102,11 @@ public class ArrayWordsActivity extends AppCompatActivity {
 
 
         return mWords;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, AddNewWordActivity.class);
+        startActivity(intent);
     }
 }
