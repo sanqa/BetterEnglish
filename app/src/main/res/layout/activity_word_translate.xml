@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_word_translate"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,14 +14,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal">
 
 
             <TextView
                 android:id="@+id/current_trainee"
-                android:layout_width="40dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:text="1"
@@ -37,7 +38,7 @@
 
             <TextView
                 android:id="@+id/all_trainee"
-                android:layout_width="40dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:text="1"
                 android:textColor="@color/colorPrimaryDark"
@@ -49,7 +50,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6"
+        android:layout_weight="3"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -66,24 +67,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/mode1"
+                android:orientation="horizontal"
                 android:gravity="center">
 
                 <TextView
                     android:id="@+id/traine_mode_word"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/mode1_word_width"
                     android:layout_height="wrap_content"
-                    android:layout_weight="7"
                     android:gravity="center"
                     android:text="word"
+                    android:layout_margin="@dimen/trainee_mode_margin"
                     android:textColor="@color/cardview_light_background"
-                    android:textSize="25sp" />
+                    android:textSize="@dimen/mode1_word_text_size" />
 
                 <Button
                     android:id="@+id/btnSpeech"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/mode1_button_size"
+                    android:layout_height="@dimen/mode1_button_size"
                     android:layout_margin="@dimen/trainee_mode_margin"
-                    android:layout_weight="2"
                     android:background="@mipmap/ic_loud" />
 
             </LinearLayout>
@@ -98,7 +99,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -131,7 +132,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 

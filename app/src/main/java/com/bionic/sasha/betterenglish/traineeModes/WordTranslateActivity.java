@@ -30,6 +30,8 @@ import com.bionic.sasha.betterenglish.customViews.RightNotification;
 import com.bionic.sasha.betterenglish.customViews.WrongNotif;
 import com.bionic.sasha.betterenglish.db.TranslateDBHelper;
 import com.bionic.sasha.betterenglish.db.TranslateReaderDB;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -79,6 +81,7 @@ public class WordTranslateActivity extends AppCompatActivity {
 
     @BindView(R.id.btnSpeech)
     Button btnSpeech;
+
 
     private TranslateDBHelper dbHelper;
 

@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.bionic.sasha.betterenglish.OurDictionaryActivity;
@@ -45,7 +46,7 @@ public class DirectlyModeActivity extends AppCompatActivity {
     public String answer = "";
 
     @BindView(R.id.btnSubmit)
-    Button btnSubmit;
+    ImageButton btnSubmit;
 
     @BindView(R.id.seeWord)
     TextView seeWord;

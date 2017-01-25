@@ -70,4 +70,8 @@
     <string name="array_answer_no">Нет</string>
     <string name="array_answer_yes">Да</string>
     <string name="array_question">Вы действительно хотите добавить этот набор слов?</string>
+    <string name="array_words_warning">Вы уже добавили все возможные наборы. Попробуйте добавить слова другим способом.</string>
+    <string name="learn">Учить</string>
+    <string name="learned_words_warning">Внимание! Вы ещё не изучили ни одного слова полностью.</string>
+    <string name="trainee_warning_text">Внимание! У вас меньше 20 слов в приложении. Добавьте слова!</string>
 </resources>

@@ -1,7 +1,10 @@
 package com.bionic.sasha.betterenglish;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -34,6 +37,22 @@ public class ShowLearnedWordsActivity extends AppCompatActivity {
 
         ArrayList<String> myWords = getWords();
         ArrayList<String> myTranslates = getTranslates();
+
+        if (myWords.size() == 0) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.learned_words_warning)
+                    .setCancelable(false)
+                    .setNegativeButton(R.string.learn,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                    Intent intentl = new Intent(ShowLearnedWordsActivity.this, OurDictionaryActivity.class);
+                                    startActivity(intentl);
+                                }
+                            });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
 
 
         layoutManager = new LinearLayoutManager(this); //осуществляем подключение менеджера к нашему списку

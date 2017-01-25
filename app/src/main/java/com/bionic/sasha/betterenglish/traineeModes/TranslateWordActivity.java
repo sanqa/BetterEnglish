@@ -103,7 +103,6 @@ public class TranslateWordActivity extends AppCompatActivity {
 
         traineeWords.setText("" + currentCount);
         allWords.setText("" + allCount);
-        wordTrainee.setTextSize(30);
 
 
         answer = workingWithDB();

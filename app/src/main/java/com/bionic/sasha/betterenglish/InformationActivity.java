@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,6 +24,8 @@ import butterknife.OnClick;
 
 public class InformationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    DrawerLayout drawer;
 
     @BindView(R.id.bannerInfo1)
     AdView banner1;
@@ -51,7 +54,7 @@ public class InformationActivity extends AppCompatActivity
         ButterKnife.bind(this);
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -69,7 +72,7 @@ public class InformationActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-
+        drawer.openDrawer(Gravity.LEFT);
     }
 
 

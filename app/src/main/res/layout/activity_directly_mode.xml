@@ -48,7 +48,7 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="@dimen/mode3_card_height"
         android:layout_margin="30dp"
         app:cardCornerRadius="12dp">
 
@@ -79,19 +79,19 @@
 
         <EditText
             android:id="@+id/giveTheAnswer"
-            android:layout_width="200dp"
+            android:layout_width="@dimen/mode3_edit_with"
+            android:textSize="@dimen/directly_text_size"
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnSubmit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/mode3_button_size"
+            android:layout_height="@dimen/mode3_button_size"
             android:layout_gravity="center"
             android:layout_margin="@dimen/directly_margin_button"
-            android:background="@color/mode3"
+            android:background="@mipmap/ic_mode3"
             android:onClick="onClick"
-            android:text="@string/go"
             android:textColor="@color/our_background1" />
 
     </LinearLayout>

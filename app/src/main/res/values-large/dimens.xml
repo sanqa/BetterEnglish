@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="our_dictionary_card_height">250dp</dimen>
+    <dimen name="our_dictionary_image_size">96dp</dimen>
+    <dimen name="our_dictionary_count_words_text_size">25sp</dimen>
+    <dimen name="our_dicitonary_count_width">70dp</dimen>
+    <dimen name="our_dictionary_big_text_size">30sp</dimen>
+
+    <dimen name="mode1_word_width">250dp</dimen>
+    <dimen name="mode1_word_text_size">35sp</dimen>
+    <dimen name="mode1_button_size">72dp</dimen>
+    <dimen name="trainee_mode_text_size">20sp</dimen>
+    <dimen name="trainee_bid_text_size">25sp</dimen>
+
+    <dimen name="directly_text_size">30sp</dimen>
+    <dimen name="directly_word_size">50sp</dimen>
+    <dimen name="mode3_card_height">250dp</dimen>
+    <dimen name="mode3_edit_with">250dp</dimen>
+    <dimen name="mode3_button_size">72dp</dimen>
+
+    <dimen name="about_text_size">30sp</dimen>
+    <dimen name="settings_text_size">25sp</dimen>
+
+    <dimen name="information_label_textSize">30sp</dimen>
+    <dimen name="information_context_textSize">25sp</dimen>
+
+    <dimen name="new_word_text_width">250dp</dimen>
+    <dimen name="add_new_word_text_size">20sp</dimen>
+    <dimen name="add_new_word_button_size">160dp</dimen>
+
+    <dimen name="array_card_height">120dp</dimen>
+    <dimen name="array_image_size_a">60dp</dimen>
+    <dimen name="array_word_card_text_size">30sp</dimen>
+    <dimen name="array_small_textSize">20sp</dimen>
+</resources>

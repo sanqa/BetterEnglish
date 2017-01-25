@@ -15,6 +15,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -53,6 +54,7 @@ public class AddNewWordActivity extends AppCompatActivity
     String[] types = {"en-ru","ru-en"};
 
     TranslateDBHelper dbHelper;
+    DrawerLayout drawer;
 
     @BindView (R.id.text_new_word)
     EditText newWord;
@@ -191,7 +193,7 @@ public class AddNewWordActivity extends AppCompatActivity
         typeSpinner.setAdapter(adapter);
         typeSpinner.setSelection(0);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -208,7 +210,7 @@ public class AddNewWordActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-
+        drawer.openDrawer(Gravity.LEFT);
     }
 
 

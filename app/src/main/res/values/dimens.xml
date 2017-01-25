@@ -40,7 +40,7 @@
     <dimen name="trainee_bid_text_size">30sp</dimen>
     <dimen name="learned_card_text_size">20sp</dimen>
     <dimen name="directly_text_size">30sp</dimen>
-    <dimen name="directly_word_size">30sp</dimen>
+    <dimen name="directly_word_size">25sp</dimen>
     <dimen name="directly_margin_button">15dp</dimen>
     <dimen name="progress_button_marginTop">15dp</dimen>
     <dimen name="progress_margin_side">40dp</dimen>
@@ -61,7 +61,25 @@
     <dimen name="information_margin_top">20dp</dimen>
     <dimen name="array_image_size_a">48dp</dimen>
     <dimen name="add_new_word_text_size">15sp</dimen>
-    <dimen name="our_dictionary_card_height">180dp</dimen>
+
+
+    <dimen name="our_dictionary_card_height">200dp</dimen>
+    <dimen name="our_dictionary_image_size">64dp</dimen>
+    <dimen name="our_dictionary_count_words_text_size">20sp</dimen>
+    <dimen name="our_dicitonary_count_width">64dp</dimen>
+    <dimen name="our_dictionary_big_text_size">25sp</dimen>
+
+
+    <dimen name="mode1_word_width">200dp</dimen>
+    <dimen name="mode1_word_text_size">25sp</dimen>
+    <dimen name="mode1_button_size">48dp</dimen>
+
+    <dimen name="mode3_card_height">150dp</dimen>
+    <dimen name="mode3_edit_with">200dp</dimen>
+    <dimen name="mode3_button_size">48dp</dimen>
+
+    <dimen name="settings_text_size">20sp</dimen>
+    <dimen name="array_card_height">80dp</dimen>
 
 </resources>
 

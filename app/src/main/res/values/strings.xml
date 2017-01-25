@@ -35,8 +35,8 @@
     <string name="your_level">Your level:</string>
     <string name="learned_per_month">Learned at </string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="mode1">Translate\n   RU</string>
-    <string name="mode2">Translate\n   EN</string>
+    <string name="mode1">Word - Translate</string>
+    <string name="mode2">Translate - Word</string>
     <string name="mode3">Directly</string>
     <string name="mode4">Letters</string>
     <string name="title_activity_our_dictionary">Easy English</string>
@@ -174,6 +174,9 @@
     <string name="array_answer_no">No</string>
     <string name="array_add">You have added these words.</string>
     <string name="trainee_warning_text">Warning! You should have at least 20 words to study.</string>
+    <string name="learned_words_warning">Warning! You haven\'t learned any word absolutely.</string>
+    <string name="learn">Learn</string>
+    <string name="array_words_warning">You had all of our sets. Try to add words by your hands.</string>
 
 
 </resources>

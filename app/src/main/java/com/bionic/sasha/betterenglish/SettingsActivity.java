@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -35,6 +36,7 @@ public class SettingsActivity extends AppCompatActivity
     Spinner spinner;
 
     SharedPreferences sp;
+    DrawerLayout drawer;
 
     @BindView(R.id.banner_settings)
     AdView banner;
@@ -48,7 +50,7 @@ public class SettingsActivity extends AppCompatActivity
 
         ButterKnife.bind(this);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -107,7 +109,7 @@ public class SettingsActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-
+        drawer.openDrawer(Gravity.LEFT);
     }
 
 

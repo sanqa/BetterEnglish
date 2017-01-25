@@ -80,6 +80,75 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         holder.cardMode.setText(mModes.get(position));
 
 
+        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                switch (position){
+                    case 0:
+                        if (Integer.parseInt(mDataset.get(0)) < 20) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                            builder.setTitle(R.string.trainee_warning_text)
+                                    .setCancelable(false)
+                                    .setNegativeButton(R.string.add_array,
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int id) {
+                                                    dialog.cancel();
+                                                    Intent intentl = new Intent(view.getContext(), AddNewWordActivity.class);
+                                                    view.getContext().startActivity(intentl);
+                                                }
+                                            });
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                        } else {
+                            Intent intent = new Intent(view.getContext(), WordTranslateActivity.class);
+                            view.getContext().startActivity(intent);
+                        }
+                        break;
+                    case 1:
+                        if (Integer.parseInt(mDataset.get(1)) < 20) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                            builder.setTitle(R.string.trainee_warning_text)
+                                    .setCancelable(false)
+                                    .setNegativeButton(R.string.add_array,
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int id) {
+                                                    dialog.cancel();
+                                                    Intent intentl = new Intent(view.getContext(), AddNewWordActivity.class);
+                                                    view.getContext().startActivity(intentl);
+                                                }
+                                            });
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                        } else {
+                            Intent intent1 = new Intent(view.getContext(), TranslateWordActivity.class);
+                            view.getContext().startActivity(intent1);
+                        }
+                        break;
+                    case 2:
+                        if (Integer.parseInt(mDataset.get(2)) < 20) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                            builder.setTitle(R.string.trainee_warning_text)
+                                    .setCancelable(false)
+                                    .setNegativeButton(R.string.add_array,
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int id) {
+                                                    dialog.cancel();
+                                                    Intent intentl = new Intent(view.getContext(), AddNewWordActivity.class);
+                                                    view.getContext().startActivity(intentl);
+                                                }
+                                            });
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                        } else {
+                            Intent intent2 = new Intent(view.getContext(), DirectlyModeActivity.class);
+                            view.getContext().startActivity(intent2);
+                        }
+
+                        break;
+                }
+            }
+        });
+
         holder.ib.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
