@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class TranslateDBHelper extends SQLiteOpenHelper {
 
-    public static final int DB_VERSION = 12;
+    public static final int DB_VERSION = 14;
     public static final String DB_NAME = "EasyEnglish.db";
 
 
@@ -57,6 +57,22 @@ public class TranslateDBHelper extends SQLiteOpenHelper {
         for (String i : TranslateReaderDB.arr8){
             sqLiteDatabase.execSQL(i);
         }
+
+        sqLiteDatabase.execSQL(TranslateReaderDB.ce9);
+        for (String i : TranslateReaderDB.arr9){
+            sqLiteDatabase.execSQL(i);
+        }
+
+        sqLiteDatabase.execSQL(TranslateReaderDB.ce10);
+        for (String i : TranslateReaderDB.arr10){
+            sqLiteDatabase.execSQL(i);
+        }
+
+
+        sqLiteDatabase.execSQL(TranslateReaderDB.ce11);
+        for (String i : TranslateReaderDB.arr11){
+            sqLiteDatabase.execSQL(i);
+        }
     }
 
     @Override
@@ -69,6 +85,9 @@ public class TranslateDBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(TranslateReaderDB.DE6);
         sqLiteDatabase.execSQL(TranslateReaderDB.DE7);
         sqLiteDatabase.execSQL(TranslateReaderDB.DE8);
+        sqLiteDatabase.execSQL(TranslateReaderDB.DE9);
+        sqLiteDatabase.execSQL(TranslateReaderDB.DE10);
+        sqLiteDatabase.execSQL(TranslateReaderDB.DE11);
         onCreate(sqLiteDatabase);
     }
 

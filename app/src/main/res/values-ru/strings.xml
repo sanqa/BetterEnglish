@@ -74,4 +74,17 @@
     <string name="learn">Учить</string>
     <string name="learned_words_warning">Внимание! Вы ещё не изучили ни одного слова полностью.</string>
     <string name="trainee_warning_text">Внимание! У вас меньше 20 слов в приложении. Добавьте слова!</string>
+    <string name="app_name">Easy English</string>
+    <string name="bionic_university_project">Bionic University Project</string>
+    <string name="bottom_banner">ca-app-pub-1436068137931163/5714806136</string>
+    <string name="bottom_banner_short">ca-app-pub-1436068137931163/6838285734</string>
+    <string name="easy_english">Easy English</string>
+    <string name="large_text">s</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="our_dictionary">Тренировка</string>
+    <string name="study_new_words">Добавить слово</string>
+    <string name="title_activity_our_dictionary">Easy English</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="your_db">2ЯС</string>
 </resources>

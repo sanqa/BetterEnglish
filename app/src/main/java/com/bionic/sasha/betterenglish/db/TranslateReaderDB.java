@@ -71,6 +71,27 @@ public class TranslateReaderDB {
         public static final String COLUMN_FLAG = "flag";
     }
 
+  public class Literature implements BaseColumns {
+      public static final String TABLE_LITERATURE = "Literature";
+      public static final String _ID = "awordsid";
+      public static final String COLUMN_WORD_RU = "wordru";
+      public static final String COLUMN_WORD_EN = "worden";
+  }
+
+    public class Education implements BaseColumns {
+        public static final String TABLE_EDUCATION = "Education";
+        public static final String _ID = "awordsid";
+        public static final String COLUMN_WORD_RU = "wordru";
+        public static final String COLUMN_WORD_EN = "worden";
+    }
+
+    public class IELTS implements BaseColumns {
+        public static final String TABLE_IELTS = "IELTS";
+        public static final String _ID = "awordsid";
+        public static final String COLUMN_WORD_RU = "wordru";
+        public static final String COLUMN_WORD_EN = "worden";
+    }
+
 
     public static String CREATE_ENTRIES = "CREATE TABLE "
             + TranslateTexts.TABLE_NEW_WORD_NAME + " (" + TranslateTexts._ID + " INTEGER PRIMARY KEY, "
@@ -658,6 +679,292 @@ public class TranslateReaderDB {
        "INSERT INTO " + FurnitureWords.TABLE_FURNITURE_WORDS + " VALUES (100, 'writing desk', 'письменный стол');" // writing desk  —    письменный стол
     };
 
+    public static String ce9 = "CREATE TABLE " + Literature.TABLE_LITERATURE + " ("
+            + Literature._ID + " INTEGER PRIMARY KEY, " + Literature.COLUMN_WORD_EN + " TEXT, "
+            + Literature.COLUMN_WORD_RU + " TEXT " + " )";
+
+    public static String[] arr9 = {
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (1,  'legend', 'легенда');",  //legend  —  легенда
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (2,  'acrostic', 'акростих');",  //acrostic  —  акростих
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (3,  'allegory', 'аллегория');",  //allegory  —  аллегория
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (4,  'alliteration', 'аллитерация');",  //alliteration  —  аллитерация
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (5,  'allusion', 'намёк');",  //allusion  —  намёк
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (6,  'analogue', 'аналог');",  //analogue  —  аналог
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (7,  'anaphora', 'анафора');",  //anaphora  —  анафора
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (8,  'anecdote', 'анекдот');",  //anecdote  —  анекдот
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (9,  'annotation', 'аннотация');",  //annotation  —  аннотация
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (10, 'anthology', 'антология');",  //anthology  —  антология
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (11, 'anti-hero', 'антигерой');",  //anti-hero  —  антигерой
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (12, 'antonym', 'антоним');",  //antonym  —  антоним
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (13, 'aphorism', 'афоризм');",  //aphorism  —  афоризм
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (14, 'archaism', 'архаизм');",  //archaism  —  архаизм
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (15, 'argument', 'аргумент');",  //argument  —  аргумент
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (16, 'assonance', 'созвучие');",  //assonance  —  созвучие
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (17, 'autobiography', 'автобиография');",  //autobiography  —  автобиография
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (18, 'avant-garde', 'авангард');",  //avant-garde  —  авангард
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (19, 'ballad', 'баллада');",  //ballad  —  баллада
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (20, 'biography', 'биография');",  //biography  —  биография
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (21, 'blank vers', 'белый стих');",  //blank verse  —  белый стих
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (22, 'characterization', 'характеристика');",  //characterization  —  характеристика
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (23, 'chronicle', 'хроника');",  //chronicle  —  хроника
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (24, 'classicism', 'классицизм');",  //classicism  —  классицизм
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (25, 'cliche', 'клише');",  //cliche  —  клише
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (26, 'comedy', 'комедия');",  //comedy  —  комедия
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (27, 'consistency', 'последовательность');",  //consistency  —  последовательность
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (28, 'consonance', 'гармония');",  //consonance  —  гармония
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (29, 'context', 'контекст');",  //context  —  контекст
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (30, 'contradiction', 'противоречие');",  //contradiction  —  противоречие
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (31, 'copyright', 'авторское право');",  //copyright  —  авторское право
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (32, 'criticism', 'критика');",  //criticism  —  критика
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (33, 'detective story', 'детективный роман');",  //detective story  —  детективный роман
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (34, 'dialect', 'диалект');",  //dialect  —  диалект
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (35, 'dialogue', 'диалог');",  //dialogue  —  диалог
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (36, 'drama', 'драма');",  //drama  —  драма
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (37, 'dramaturgy', 'драматургия');",  //dramaturgy  —  драматургия
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (38, 'editor', 'редактор');",  //editor  —  редактор
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (39, 'epic poem', 'эпос');",  //epic poem  —  эпос
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (40, 'epilogue', 'эпилог');",  //epilogue  —  эпилог
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (41, 'epithet', 'эпитет');",  //epithet  —  эпитет
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (42, 'fable', 'басня');",  //fable  —  басня
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (43, 'folklore', 'фольклор');",  //folklore  —  фольклор
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (44, 'genre', 'жанр');",  //genre  —  жанр
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (45, 'hero', 'герой');",  //hero  —  герой
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (46, 'humor', 'юмор');",  //humor  —  юмор
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (47, 'ideology', 'идеология');",  //ideology  —  идеология
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (48, 'idiom', 'идиома');",  //idiom  —  идиома
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (49, 'irony', 'ирония');",  //irony  —  ирония
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (50, 'literature', 'литература');",  //literature  —  литература
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (51, 'lyric', 'лирический');",  //lyric  —  лирический
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (52, 'masque', 'театр масок');",  //masque  —  театр масок
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (53, 'metaphor', 'метафора');",  //metaphor  —  метафора
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (54, 'monograph', 'монография');",  //monograph  —  монография
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (55, 'monologue', 'монолог');",  //monologue  —  монолог
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (56, 'moral', 'мораль');",  //moral  —  мораль
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (57, 'motif', 'основная идея');",  //motif  —  основная идея
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (58, 'mythology', 'мифология');",  //mythology  —  мифология
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (59, 'narration', 'повествование');",  //narration  —  повествование
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (60, 'narrator', 'рассказчик');",  //narrator  —  рассказчик
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (61, 'non-fiction', 'документальная литература');",  //non-fiction  —  документальная литература
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (62, 'novel', 'роман');",  //novel  —  роман
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (63, 'parable', 'притча');",  //parable  —  притча
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (64, 'paradox', 'парадокс');",  //paradox  —  парадокс
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (65, 'paraphrase', 'пересказ');",  //paraphrase  —  пересказ
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (66, 'parody', 'пародия');",  //parody  —  пародия
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (67, 'poem', 'стихотворение');",  //poem  —  стихотворение
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (68, 'poetry', 'поэзия');",  //poetry  —  поэзия
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (69, 'prologue', 'вступление');",  //prologue  —  вступление
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (70, 'proverb', 'пословица');",  //proverb  —  пословица
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (71, 'pun', 'игра слов');",  //pun  —  игра слов
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (72, 'repetition', 'повторение');",  //repetition  —  повторение
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (73, 'rhetoric', 'риторика');",  //rhetoric  —  риторика
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (74, 'rhetorical question', 'риторический вопрос');",  //rhetorical question  —  риторический вопрос
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (75, 'rhyme', 'рифма');",  //rhyme  —  рифма
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (76, 'romance novel', 'любовный роман');",  //romance novel  —  любовный роман
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (77, 'satire', 'сатира');",  //satire  —  сатира
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (78, 'simile', 'сравнение');",  //simile  —  сравнение
+            "INSERT INTO " + Literature.TABLE_LITERATURE + " VALUES (79, 'tract', 'трактат');"  //tract  —  трактат
+    };
+
+    public static String ce10 = "CREATE TABLE " + Education.TABLE_EDUCATION + " ("
+            + Education._ID + " INTEGER PRIMARY KEY, " + Education.COLUMN_WORD_EN + " TEXT, "
+            + Education.COLUMN_WORD_RU + " TEXT " + " )";
+
+    public static String[] arr10 = {
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (1, 'academic degree', 'ученая степень');", //academic degree  —  ученая степень
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (2, 'accurately', 'точно');", //accurately  —  точно
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (3, 'active learning', 'активное обучение');", //active learning  —  активное обучение
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (4, 'adviser', 'консультант');", //adviser  —  консультант
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (5, 'assessment', 'оценка');", //assessment  —  оценка
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (6, 'assignment', 'задание');", //assignment  —  задание
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (7, 'bilingual education', 'двуязычное образование');", //bilingual education  —  двуязычное образование
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (8, 'blackboard', 'классная доска');", //blackboard  —  классная доска
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (9, 'blended learning', 'смешанное изучение');", //blended learning  —  смешанное изучение
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (10,'boarding school', 'школа-интернат');", //boarding school  —  школа-интернат
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (11,'bookstore', 'книжный магазин');", //bookstore  —  книжный магазин
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (12,'brainstorming', 'мозговой штурм');", //brainstorming  —  мозговой штурм
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (13,'break', 'перемена');", //break  —  перемена
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (14,'certificate', 'аттестат');", //certificate  —  аттестат
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (15,'chalk', 'мел');", //chalk  —  мел
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (16,'college', 'колледж');", //college  —  колледж
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (17,'critical thinking', 'критическое мышление');", //critical thinking  —  критическое мышление
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (18,'curriculum', 'учебный план');", //curriculum  —  учебный план
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (19,'day-to-day', 'повседневный');", //day-to-day  —  повседневный
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (20,'desk', 'парта');", //desk  —  парта
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (21,'dictionary', 'словарь');", //dictionary  —  словарь
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (22,'diploma', 'диплом');", //diploma  —  диплом
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (23,'distance education', 'дистанционное обучение');", //distance education  —  дистанционное обучение
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (24,'dyslexia', 'неспособность к чтению');", //dyslexia  —  неспособность к чтению
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (25,'education', 'образование');", //education  —  образование
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (26,'educational games', 'образовательные игры');", //educational games  —  образовательные игры
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (27,'educational software', 'обучающее программное обеспечение');", //educational software  —  обучающее программное обеспечение
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (28,'eraser', 'ластик');", //eraser  —  ластик
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (29,'experience', 'опыт');", //experience  —  опыт
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (30,'foreign language', 'иностранный язык');", //foreign language  —  иностранный язык
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (31,'gifted', 'одарённый');", //gifted  —  одарённый
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (32,'grammar', 'грамматика');", //grammar  —  грамматика
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (33,'higher education', 'высшее образование');", //higher education  —  высшее образование
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (34,'homeschooling', 'домашнее обучение');", //homeschooling  —  домашнее обучение
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (35,'interest', 'интерес');", //interest  —  интерес
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (36,'introduction', 'вводный курс');", //introduction  —  вводный курс
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (37,'knowledge', 'знание');", //knowledge  —  знание
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (38,'learn by heart', 'учить наизусть');", //learn by heart  —  учить наизусть
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (39,'learning disability', 'затруднения при обучении');", //learning disability  —  затруднения при обучении
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (40,'lecture', 'лекция');", //lecture  —  лекция
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (41,'legal educatio', 'юридическое образование');", //legal education  —  юридическое образование
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (42,'lesson plan', 'план урока');", //lesson plan  —  план урока
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (43,'liberal arts', 'гуманитарные науки');", //liberal arts  —  гуманитарные науки
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (44,'literacy', 'грамотность');", //literacy  —  грамотность
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (45,'literature', 'литература');", //literature  —  литература
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (46,'mathematics', 'математика');", //mathematics  —  математика
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (47,'mathematics education', 'математическое образование');", //mathematics education  —  математическое образование
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (48,'medical education', 'медицинское образование');", //medical education  —  медицинское образование
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (49,'memory', 'память');", //memory  —  память
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (50,'methodology', 'методология');", //methodology  —  методология
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (51,'military education', 'военное образование');", //military education  —  военное образование
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (52,'miss classes', 'пропускать занятия');", //miss classes  —  пропускать занятия
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (53,'motivation', 'мотивация');", //motivation  —  мотивация
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (54,'music education', 'музыкальное образование');", //music education  —  музыкальное образование
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (55,'objectivity', 'объективность');", //objectivity  —  объективность
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (56,'observation', 'наблюдение');", //observation  —  наблюдение
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (57,'pedagogy', 'педагогика');", //pedagogy  —  педагогика
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (58,'pen', 'ручка');", //pen  —  ручка
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (59,'pencil', 'карандаш');", //pencil  —  карандаш
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (60,'physical education', 'физкультура');", //physical education  —  физкультура
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (61,'polymath', 'эрудит');", //polymath  —  эрудит
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (62,'preschool education', 'дошкольное образование');", //preschool education  —  дошкольное образование
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (63,'primary education', 'начальное образование');", //primary education  —  начальное образование
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (64,'problem solving', 'решение задач');", //problem solving  —  решение задач
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (65,'reason', 'причина');", //reason  —  причина
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (66,'reasoning', 'рассуждение');", //reasoning  —  рассуждение
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (67,'research', 'исследование');", //research  —  исследование
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (68,'reward', 'награда');", //reward  —  награда
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (69,'scholarship', 'стипендия');", //scholarship  —  стипендия
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (70,'school', 'школа');", //school  —  школа
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (71,'school bus', 'школьный автобус');", //school bus  —  школьный автобус
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (72,'school subjects', 'школьные предметы');", //school subjects  —  школьные предметы
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (73,'secondary education', 'среднее образование');", //secondary education  —  среднее образование
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (74,'self-esteem', 'чувство собственного достоинства');", //self-esteem  —  чувство собственного достоинства
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (75,'statistics', 'статистика');", //statistics  —  статистика
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (76,'student', 'студент');", //student  —  студент
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (77,'teacher', 'учитель');", //teacher  —  учитель
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (78,'textbook', 'учебник');", //textbook  —  учебник
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (79,'trigonometry', 'тригонометрия');", //trigonometry  —  тригонометрия
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (80,'understanding', 'понимание');", //understanding  —  понимание
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (81,'workbook', 'рабочая тетрадь');", //workbook  —  рабочая тетрадь
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (82,'workshop', 'семинар');", //workshop  —  семинар
+            "INSERT INTO " + Education.TABLE_EDUCATION + " VALUES (83,'writing', 'письмо');" //writing  —  письмо
+    };
+
+    public static String ce11 = "CREATE TABLE " + IELTS.TABLE_IELTS + " ("
+            + IELTS._ID + " INTEGER PRIMARY KEY, " + IELTS.COLUMN_WORD_EN + " TEXT, "
+            + IELTS.COLUMN_WORD_RU + " TEXT " + " )";
+
+
+
+    public static String[] arr11 = {
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (1,  'aberration', 'заблуждение');", //aberration  —  заблуждение
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (2,  'abhor', 'питать отвращение');", //abhor  —  питать отвращение
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (3,  'acquiesce', 'уступать');", //acquiesce  —  уступать
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (4,  'alacrity', 'готовность');", //alacrity  —  готовность
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (5,  'amiable', 'дружелюбный');", //amiable  —  дружелюбный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (6,  'appease', 'успокаивать');", //appease  —  успокаивать
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (7,  'arcane', 'тайный');", //arcane  —  тайный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (8,  'avarice', 'алчность');", //avarice  —  алчность
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (9,  'brazen', 'бесстыдный');", //brazen  —  бесстыдный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (10, 'brusque', 'бесцеремонный');", //brusque  —  бесцеремонный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (11, 'cajole', 'льстить');", //cajole  —  льстить
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (12, 'callous', 'бессердечный');", //callous  —  бессердечный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (13, 'candor', 'искренность');", //candor  —  искренность
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (14, 'chide', 'ругать');", //chide  —  ругать
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (15, 'circumspect', 'осмотрительный');", //circumspect  —  осмотрительный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (16, 'clandestine', 'тайный');", //clandestine  —  тайный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (17, 'coerce', 'принуждать');", //coerce  —  принуждать
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (18, 'coherent', 'связный');", //coherent  —  связный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (19, 'complacency', 'самодовольство');", //complacency  —  самодовольство
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (20, 'confidant', 'доверенное лицо');", //confidant  —  доверенное лицо
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (21, 'connive', 'потворствовать');", //connive  —  потворствовать
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (22, 'cumulative', 'совокупный');", //cumulative  —  совокупный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (23, 'debase', 'унижать достоинство');", //debase  —  унижать достоинство
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (24, 'decry', 'осуждать');", //decry  —  осуждать
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (25, 'deferential', 'почтительный');", //deferential  —  почтительный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (26, 'demure', 'скромный');", //demure  —  скромный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (27, 'deride', 'высмеивать');", //deride  —  высмеивать
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (28, 'despot', 'деспот');", //despot  —  деспот
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (29, 'diligent', 'прилежный');", //diligent  —  прилежный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (30, 'disown', 'отрекаться');", //disown  —  отрекаться
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (31, 'elated', 'ликующий');", //elated  —  ликующий
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (32, 'eloquent', 'красноречивый');", //eloquent  —  красноречивый
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (33, 'embezzle', 'присвоить имущество');", //embezzle  —  присвоить имущество
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (34, 'empathy', 'сочувствие');", //empathy  —  сочувствие
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (35, 'enmity', 'вражда');", //enmity  —  вражда
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (36, 'erudite', 'эрудированный');", //erudite  —  эрудированный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (37, 'extol', 'превозносить');", //extol  —  превозносить
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (38, 'fabricate', 'изготовлять');", //fabricate  —  изготовлять
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (39, 'feral', 'дикий');", //feral  —  дикий
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (40, 'flabbergasted', 'изумленный');", //flabbergasted  —  изумленный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (41, 'forsake', 'покидать');", //forsake  —  покидать
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (42, 'fractious', 'капризный');", //fractious  —  капризный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (43, 'furtive', 'скрытый');", //furtive  —  скрытый
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (44, 'gluttony', 'обжорство');", //gluttony  —  обжорство
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (45, 'gratuitous', 'безвозмездный');", //gratuitous  —  безвозмездный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (46, 'haughty', 'высокомерный');", //haughty  —  высокомерный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (47, 'hypocrisy', 'лицемерие');", //hypocrisy  —  лицемерие
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (48, 'impeccable', 'безупречный');", //impeccable  —  безупречный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (49, 'implacable', 'неумолимый');", //implacable  —  неумолимый
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (50, 'impudent', 'нахальный');", //impudent  —  нахальный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (51, 'incautious', 'неосторожный');", //incautious  —  неосторожный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (52, 'incisive', 'колкий');", //incisive  —  колкий
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (53, 'indolent', 'ленивый');", //indolent  —  ленивый
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (54, 'inept', 'неумелый');", //inept  —  неумелый
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (55, 'infamy', 'скандальная репутация');", //infamy  —  скандальная репутация
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (56, 'inhibit', 'препятствовать');", //inhibit  —  препятствовать
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (57, 'innate', 'врождённый');", //innate  —  врождённый
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (58, 'insular', 'замкнутый');", //insular  —  замкнутый
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (59, 'intrepid', 'бесстрашный');", //intrepid  —  бесстрашный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (60, 'inveterate', 'долгий');", //inveterate  —  долгий
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (61, 'jubilant', 'ликующий');", //jubilant  —  ликующий
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (62, 'knell', 'похоронный звон');", //knell  —  похоронный звон
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (63, 'lithe', 'гибкий');", //lithe  —  гибкий
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (64, 'lurid', 'мертвенно-бледный');", //lurid  —  мертвенно-бледный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (65, 'maverick', 'независимый человек');", //maverick  —  независимый человек
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (66, 'maxim', 'правило');", //maxim  —  правило
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (67, 'meticulous', 'педантичный');", //meticulous  —  педантичный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (68, 'modicum', 'капелька');", //modicum  —  капелька
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (69, 'morose', 'угрюмый');", //morose  —  угрюмый
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (70, 'myriad', 'несметное количество');", //myriad  —  несметное количество
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (71, 'nadir', 'самый низкий уровень');", //nadir  —  самый низкий уровень
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (72, 'nominal', 'условный');", //nominal  —  условный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (73, 'novice', 'новичок');", //novice  —  новичок
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (74, 'nuance', 'нюанс');", //nuance  —  нюанс
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (75, 'oblivious', 'забывчивый');", //oblivious  —  забывчивый
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (76, 'obsequious', 'подобострастный');", //obsequious  —  подобострастный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (77, 'obtuse', 'тупой');", //obtuse  —  тупой
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (78, 'panacea', 'панацея');", //panacea  —  панацея
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (79, 'penchant', 'склонность');", //penchant  —  склонность
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (80, 'perusal', 'внимательное чтение');", //perusal  —  внимательное чтение
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (81, 'picturesque', 'живописный');", //picturesque  —  живописный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (82, 'plethora', 'изобилие');", //plethora  —  изобилие
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (83, 'predilection', 'склонность');", //predilection  —  склонность
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (84, 'quaint', 'причудливый');", //quaint  —  причудливый
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (85, 'rash', 'поспешный');", //rash  —  поспешный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (86, 'refurbish', 'обновлять');", //refurbish  —  обновлять
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (87, 'repudiate', 'отвергать');", //repudiate  —  отвергать
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (88, 'rife', 'изобилующий');", //rife  —  изобилующий
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (89, 'salient', 'выдающийся');", //salient  —  выдающийся
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (90, 'serendipity', 'интуитивная прозорливость');", //serendipity  —  интуитивная прозорливость
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (91, 'staid', 'уравновешенный');", //staid  —  уравновешенный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (92, 'superfluous', 'излишний');", //superfluous  —  излишний
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (93, 'sycophant', 'подхалим');", //sycophant  —  подхалим
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (94, 'taciturn', 'неразговорчивый');", //taciturn  —  неразговорчивый
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (95, 'truculent', 'грубый');", //truculent  —  грубый
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (96, 'umbrage', 'обида');", //umbrage  —  обида
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (97, 'venerable', 'почтенный');", //venerable  —  почтенный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (98, 'vex', 'раздражать');", //vex  —  раздражать
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (99, 'vociferous', 'шумный');", //vociferous  —  шумный
+            "INSERT INTO " + IELTS.TABLE_IELTS + " VALUES (100, 'wanton', 'беспричинный');" //wanton  —  беспричинный
+    };
+
+
     public static String ce8 = "CREATE TABLE " + FlagTable.TABLE_FLAG + " ("
             + FlagTable._ID + " INTEGER PRIMARY KEY, " + FlagTable.COLUMN_NAME + " TEXT, "
             + FlagTable.COLUMN_FLAG + " TEXT " + " )";
@@ -668,6 +975,9 @@ public class TranslateReaderDB {
             "INSERT INTO " + FlagTable.TABLE_FLAG + " VALUES (3, '" + FurnitureWords.TABLE_FURNITURE_WORDS + "', '1');",
             "INSERT INTO " + FlagTable.TABLE_FLAG + " VALUES (4, '" + DiseaseWords.TABLE_DESEASE_WORDS + "', '1');",
             "INSERT INTO " + FlagTable.TABLE_FLAG + " VALUES (5, '" + WearsWords.TABLE_WEARS_WORDS + "', '1');",
+            "INSERT INTO " + FlagTable.TABLE_FLAG + " VALUES (6, '" + Literature.TABLE_LITERATURE + "', '1');",
+            "INSERT INTO " + FlagTable.TABLE_FLAG + " VALUES (7, '" + Education.TABLE_EDUCATION + "', '1');",
+            "INSERT INTO " + FlagTable.TABLE_FLAG + " VALUES (8, '" + IELTS.TABLE_IELTS + "', '1');",
     };
 
 
@@ -679,6 +989,9 @@ public class TranslateReaderDB {
     public static String DE6 = "DROP TABLE IF EXISTS " + EmotionsWords.TABLE_EMOTIONS_WORDS;
     public static String DE7 = "DROP TABLE IF EXISTS " + WearsWords.TABLE_WEARS_WORDS;
     public static String DE8 = "DROP TABLE IF EXISTS " + FlagTable.TABLE_FLAG;
+    public static String DE9 = "DROP TABLE IF EXISTS " + Literature.TABLE_LITERATURE;
+    public static String DE10 = "DROP TABLE IF EXISTS " + Education.TABLE_EDUCATION;
+    public static String DE11 = "DROP TABLE IF EXISTS " + IELTS.TABLE_IELTS;
 
 
 }

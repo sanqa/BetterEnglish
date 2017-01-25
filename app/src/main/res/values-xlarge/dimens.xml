@@ -8,7 +8,7 @@
 
 
     <dimen name="mode1_word_width">300dp</dimen>
-    <dimen name="mode1_word_text_size">70sp</dimen>
+    <dimen name="mode1_word_text_size">55sp</dimen>
     <dimen name="mode1_button_size">96dp</dimen>
     <dimen name="trainee_mode_text_size">30sp</dimen>
     <dimen name="trainee_bid_text_size">45sp</dimen>
