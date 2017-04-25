@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -36,6 +37,14 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,12 +58,12 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AddNewWordActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, Callback<Translate> {
+        implements Callback<Translate> {
 
     String[] types = {"en-ru","ru-en"};
 
     TranslateDBHelper dbHelper;
-    DrawerLayout drawer;
+    private Drawer mDrawer;
 
     @BindView (R.id.text_new_word)
     EditText newWord;
@@ -193,57 +202,70 @@ public class AddNewWordActivity extends AppCompatActivity
         typeSpinner.setAdapter(adapter);
         typeSpinner.setSelection(0);
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
         Ads.showBannerAddNew(this);
 
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
         dbHelper = new TranslateDBHelper(this);
+
+        final List<IDrawerItem> iDrawerItems = new ArrayList<>();
+        iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(1).withSelectable(false).withName(R.string.add_new_word).withIcon(R.drawable.ic_add_circle_outline_black_24dp));
+        iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(2).withSelectable(false).withName(R.string.trainee).withIcon(R.drawable.ic_trainee_black_24dp));
+        iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(3).withSelectable(false).withName(R.string.progress_label).withIcon(R.drawable.ic_progress_in_black_24dp));
+        iDrawerItems.add(new DividerDrawerItem());
+        iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(4).withSelectable(false).withName(R.string.information).withIcon(R.drawable.ic_info_outline_black_24dp));
+        iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(5).withSelectable(false).withName(R.string.settings).withIcon(R.drawable.ic_settings_black_24dp));
+        iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(6).withSelectable(false).withName(R.string.about).withIcon(R.drawable.ic_assignment_black_24dp));
+
+
+        mDrawer = new DrawerBuilder()
+                .withActivity(this)
+                .withToolbar(toolbar)
+                .withHeader(R.layout.nav_all)
+                .withDrawerItems(iDrawerItems)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(final View view, final int position, final IDrawerItem drawerItem) {
+                        int id = view.getId();
+                        switch (id) {
+                            case 1:
+                                if (mDrawer.getDrawerLayout().isDrawerOpen(GravityCompat.START))
+                                    mDrawer.getDrawerLayout().closeDrawer(GravityCompat.START);
+                                break;
+                            case 2:
+                                startActivity(new Intent(AddNewWordActivity.this, OurDictionaryActivity.class));
+                                break;
+                            case 3:
+                                startActivity(new Intent(AddNewWordActivity.this, ProgressActivity.class));
+                                break;
+                            case 4:
+                                startActivity(new Intent(AddNewWordActivity.this, InformationActivity.class));
+                                break;
+                            case 5:
+                                startActivity(new Intent(AddNewWordActivity.this, SettingsActivity.class));
+                                break;
+                            case 6:
+                                startActivity(new Intent(AddNewWordActivity.this, AboutActivity.class));
+                                break;
+                        }
+                        return true;
+                    }
+                })
+                .build();
+
+        final ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) actionBar.setDisplayHomeAsUpEnabled(false);
+        mDrawer.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
+        mDrawer.deselect();
     }
 
     @Override
     public void onBackPressed() {
-        drawer.openDrawer(Gravity.LEFT);
+        if (!mDrawer.isDrawerOpen())
+            mDrawer.openDrawer();
     }
 
 
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
 
-        if (id == R.id.nav_trainee) {
-            Intent intent = new Intent(this, OurDictionaryActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_add_words) {
-            //do nothing
-        } else if (id == R.id.nav_progress){
-            Intent intent = new Intent(this, ProgressActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_info) {
-            Intent intent = new Intent(this, InformationActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_about) {
-            Intent intent = new Intent(this, AboutActivity.class);
-            startActivity(intent);
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 
 
     @Override

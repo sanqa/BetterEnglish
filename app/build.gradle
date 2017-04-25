@@ -38,6 +38,10 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
+    compile('com.mikepenz:materialdrawer:5.9.0@aar') {
+        transitive = true
+    }
+
     compile 'com.google.code.gson:gson:2.6.1'
 
     compile 'com.google.android.gms:play-services-ads:10.0.1'

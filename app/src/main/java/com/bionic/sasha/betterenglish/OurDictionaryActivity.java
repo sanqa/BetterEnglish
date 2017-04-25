@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -22,11 +23,16 @@ import android.view.MenuItem;
 import com.bionic.sasha.betterenglish.db.TranslateDBHelper;
 import com.bionic.sasha.betterenglish.db.TranslateReaderDB;
 import com.bionic.sasha.betterenglish.ui.MyAdapter;
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class OurDictionaryActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class OurDictionaryActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
@@ -34,7 +40,7 @@ public class OurDictionaryActivity extends AppCompatActivity
     private MyAdapter mAdapter;
 
     private TranslateDBHelper dbHelper;
-    DrawerLayout drawer;
+    private Drawer mDrawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +50,56 @@ public class OurDictionaryActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+        final List<IDrawerItem> iDrawerItems = new ArrayList<>();
+        iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(1).withSelectable(false).withName(R.string.add_new_word).withIcon(R.drawable.ic_add_circle_outline_black_24dp));
+        iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(2).withSelectable(false).withName(R.string.trainee).withIcon(R.drawable.ic_trainee_black_24dp));
+        iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(3).withSelectable(false).withName(R.string.progress_label).withIcon(R.drawable.ic_progress_in_black_24dp));
+        iDrawerItems.add(new DividerDrawerItem());
+        iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(4).withSelectable(false).withName(R.string.information).withIcon(R.drawable.ic_info_outline_black_24dp));
+        iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(5).withSelectable(false).withName(R.string.settings).withIcon(R.drawable.ic_settings_black_24dp));
+        iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(6).withSelectable(false).withName(R.string.about).withIcon(R.drawable.ic_assignment_black_24dp));
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+
+        mDrawer = new DrawerBuilder()
+                .withActivity(this)
+                .withToolbar(toolbar)
+                .withHeader(R.layout.nav_all)
+                .withDrawerItems(iDrawerItems)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(final View view, final int position, final IDrawerItem drawerItem) {
+                        int id = view.getId();
+                        switch (id) {
+                            case 1:
+                                startActivity(new Intent(OurDictionaryActivity.this, AddNewWordActivity.class));
+                                break;
+                            case 2:
+                                if (mDrawer.getDrawerLayout().isDrawerOpen(GravityCompat.START))
+                                    mDrawer.getDrawerLayout().closeDrawer(GravityCompat.START);
+                                break;
+                            case 3:
+                                startActivity(new Intent(OurDictionaryActivity.this, ProgressActivity.class));
+                                break;
+                            case 4:
+                                startActivity(new Intent(OurDictionaryActivity.this, InformationActivity.class));
+                                break;
+                            case 5:
+                                startActivity(new Intent(OurDictionaryActivity.this, SettingsActivity.class));
+                                break;
+                            case 6:
+                                startActivity(new Intent(OurDictionaryActivity.this, AboutActivity.class));
+                                break;
+                        }
+                        return true;
+                    }
+                })
+                .build();
+
+        final ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) actionBar.setDisplayHomeAsUpEnabled(false);
+        mDrawer.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
+        mDrawer.deselect();
+
 
         dbHelper = new TranslateDBHelper(this);
 
@@ -68,7 +116,7 @@ public class OurDictionaryActivity extends AppCompatActivity
 
         ArrayList<String> myDataset = getDataSet();
         ArrayList<Integer> myDrawable = getBackgroundSet();
-        ArrayList<Integer> myIcons  = getIcons();
+        ArrayList<Integer> myIcons = getIcons();
         ArrayList<Integer> myModes = getModes();
 
         mLayoutManager = new LinearLayoutManager(this); //осуществляем подключение менеджера к нашему списку
@@ -113,7 +161,7 @@ public class OurDictionaryActivity extends AppCompatActivity
         String selection3 = " mode3 < 3 ";
 
         SQLiteDatabase database = dbHelper.getWritableDatabase();
-        Cursor cursor = database.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME,null, selection1, null, null, null, null);
+        Cursor cursor = database.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME, null, selection1, null, null, null, null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
@@ -123,7 +171,7 @@ public class OurDictionaryActivity extends AppCompatActivity
         }
         mDataSet.add(String.valueOf(c1));
 
-        Cursor cursor2 = database.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME,null, selection2, null, null, null, null);
+        Cursor cursor2 = database.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME, null, selection2, null, null, null, null);
         if (cursor2 != null) {
             if (cursor2.moveToFirst()) {
                 do {
@@ -134,7 +182,7 @@ public class OurDictionaryActivity extends AppCompatActivity
         mDataSet.add(String.valueOf(c2));
 
 
-        Cursor cursor3 = database.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME,null, selection3, null, null, null, null);
+        Cursor cursor3 = database.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME, null, selection3, null, null, null, null);
         if (cursor3 != null) {
             if (cursor3.moveToFirst()) {
                 do {
@@ -150,38 +198,7 @@ public class OurDictionaryActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        drawer.openDrawer(Gravity.LEFT);
-    }
-
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {//переход к другим активити по нажатию
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_trainee) {
-            //do nothing
-
-        } else if (id == R.id.nav_add_words) {
-            Intent intent = new Intent(this, AddNewWordActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_progress){
-            Intent intent = new Intent(this, ProgressActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_info) {
-            Intent intent = new Intent(this, InformationActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_about) {
-            Intent intent = new Intent(this, AboutActivity.class);
-            startActivity(intent);
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+        if (!mDrawer.isDrawerOpen())
+            mDrawer.openDrawer();
     }
 }

@@ -10,7 +10,7 @@
     android:baselineAligned="false"
     android:orientation="vertical"
     tools:context="com.bionic.sasha.betterenglish.ProgressActivity"
-    tools:showIn="@layout/app_bar_progress">
+    tools:showIn="@layout/activity_progress">
 
     <LinearLayout
         android:id="@+id/progress_layout1"

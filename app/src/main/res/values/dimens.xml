@@ -39,7 +39,7 @@
     <dimen name="trainee_mode_text_size">15sp</dimen>
     <dimen name="trainee_bid_text_size">30sp</dimen>
     <dimen name="learned_card_text_size">20sp</dimen>
-    <dimen name="directly_text_size">30sp</dimen>
+    <dimen name="directly_text_size">25sp</dimen>
     <dimen name="directly_word_size">25sp</dimen>
     <dimen name="directly_margin_button">15dp</dimen>
     <dimen name="progress_button_marginTop">15dp</dimen>
