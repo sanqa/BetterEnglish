@@ -54,6 +54,9 @@ public class WordTranslateActivity extends AppCompatActivity {
     public String word = "";
     public String[] settingsCount = {"10", "15", "20"};
 
+    ArrayList<String> answers;
+    ArrayList<String> variants;
+
 
     @BindView(R.id.trainee_card_layout)
     LinearLayout layout;
@@ -94,6 +97,9 @@ public class WordTranslateActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
+        answers = new ArrayList<>();
+        variants = new ArrayList<>(4);
+
         dbHelper = new TranslateDBHelper(this);
 
         allCount = Integer.parseInt(settingsCount[loadCount()]); //количество изучений за один проход тренировки
@@ -111,7 +117,13 @@ public class WordTranslateActivity extends AppCompatActivity {
         });
 
 
-        answer = workingWithDB();
+//        answer = workingWithDB().get(0);
+
+        for (int i = 0; i < allCount; i++) {
+            answers.add(workingWithDB().get(i));
+        }
+
+        Log.d("-------------- ans", answers.toString());
 
         btnSpeech.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,10 +150,10 @@ public class WordTranslateActivity extends AppCompatActivity {
      *
      * @return ответ, который должен ввести пользователь.
      */
-    public String workingWithDB() {
+    public ArrayList<String> workingWithDB() {
         Random random = new Random(); //создаем экземпляр рандома для получения рандомной строки таблицы
         ArrayList<String> variants = new ArrayList<>(); //сюда передадим возможные варианты ответов на кнопках. Всего будет 4.
-        String answer = ""; //строка, с которой будем сравнивать
+        ArrayList<String> answer = new ArrayList<>(); //строка, с которой будем сравнивать
         String selection1 = " mode1 < 3 "; //условие для БД, необходимое для получения нужных слов для изучения
         ArrayList<Integer> used = new ArrayList<>(); //вспомогательный Лист для того, чтобы варианты на кнопках не повторялись
         int count = 0; //счетчик количества строк, удовлетворяющих условие выше
@@ -156,54 +168,57 @@ public class WordTranslateActivity extends AppCompatActivity {
                     count++; //считаем количество удовлетв. строк табицы
                 } while (c.moveToNext());
             }
-
-            c.moveToFirst(); // переходим к первой строке полученной таблицы
-
-            do
-            { // так я вывожу свою БД в лог для контроля происходящего. Во время оптимизации кода удалю)
-                Log.d("my DB", "id = " + c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts._ID))
-                        + " , ru = " + c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU))
-                        + " , en = " + c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN))
-                        + " , mode1 = " + c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_MODE1)));
-            }
-            while (c.moveToNext()); //выовдится построчно, пока есть возможность перейти к следующей строке
         }
 
 
         // Дальше, если есть записи в таблице, переходим
         if (c != null) {
-            position = random.nextInt(count); //генерируем случайную позицию в таблице для выыбора слова
-            Log.d("pos", String.valueOf(position));
-            c.moveToPosition(position); //переходим к этой строке в таблице
-            used.add(position); //добавляем в использованные
-            Log.d("used", String.valueOf(position));
-            word = c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN));
-            wordTrainee.setText(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN))); //записываем в карточку
-            answer = c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU));
-            // записываем ожидаемый ответ пользователя
+            ArrayList<Integer> use = new ArrayList<>();
 
-            variants.add(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU)));
-            //добавляем в лист правильный вариант
+            for (int k = 0; k < allCount; k++) {
 
-            for (int i = 0; i < 3; i++) { //тут генерируем еще 3 позиции чтобы не повторялись и добавляем в Лист возможных ответов
                 do {
-                    position = random.nextInt(count);
-                } while (used.contains(position));
-                used.add(position);
+                    position = random.nextInt(count); //генерируем случайную позицию в таблице для выыбора слова
+                } while (use.contains(position));
+                use.add(position);
+                Log.d("pos", use.toString());
+                c.moveToPosition(position); //переходим к этой строке в таблице
+                used.add(position); //добавляем в использованные
                 Log.d("used", String.valueOf(position));
+                word = c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN));
+                wordTrainee.setText(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN))); //записываем в карточку
 
-                c.moveToPosition(position);
+                answer.add(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU)));
+                // записываем ожидаемый ответ пользователя
+
                 variants.add(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU)));
-            }
+                //добавляем в лист правильный вариант
 
-            Collections.shuffle(variants); //мешаем весь Лист и присваиваем значения кнопочкам
-            buttonOne.setText(variants.get(0));
-            buttonTwo.setText(variants.get(1));
-            buttonThree.setText(variants.get(2));
-            buttonFour.setText(variants.get(3));
+
+                for (int i = 0; i < 3; i++) { //тут генерируем еще 3 позиции чтобы не повторялись и добавляем в Лист возможных ответов
+                    do {
+                        position = random.nextInt(count);
+                    } while (used.contains(position));
+                    used.add(position);
+                    Log.d("used", String.valueOf(position));
+
+                    c.moveToPosition(position);
+                    variants.add(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU)));
+                }
+            }
+//            Collections.shuffle(variants); //мешаем весь Лист и присваиваем значения кнопочкам
+//            buttonOne.setText(variants.get(0));
+//            buttonTwo.setText(variants.get(1));
+//            buttonThree.setText(variants.get(2));
+//            buttonFour.setText(variants.get(3));
         }
         database.close(); //закрываем БД
-        return answer; //передаем ожидаемый ответ
+
+        ArrayList<String> result = new ArrayList<>();
+        result.addAll(answer);
+        result.addAll(variants);
+        Log.d("---------------------", result.toString());
+        return result; //передаем ожидаемый ответ
     }
 
     /**
@@ -216,6 +231,7 @@ public class WordTranslateActivity extends AppCompatActivity {
         Button b = (Button) view;
         String correct = (String) b.getText(); //считываю значение с нажатой кнопки
 
+
         if (currentCount < allCount) { //если текущее значение меньше общего проверяю
 
             if (correct.equals(answer)) { //если пользователь нажал правильно
@@ -227,7 +243,7 @@ public class WordTranslateActivity extends AppCompatActivity {
                 changeModeCorrectResult(answer); //запускаю метод работы с БД для правильного ответа
 
 
-                answer = workingWithDB(); //после произведения изменений в БД обновляю текущее слово и ответ
+                answer = workingWithDB().get(currentCount - 1); //после произведения изменений в БД обновляю текущее слово и ответ
                 currentCount++; //изменяю счетчик текущего слова
                 traineeWords.setText("" + currentCount); //записываю слово в карточку для пользователя
 
@@ -243,7 +259,7 @@ public class WordTranslateActivity extends AppCompatActivity {
                         changeModeWrongResult(answer); // для неправильнного ответа
 
 
-                        answer = workingWithDB(); //после произведения изменений в БД обновляю текущее слово и ответ
+                        answer = workingWithDB().get(currentCount - 1); //после произведения изменений в БД обновляю текущее слово и ответ
                         currentCount++; //изменяю счетчик текущего слова
                         traineeWords.setText("" + currentCount); //записываю слово в карточку для пользователя
 
