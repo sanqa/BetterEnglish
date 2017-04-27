@@ -46,6 +46,11 @@ public class TranslateWordActivity extends AppCompatActivity {
     public String answer = "";
     SharedPreferences sp;
 
+    ArrayList<String> answers;
+    ArrayList<String> variants;
+    ArrayList<String> words;
+    ArrayList<String> help;
+
 
     @BindView(R.id.trainee_card_layout)
     LinearLayout layout;
@@ -97,6 +102,11 @@ public class TranslateWordActivity extends AppCompatActivity {
         allWords.setTextColor(getResources().getColor(R.color.mode2Dark));
         symb.setTextColor(getResources().getColor(R.color.mode2Dark));
 
+        answers = new ArrayList<>();
+        words = new ArrayList<>();
+        help = new ArrayList<>();
+        variants = new ArrayList<>(4);
+
         dbHelper = new TranslateDBHelper(this);
 
         allCount = Integer.parseInt(settingsCount[loadCount()]);
@@ -105,7 +115,28 @@ public class TranslateWordActivity extends AppCompatActivity {
         allWords.setText("" + allCount);
 
 
-        answer = workingWithDB();
+        help = workingWithDB();
+        Log.d("Help: ", help.toString());
+        for (int i = 0; i < allCount; i++) {
+            answers.add(help.get(i));
+        }
+        Log.d("Answers: ", answers.toString());
+        for (int k = allCount; k < allCount + 4; k++) {
+            variants.add(help.get(k));
+        }
+        Log.d("Variants: ", variants.toString());
+        for (int l = 5 * allCount; l < 6 * allCount; l++) {
+            words.add(help.get(l));
+        }
+        Log.d("Words", words.toString());
+
+        wordTrainee.setText(words.get(0));
+
+        Collections.shuffle(variants);
+        buttonOne.setText(variants.get(0));
+        buttonTwo.setText(variants.get(1));
+        buttonThree.setText(variants.get(2));
+        buttonFour.setText(variants.get(3));
 
         btnSpeech.setVisibility(View.GONE);
     }
@@ -121,121 +152,125 @@ public class TranslateWordActivity extends AppCompatActivity {
     }
 
 
-    public String workingWithDB(){
-        Random random = new Random();
-        ArrayList<String> variants = new ArrayList<>();
-        String answer = "";
-        String selection2 = " mode2 < 3 ";
-        ArrayList<Integer> used = new ArrayList<>();
-        int count = 0;
-        int position;
+    public ArrayList<String> workingWithDB() {
+        Random random = new Random(); //создаем экземпляр рандома для получения рандомной строки таблицы
+        ArrayList<String> variants = new ArrayList<>(); //сюда передадим возможные варианты ответов на кнопках. Всего будет 4.
+        ArrayList<String> answer = new ArrayList<>(); //строка, с которой будем сравнивать
+        ArrayList<String> wordsDB = new ArrayList<>();
+        String selection2 = " mode2 < 3 "; //условие для БД, необходимое для получения нужных слов для изучения
+        ArrayList<Integer> used = new ArrayList<>(); //вспомогательный Лист для того, чтобы варианты на кнопках не повторялись
+        int count = 0; //счетчик количества строк, удовлетворяющих условие выше
+        int position; //текущяя позиция курсора
 
-        SQLiteDatabase database = dbHelper.getWritableDatabase();
-        Cursor c = database.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME,null, selection2, null, null, null, null);
-        if (c != null){
-            if (c.moveToFirst()){
+        SQLiteDatabase database = dbHelper.getWritableDatabase(); //Создаем экземпляр БД и соединяем с нашим помощником.
+        Cursor c = database.query(TranslateReaderDB.TranslateTexts.TABLE_NEW_WORD_NAME, null, selection2, null, null, null, null);
+        //Это был прямой запрос к таблице New Word Name с некоторым требованием.
+        if (c != null) {
+            if (c.moveToFirst()) {
                 do {
-                    count++;
+                    count++; //считаем количество удовлетв. строк табицы
                 } while (c.moveToNext());
             }
-
-            c.moveToFirst();
-
-           /* do {
-                Log.d("my DB", "id = " + c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts._ID))
-                        + " , ru = " + c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU))
-                        + " , en = " + c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN))
-                        + " , mode1 = " + c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_MODE1)));
-            } while (c.moveToNext());*/
         }
 
 
-
-
+        // Дальше, если есть записи в таблице, переходим
         if (c != null) {
-            position = random.nextInt(count);
-            Log.d("pos", String.valueOf(position));
-            c.moveToPosition(position);
-            used.add(position);
-            Log.d("used", String.valueOf(position));
-            wordTrainee.setText(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU)));
-            word = c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU));
-            answer = c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN));
+            ArrayList<Integer> use = new ArrayList<>();
 
-            variants.add(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN)));
+            for (int k = 0; k < allCount; k++) {
 
-            for (int i = 0; i < 3; i++) {
                 do {
-                    position = random.nextInt(count);
-                }  while (used.contains(position));
-                used.add(position);
+                    position = random.nextInt(count); //генерируем случайную позицию в таблице для выыбора слова
+                } while (use.contains(position));
+                use.add(position);
+                Log.d("pos", use.toString());
+                c.moveToPosition(position); //переходим к этой строке в таблице
+                used.add(position); //добавляем в использованные
                 Log.d("used", String.valueOf(position));
+//                word = c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN));
+//                wordTrainee.setText(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN))); //записываем в карточку
 
-                c.moveToPosition(position);
+                wordsDB.add(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_RU)));
+
+                answer.add(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN)));
+                // записываем ожидаемый ответ пользователя
+
                 variants.add(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN)));
+                //добавляем в лист правильный вариант
+
+
+                for (int i = 0; i < 3; i++) { //тут генерируем еще 3 позиции чтобы не повторялись и добавляем в Лист возможных ответов
+                    do {
+                        position = random.nextInt(count);
+                    } while (used.contains(position));
+                    used.add(position);
+                    Log.d("used", String.valueOf(position));
+
+                    c.moveToPosition(position);
+                    variants.add(c.getString(c.getColumnIndex(TranslateReaderDB.TranslateTexts.COLUMN_WORD_EN)));
+                }
             }
 
+        }
+        database.close(); //закрываем БД
+
+        ArrayList<String> result = new ArrayList<>();
+        result.addAll(answer);
+        result.addAll(variants);
+        result.addAll(wordsDB);
+        Log.d("Result: ", result.toString());
+        return result; //передаем ожидаемый ответ
+    }
+
+
+    public void onClick(View view) {Button b = (Button) view;
+        String correct = (String) b.getText(); //считываю значение с нажатой кнопки
+
+        variants.clear();
+
+
+        if (correct.compareTo(answers.get(currentCount-1)) == 0) {
+            correctAnswers++;
+            changeModeCorrectResult(answers.get(currentCount-1)); //запускаю метод работы с БД для правильного ответа
+
+        } else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle(R.string.wrong).setMessage(words.get(currentCount - 1) + "  -  " + answers.get(currentCount - 1)).setCancelable(false)
+                    .setIcon(R.drawable.wrong).setPositiveButton(R.string.next, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.cancel();
+                    changeModeWrongResult(answers.get(currentCount-1)); // для неправильнного ответа
+                }
+            });
+
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
+        if (currentCount < allCount) {
+
+            wordTrainee.setText(words.get(currentCount));
+            for (int k = (allCount + 4 * currentCount); k < (allCount + 4 * (currentCount + 1)); k++) {
+                variants.add(help.get(k));
+            }
             Collections.shuffle(variants);
             buttonOne.setText(variants.get(0));
             buttonTwo.setText(variants.get(1));
             buttonThree.setText(variants.get(2));
             buttonFour.setText(variants.get(3));
-        }
-        database.close();
-        return answer;
-    }
-
-
-    public void onClick(View view) {
-        Log.d("current", "current count = " + currentCount + ", all = " + allCount);
-
-        Button b = (Button) view;
-        String correct = (String) b.getText();
-
-        if (currentCount < allCount){
-
-
-            if (correct.equals(answer)){
-                correctAnswers++;
-                changeModeCorrectResult(answer);
-
-                answer =  workingWithDB();
-                currentCount++;
-                traineeWords.setText("" + currentCount);
-            } else {
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-                builder.setTitle(R.string.wrong).setMessage(word + "  -  " + answer).setCancelable(false)
-                        .setIcon(R.drawable.wrong).setPositiveButton(R.string.next, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
-                        changeModeWrongResult(answer); // для неправильнного ответа
-
-
-                        answer = workingWithDB(); //после произведения изменений в БД обновляю текущее слово и ответ
-                        currentCount++; //изменяю счетчик текущего слова
-                        traineeWords.setText("" + currentCount); //записываю слово в карточку для пользователя
-
-                    }
-                });
-
-                AlertDialog alert = builder.create();
-                alert.show();
-            }
-
+            currentCount++; //изменяю счетчик текущего слова
+            traineeWords.setText("" + currentCount); //записываю слово в карточку для пользователя
         } else {
-            if (correct.equals(answer)) { //если пользователь нажал правильно
-
+            if (correct.compareTo(answers.get(currentCount-1)) == 0) {
                 correctAnswers++;
-                changeModeCorrectResult(answer); //запускаю метод работы с БД для правильного ответа
+                changeModeCorrectResult(answers.get(currentCount-1)); //запускаю метод работы с БД для правильного ответа
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-                String str =  getString(R.string.you_have) + correctAnswers + getString(R.string.correct_answers);
+                AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
+                String str = getString(R.string.you_have) + correctAnswers + getString(R.string.correct_answers);
                 //запускааю окно с разными параметрами и правильным кол-вом ответов
-                builder.setTitle(R.string.result)
+                builder2.setTitle(R.string.result)
                         .setCancelable(false)
                         .setIcon(R.drawable.correct)
                         .setMessage(str)
@@ -252,32 +287,29 @@ public class TranslateWordActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
 
-                                Intent intent = new Intent(TranslateWordActivity.this, TranslateWordActivity.class);
+                                Intent intent = new Intent(TranslateWordActivity.this, WordTranslateActivity.class);
                                 startActivity(intent);
                             }
                         });
-                AlertDialog alert = builder.create();
-                alert.show();
-
+                AlertDialog alert2 = builder2.create();
+                alert2.show();
 
             } else {
-
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-                builder.setTitle(R.string.result).setMessage(word + "  -  " + answer).setCancelable(false)
+                builder.setTitle(R.string.wrong).setMessage(words.get(currentCount - 1) + "  -  " + answers.get(currentCount - 1)).setCancelable(false)
                         .setIcon(R.drawable.wrong).setPositiveButton(R.string.next, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();
-                        changeModeWrongResult(answer); // для неправильнного ответа
+                        changeModeWrongResult(answers.get(currentCount-1)); // для неправильнного ответа
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(TranslateWordActivity.this);
-                        String str =  getString(R.string.you_have) + correctAnswers + getString(R.string.correct_answers);
-
+                        AlertDialog.Builder builder2 = new AlertDialog.Builder(TranslateWordActivity.this);
+                        String str = getString(R.string.you_have) + correctAnswers + getString(R.string.correct_answers);
                         //запускааю окно с разными параметрами и правильным кол-вом ответов
-                        builder.setTitle(R.string.result)
-                                .setIcon(R.drawable.correct)
+                        builder2.setTitle(R.string.result)
                                 .setCancelable(false)
+                                .setIcon(R.drawable.correct)
                                 .setMessage(str)
                                 .setNegativeButton(R.string.change_mode, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
@@ -292,13 +324,12 @@ public class TranslateWordActivity extends AppCompatActivity {
                                     public void onClick(DialogInterface dialog, int id) {
                                         dialog.cancel();
 
-                                        Intent intent = new Intent(TranslateWordActivity.this, TranslateWordActivity.class);
+                                        Intent intent = new Intent(TranslateWordActivity.this, WordTranslateActivity.class);
                                         startActivity(intent);
                                     }
                                 });
-                        AlertDialog alert = builder.create();
-                        alert.show();
-
+                        AlertDialog alert2 = builder2.create();
+                        alert2.show();
                     }
                 });
 
@@ -307,8 +338,8 @@ public class TranslateWordActivity extends AppCompatActivity {
             }
 
 
-
         }
+
     }
 
     public void changeModeCorrectResult(String wordEn){

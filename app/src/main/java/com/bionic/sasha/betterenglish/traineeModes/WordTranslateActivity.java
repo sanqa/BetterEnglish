@@ -50,8 +50,6 @@ public class WordTranslateActivity extends AppCompatActivity {
     private int correctAnswers = 0;
     public int currentCount = 1;
     SharedPreferences sp;
-    public String answer = "";
-    public String word = "";
     public String[] settingsCount = {"10", "15", "20"};
 
     ArrayList<String> answers;
