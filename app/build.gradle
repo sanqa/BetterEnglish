@@ -7,8 +7,8 @@ android {
         applicationId "com.bionic.sasha.betterenglish"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode 11
+        versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "API_YANDEX", "\"trnsl.1.1.20161125T153128Z.4167930e70c672fe.450076b4ea0f1dea64ba78205e900eac09984345\""

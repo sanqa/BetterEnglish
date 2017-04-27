@@ -76,7 +76,6 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="word"
-                    android:layout_margin="@dimen/trainee_mode_margin"
                     android:textColor="@color/cardview_light_background"
                     android:textSize="@dimen/mode1_word_text_size" />
 
@@ -84,8 +83,7 @@
                     android:id="@+id/btnSpeech"
                     android:layout_width="@dimen/mode1_button_size"
                     android:layout_height="@dimen/mode1_button_size"
-                    android:layout_margin="@dimen/trainee_mode_margin"
-                    android:background="@mipmap/ic_loud" />
+                    android:background="@mipmap/ic_loud"/>
 
             </LinearLayout>
 
