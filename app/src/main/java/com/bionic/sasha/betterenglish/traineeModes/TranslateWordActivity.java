@@ -264,7 +264,6 @@ public class TranslateWordActivity extends AppCompatActivity {
             traineeWords.setText("" + currentCount); //записываю слово в карточку для пользователя
         } else {
             if (correct.compareTo(answers.get(currentCount-1)) == 0) {
-                correctAnswers++;
                 changeModeCorrectResult(answers.get(currentCount-1)); //запускаю метод работы с БД для правильного ответа
 
                 AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
