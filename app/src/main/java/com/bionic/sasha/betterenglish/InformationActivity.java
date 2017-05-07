@@ -62,11 +62,6 @@ public class InformationActivity extends AppCompatActivity{
 
         ButterKnife.bind(this);
 
-        AdRequest adRequest = new AdRequest.Builder().build();
-        banner1.loadAd(adRequest);
-        banner2.loadAd(adRequest);
-        banner3.loadAd(adRequest);
-        banner4.loadAd(adRequest);
 
         final List<IDrawerItem> iDrawerItems = new ArrayList<>();
         iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(1).withSelectable(false).withName(R.string.add_new_word).withIcon(R.drawable.ic_add_circle_outline_black_24dp));
@@ -118,6 +113,16 @@ public class InformationActivity extends AppCompatActivity{
         mDrawer.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
         mDrawer.deselect();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AdRequest adRequest = new AdRequest.Builder().build();
+        banner1.loadAd(adRequest);
+        banner2.loadAd(adRequest);
+        banner3.loadAd(adRequest);
+        banner4.loadAd(adRequest);
     }
 
     @Override

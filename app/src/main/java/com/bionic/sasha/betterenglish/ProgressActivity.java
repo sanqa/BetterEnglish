@@ -123,7 +123,11 @@ public class ProgressActivity extends AppCompatActivity {
 
         progress.setMax((int) cnt);
         progress.setProgress((int) current);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         AdRequest request = new AdRequest.Builder().build();
         banner.loadAd(request);
     }

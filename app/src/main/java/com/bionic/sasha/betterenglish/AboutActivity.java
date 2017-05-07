@@ -39,8 +39,7 @@ public class AboutActivity extends AppCompatActivity {
         banner = (AdView) findViewById(R.id.banner_about);
 
 
-        AdRequest request = new AdRequest.Builder().build();
-        banner.loadAd(request);
+
 
         final List<IDrawerItem> iDrawerItems = new ArrayList<>();
         iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(1).withSelectable(false).withName(R.string.add_new_word).withIcon(R.drawable.ic_add_circle_outline_black_24dp));
@@ -97,5 +96,12 @@ public class AboutActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (!mDrawer.isDrawerOpen())
             mDrawer.openDrawer();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AdRequest request = new AdRequest.Builder().build();
+        banner.loadAd(request);
     }
 }

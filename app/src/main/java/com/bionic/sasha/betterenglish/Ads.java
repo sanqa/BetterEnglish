@@ -7,9 +7,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-/**
- * Created by SASHA on 23.01.2017.
- */
+
 
 public class Ads {
 

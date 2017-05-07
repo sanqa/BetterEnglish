@@ -70,9 +70,6 @@ public class SettingsActivity extends AppCompatActivity {
 
         spinner.setSelection(loadText());
 
-        AdRequest request = new AdRequest.Builder().build();
-        banner.loadAd(request);
-
         final List<IDrawerItem> iDrawerItems = new ArrayList<>();
         iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(1).withSelectable(false).withName(R.string.add_new_word).withIcon(R.drawable.ic_add_circle_outline_black_24dp));
         iDrawerItems.add(new PrimaryDrawerItem().withIdentifier(2).withSelectable(false).withName(R.string.trainee).withIcon(R.drawable.ic_trainee_black_24dp));
@@ -138,6 +135,13 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AdRequest request = new AdRequest.Builder().build();
+        banner.loadAd(request);
     }
 
     @Override

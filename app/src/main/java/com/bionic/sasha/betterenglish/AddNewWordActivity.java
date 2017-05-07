@@ -202,7 +202,7 @@ public class AddNewWordActivity extends AppCompatActivity
         typeSpinner.setAdapter(adapter);
         typeSpinner.setSelection(0);
 
-        Ads.showBannerAddNew(this);
+
 
         dbHelper = new TranslateDBHelper(this);
 
@@ -255,6 +255,12 @@ public class AddNewWordActivity extends AppCompatActivity
         if (actionBar != null) actionBar.setDisplayHomeAsUpEnabled(false);
         mDrawer.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
         mDrawer.deselect();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Ads.showBannerAddNew(this);
     }
 
     @Override
